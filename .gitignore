@@ -1,0 +1,42 @@
+### Ignore thumbnails created by windows
+Thumbs.db
+
+### Ignore files build by Visual Studio
+*.aps
+*.db
+*.exp
+*.icf
+*.idb
+*.ilk
+*.ipch
+*.log
+*.lst
+*.ncb
+*.obj
+*.opendb
+*.opensdf
+*.res
+*.sdf
+*.suo
+*.tlb
+*.tlh
+*.tlog
+*.vcxproj.user
+
+### Ignore specific files and directories
+*.lnk
+.vs/
+ipch/
+vsout/
+[Dd]ebug/
+[Rr]elease/
+x64[Dd]ebug/
+x64[Rr]elease/
+Win64[Dd]ebug/
+Win64[Rr]elease/
+Win32[Dd]ebug/
+Win32[Rr]elease/
+_DLL_Win32*/
+_DLL_Win64*/
+_LIB_Win32*/
+_LIB_Win64*/
