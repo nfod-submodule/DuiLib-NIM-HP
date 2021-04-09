@@ -6,7 +6,6 @@
 #include "callback/callback.h"
 #include "encrypt/des.h"
 #include "encrypt/encrypt.h"
-#include "encrypt/encrypt_impl.h"
 #include "file/file_path.h"
 #include "file/file_util.h"
 #include "framework/task.h"

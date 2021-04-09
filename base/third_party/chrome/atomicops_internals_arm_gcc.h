@@ -9,7 +9,7 @@
 #ifndef BASE_ATOMICOPS_INTERNALS_ARM_GCC_H_
 #define BASE_ATOMICOPS_INTERNALS_ARM_GCC_H_
 
-#include "build_config.h"
+#include "build/build_config.h"
 
 namespace base {
 namespace subtle {
