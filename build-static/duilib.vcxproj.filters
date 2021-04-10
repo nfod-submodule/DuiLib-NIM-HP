@@ -47,300 +47,300 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="..\duilib\StdAfx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UIlib.cpp">
+    <ClCompile Include="..\duilib\UIlib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\MultiLangSupport.cpp">
+    <ClCompile Include="..\duilib\Utils\MultiLangSupport.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Control\Combo.cpp">
+    <ClCompile Include="..\duilib\Control\Combo.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\List.cpp">
+    <ClCompile Include="..\duilib\Control\List.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\Progress.cpp">
+    <ClCompile Include="..\duilib\Control\Progress.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\RichEdit.cpp">
+    <ClCompile Include="..\duilib\Control\RichEdit.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\ScrollBar.cpp">
+    <ClCompile Include="..\duilib\Control\ScrollBar.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\Slider.cpp">
+    <ClCompile Include="..\duilib\Control\Slider.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Control\TreeView.cpp">
+    <ClCompile Include="..\duilib\Control\TreeView.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Control.cpp">
+    <ClCompile Include="..\duilib\Core\Control.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Markup.cpp">
+    <ClCompile Include="..\duilib\Core\Markup.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\StringUtil.cpp">
+    <ClCompile Include="..\duilib\Utils\StringUtil.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Box.cpp">
+    <ClCompile Include="..\duilib\Core\Box.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\WindowBuilder.cpp">
+    <ClCompile Include="..\duilib\Core\WindowBuilder.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Window.cpp">
+    <ClCompile Include="..\duilib\Core\Window.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Box\ChildBox.cpp">
+    <ClCompile Include="..\duilib\Box\ChildBox.cpp">
       <Filter>Source Files\Box</Filter>
     </ClCompile>
-    <ClCompile Include="Box\HBox.cpp">
+    <ClCompile Include="..\duilib\Box\HBox.cpp">
       <Filter>Source Files\Box</Filter>
     </ClCompile>
-    <ClCompile Include="Box\TabBox.cpp">
+    <ClCompile Include="..\duilib\Box\TabBox.cpp">
       <Filter>Source Files\Box</Filter>
     </ClCompile>
-    <ClCompile Include="Box\TileBox.cpp">
+    <ClCompile Include="..\duilib\Box\TileBox.cpp">
       <Filter>Source Files\Box</Filter>
     </ClCompile>
-    <ClCompile Include="Box\VBox.cpp">
+    <ClCompile Include="..\duilib\Box\VBox.cpp">
       <Filter>Source Files\Box</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\WinImplBase.cpp">
+    <ClCompile Include="..\duilib\Utils\WinImplBase.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Animation\AnimationPlayer.cpp">
+    <ClCompile Include="..\duilib\Animation\AnimationPlayer.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="Core\GlobalManager.cpp">
+    <ClCompile Include="..\duilib\Core\GlobalManager.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\TimerManager.cpp">
+    <ClCompile Include="..\duilib\Utils\TimerManager.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Placeholder.cpp">
+    <ClCompile Include="..\duilib\Core\Placeholder.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Animation\AnimationManager.cpp">
+    <ClCompile Include="..\duilib\Animation\AnimationManager.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\DpiManager.cpp">
+    <ClCompile Include="..\duilib\Utils\DpiManager.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Define.cpp">
+    <ClCompile Include="..\duilib\Core\Define.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\Shadow.cpp">
+    <ClCompile Include="..\duilib\Utils\Shadow.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Control\VirtualListBox.cpp">
+    <ClCompile Include="..\duilib\Control\VirtualListBox.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\ApiWrapper.cpp">
+    <ClCompile Include="..\duilib\Utils\ApiWrapper.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Render.cpp">
+    <ClCompile Include="..\duilib\Render\Render.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Clip.cpp">
+    <ClCompile Include="..\duilib\Render\Clip.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\IRender.cpp">
+    <ClCompile Include="..\duilib\Render\IRender.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Bitmap.cpp">
+    <ClCompile Include="..\duilib\Render\Bitmap.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Image.cpp">
+    <ClCompile Include="..\duilib\Core\Image.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\OnScreenKeyboardManager.cpp">
+    <ClCompile Include="..\duilib\Utils\OnScreenKeyboardManager.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Brush.cpp">
+    <ClCompile Include="..\duilib\Render\Brush.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Factory.cpp">
+    <ClCompile Include="..\duilib\Render\Factory.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Path.cpp">
+    <ClCompile Include="..\duilib\Render\Path.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Pen.cpp">
+    <ClCompile Include="..\duilib\Render\Pen.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Render\Matrix.cpp">
+    <ClCompile Include="..\duilib\Render\Matrix.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\UnZip.cpp">
+    <ClCompile Include="..\duilib\Utils\UnZip.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Control\CircleProgress.cpp">
+    <ClCompile Include="..\duilib\Control\CircleProgress.cpp">
       <Filter>Source Files\Control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StdAfx.h">
+    <ClInclude Include="..\duilib\StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UIlib.h">
+    <ClInclude Include="..\duilib\UIlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\Utils.h">
+    <ClInclude Include="..\duilib\Utils\Utils.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\WinImplBase.h">
+    <ClInclude Include="..\duilib\Utils\WinImplBase.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\MultiLangSupport.h">
+    <ClInclude Include="..\duilib\Utils\MultiLangSupport.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Button.h">
+    <ClInclude Include="..\duilib\Control\Button.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\CheckBox.h">
+    <ClInclude Include="..\duilib\Control\CheckBox.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Combo.h">
+    <ClInclude Include="..\duilib\Control\Combo.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Label.h">
+    <ClInclude Include="..\duilib\Control\Label.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\List.h">
+    <ClInclude Include="..\duilib\Control\List.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Option.h">
+    <ClInclude Include="..\duilib\Control\Option.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Progress.h">
+    <ClInclude Include="..\duilib\Control\Progress.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\RichEdit.h">
+    <ClInclude Include="..\duilib\Control\RichEdit.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\ScrollBar.h">
+    <ClInclude Include="..\duilib\Control\ScrollBar.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\Slider.h">
+    <ClInclude Include="..\duilib\Control\Slider.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\TreeView.h">
+    <ClInclude Include="..\duilib\Control\TreeView.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Control.h">
+    <ClInclude Include="..\duilib\Core\Control.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Define.h">
+    <ClInclude Include="..\duilib\Core\Define.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Markup.h">
+    <ClInclude Include="..\duilib\Core\Markup.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\StringUtil.h">
+    <ClInclude Include="..\duilib\Utils\StringUtil.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\Delegate.h">
+    <ClInclude Include="..\duilib\Utils\Delegate.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Box.h">
+    <ClInclude Include="..\duilib\Core\Box.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\WindowBuilder.h">
+    <ClInclude Include="..\duilib\Core\WindowBuilder.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Window.h">
+    <ClInclude Include="..\duilib\Core\Window.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Box\ChildBox.h">
+    <ClInclude Include="..\duilib\Box\ChildBox.h">
       <Filter>Header Files\Box</Filter>
     </ClInclude>
-    <ClInclude Include="Box\HBox.h">
+    <ClInclude Include="..\duilib\Box\HBox.h">
       <Filter>Header Files\Box</Filter>
     </ClInclude>
-    <ClInclude Include="Box\TabBox.h">
+    <ClInclude Include="..\duilib\Box\TabBox.h">
       <Filter>Header Files\Box</Filter>
     </ClInclude>
-    <ClInclude Include="Box\TileBox.h">
+    <ClInclude Include="..\duilib\Box\TileBox.h">
       <Filter>Header Files\Box</Filter>
     </ClInclude>
-    <ClInclude Include="Box\VBox.h">
+    <ClInclude Include="..\duilib\Box\VBox.h">
       <Filter>Header Files\Box</Filter>
     </ClInclude>
-    <ClInclude Include="Animation\AnimationPlayer.h">
+    <ClInclude Include="..\duilib\Animation\AnimationPlayer.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Core\GlobalManager.h">
+    <ClInclude Include="..\duilib\Core\GlobalManager.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\TimerManager.h">
+    <ClInclude Include="..\duilib\Utils\TimerManager.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Placeholder.h">
+    <ClInclude Include="..\duilib\Core\Placeholder.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Animation\AnimationManager.h">
+    <ClInclude Include="..\duilib\Animation\AnimationManager.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\Macros.h">
+    <ClInclude Include="..\duilib\Utils\Macros.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\DpiManager.h">
+    <ClInclude Include="..\duilib\Utils\DpiManager.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\VersionHelpers.h">
+    <ClInclude Include="..\duilib\Utils\VersionHelpers.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\Shadow.h">
+    <ClInclude Include="..\duilib\Utils\Shadow.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Control\VirtualListBox.h">
+    <ClInclude Include="..\duilib\Control\VirtualListBox.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\ApiWrapper.h">
+    <ClInclude Include="..\duilib\Utils\ApiWrapper.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Render.h">
+    <ClInclude Include="..\duilib\Render\Render.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\IRender.h">
+    <ClInclude Include="..\duilib\Render\IRender.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Clip.h">
+    <ClInclude Include="..\duilib\Render\Clip.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Bitmap.h">
+    <ClInclude Include="..\duilib\Render\Bitmap.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Image.h">
+    <ClInclude Include="..\duilib\Core\Image.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\OnScreenKeyboardManager.h">
+    <ClInclude Include="..\duilib\Utils\OnScreenKeyboardManager.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Brush.h">
+    <ClInclude Include="..\duilib\Render\Brush.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Factory.h">
+    <ClInclude Include="..\duilib\Render\Factory.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Path.h">
+    <ClInclude Include="..\duilib\Render\Path.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Pen.h">
+    <ClInclude Include="..\duilib\Render\Pen.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Render\Matrix.h">
+    <ClInclude Include="..\duilib\Render\Matrix.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\UnZip.h">
+    <ClInclude Include="..\duilib\Utils\UnZip.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Control\CircleProgress.h">
+    <ClInclude Include="..\duilib\Control\CircleProgress.h">
       <Filter>Header Files\Control</Filter>
     </ClInclude>
   </ItemGroup>
