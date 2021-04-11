@@ -1861,7 +1861,7 @@ void Window::Paint()
 		CPoint pt(rcWindow.left, rcWindow.top);
 		CSize szWindow(rcClient.right - rcClient.left, rcClient.bottom - rcClient.top);
 		CPoint ptSrc;
-		BLENDFUNCTION bf = { AC_SRC_OVER, 0, m_nAlpha, AC_SRC_ALPHA };
+		BLENDFUNCTION bf = { AC_SRC_OVER, 0, (BYTE)m_nAlpha, AC_SRC_ALPHA };
 		::UpdateLayeredWindow(m_hWnd, NULL, &pt, &szWindow, m_renderContext->GetDC(), &ptSrc, 0, &bf, ULW_ALPHA);
 	}
 	else {

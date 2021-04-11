@@ -6,7 +6,7 @@ static inline void DrawFunction(HDC hDC, bool bTransparent, UiRect rcDest, HDC h
 {
 	if (bTransparent || bAlphaChannel || uFade < 255
 		|| (rcSrc.GetWidth() == rcDest.GetWidth() && rcSrc.GetHeight() == rcDest.GetHeight())) {
-		BLENDFUNCTION ftn = { AC_SRC_OVER, 0, uFade, AC_SRC_ALPHA };
+		BLENDFUNCTION ftn = { AC_SRC_OVER, 0, (BYTE)uFade, AC_SRC_ALPHA };
 		::AlphaBlend(hDC, rcDest.left, rcDest.top, rcDest.GetWidth(), rcDest.GetHeight(),
 			hdcSrc, rcSrc.left, rcSrc.top, rcSrc.GetWidth(), rcSrc.GetHeight(), ftn);
 	}
