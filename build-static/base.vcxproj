@@ -204,6 +204,11 @@
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(BaseLibDir)Win32D" mkdir "$(BaseLibDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win32D"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -219,6 +224,11 @@
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(BaseLibDir)Win64D" mkdir "$(BaseLibDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win64D"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -237,6 +247,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(BaseLibDir)Win32R" mkdir "$(BaseLibDir)Win32R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win32R"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -255,6 +269,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(BaseLibDir)Win64R" mkdir "$(BaseLibDir)Win64R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win64R"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
