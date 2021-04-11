@@ -4,7 +4,7 @@
 #define BASE_UTIL_UNICODE_H_
 
 #include <string>
-#include "base/base_types.h"
+#include "base_types.h"
 
 typedef char UTF8Char;
 #if defined(WCHAR_T_IS_UTF16)

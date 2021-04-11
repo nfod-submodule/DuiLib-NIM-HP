@@ -6,11 +6,11 @@
 // a implemention of a Windows specific message pump for user interface,
 // the mechanism of which is from the Google Chrome project
 
-#include "base/framework/win_ui_message_pump.h"
+#include "framework/win_ui_message_pump.h"
 
 #if defined(OS_WIN)
 #include <algorithm>
-#include "base/framework/message_loop.h"
+#include "framework/message_loop.h"
 
 namespace nbase
 {

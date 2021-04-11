@@ -5,11 +5,11 @@
 //
 // Semaphore implementation on windows
 
-#include "base/base_config.h"
+#include "base_config.h"
 
 #if defined(OS_WIN)
 
-#include "base/synchronization/semaphore.h"
+#include "synchronization/semaphore.h"
 
 namespace nbase
 {

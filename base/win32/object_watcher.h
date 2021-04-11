@@ -2,10 +2,10 @@
 #define BASE_WIN_OBJECT_WATCHER_H_
 #pragma once
 
-#include "base/base_export.h"
-#include "base/base_config.h"
-#include "base/framework/message_loop.h"
-#include "base/callback/callback.h"
+#include "base_export.h"
+#include "base_config.h"
+#include "framework/message_loop.h"
+#include "callback/callback.h"
 
 namespace nbase {
 namespace win32 {

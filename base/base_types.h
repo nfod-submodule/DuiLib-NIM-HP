@@ -4,7 +4,7 @@
 #define BASE_BASE_TYPES_H
 
 #include <sys/types.h>
-#include "base/base_config.h"
+#include "base_config.h"
 
 #ifndef COMPILER_MSVC
 // stdint.h is part of C99 but MSVC doesn't have it.

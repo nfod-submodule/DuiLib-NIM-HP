@@ -5,9 +5,9 @@
 
 #include <map>
 #include <memory>
-#include "base/base_export.h"
-#include "base/thread/framework_thread.h"
-#include "base/memory/singleton.h"
+#include "base_export.h"
+#include "thread/framework_thread.h"
+#include "memory/singleton.h"
 
 namespace nbase
 {

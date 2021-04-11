@@ -5,13 +5,13 @@
 //
 // utilities for path operation
 
-#include "base/win32/path_util.h"
+#include "win32/path_util.h"
 #if defined(OS_WIN)
 #include <shlobj.h> // SHCreateDirectory
 #include <shellapi.h> // SHFileOperation
-#include "base/file/file_util.h"
-//#include "base/log/log.h"
-#include "base/win32/win_util.h"
+#include "file/file_util.h"
+//#include "log/log.h"
+#include "win32/win_util.h"
 
 namespace nbase
 {

@@ -5,7 +5,7 @@
 //
 // The base class of a cross flatform message pump implemention
 
-#include "base/framework/message_pump.h"
+#include "framework/message_pump.h"
 
 namespace nbase
 {

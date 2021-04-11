@@ -6,9 +6,9 @@
 //
 // A wrapper class of Windows shared memory
 
-#include "base/win32/shared_memory.h"
+#include "win32/shared_memory.h"
 #if defined(OS_WIN)
-#include "base/win32/security_util.h"
+#include "win32/security_util.h"
 
 namespace nbase
 {

@@ -6,11 +6,11 @@
 // This file trys to implement a cross flatform message loop,
 // the mechanism of which is from the Google Chrome project.
 
-#include "base/framework/message_loop.h"
+#include "framework/message_loop.h"
 
 #include <assert.h>
-#include "base/memory/lazy_instance.h"
-#include "base/thread/thread_local.h"
+#include "memory/lazy_instance.h"
+#include "thread/thread_local.h"
 
 namespace nbase
 {

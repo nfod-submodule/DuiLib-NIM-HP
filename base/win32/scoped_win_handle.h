@@ -1,12 +1,12 @@
 ﻿#ifndef BASE_WIN32_SCOPED_WIN_HANDLE_H_
 #define BASE_WIN32_SCOPED_WIN_HANDLE_H_
 
-#include "base/base_config.h"
+#include "base_config.h"
 #if defined(OS_WIN)
 
 #include <windows.h>
-#include "base/base_export.h"
-#include "base/base_types.h"
+#include "base_export.h"
+#include "base_types.h"
 
 namespace nbase
 {

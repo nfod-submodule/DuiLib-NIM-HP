@@ -9,7 +9,7 @@
 // Utilities for file and filepath operation
 
 #include "file_util.h"
-#include "base/util/string_util.h"
+#include "util/string_util.h"
 
 #if defined(OS_POSIX)
 #include <string>

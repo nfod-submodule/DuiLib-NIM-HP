@@ -3,11 +3,11 @@
 #ifndef BASE_WIN32_SECURITY_UTIL_H_
 #define BASE_WIN32_SECURITY_UTIL_H_
 
-#include "base/base_config.h"
+#include "base_config.h"
 
 #if defined(OS_WIN)
 
-#include "base/base_export.h"
+#include "base_export.h"
 #include <accctrl.h>
 
 namespace nbase

@@ -7,7 +7,7 @@
 #ifndef BASE_ATOMICOPS_INTERNALS_X86_GCC_H_
 #define BASE_ATOMICOPS_INTERNALS_X86_GCC_H_
 
-#include "base/base_export.h"
+#include "base_export.h"
 
 // This struct is not part of the public API of this module; clients may not
 // use it.  (However, it's exported via BASE_EXPORT because clients implicitly

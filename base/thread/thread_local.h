@@ -3,11 +3,11 @@
 #ifndef BASE_THREAD_THREAD_LOCAL_H_
 #define BASE_THREAD_THREAD_LOCAL_H_
 
-#include "base/base_config.h"
+#include "base_config.h"
 #if defined(OS_POSIX)
 #include <pthread.h>
 #endif
-#include "base/macros.h"
+#include "macros.h"
 
 namespace nbase
 {

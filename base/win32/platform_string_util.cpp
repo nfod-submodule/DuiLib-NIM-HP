@@ -5,7 +5,7 @@
 //
 // Multi-byte strings and Unicode strings conversion, etc.
 
-#include "base/win32/win_util.h"
+#include "win32/win_util.h"
 
 #if defined(OS_WIN)
 

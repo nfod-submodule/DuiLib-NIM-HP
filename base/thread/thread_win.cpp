@@ -5,7 +5,7 @@
 //
 // Thread implementation on windows platform.
 
-#include "base/thread/thread.h"
+#include "thread/thread.h"
 
 #if defined(OS_WIN)
 

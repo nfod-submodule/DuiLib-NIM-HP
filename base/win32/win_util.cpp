@@ -5,7 +5,7 @@
  *	Brief		Utilities for Windows applications
  */
 
-#include "base/win32/win_util.h"
+#include "win32/win_util.h"
 #if defined(OS_WIN)
 #include <assert.h>
 #include <stdlib.h>

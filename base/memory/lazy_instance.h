@@ -4,11 +4,11 @@
 #ifndef BASE_MEMORY_LAZY_INSTANCE_H_
 #define BASE_MEMORY_LAZY_INSTANCE_H_
 
-#include "base/base_config.h"
-#include "base/third_party/chrome/atomicops.h"
-#include "base/thread/thread.h"
-#include "base/util/at_exit.h"
-//#include "base/log/log.h"
+#include "base_config.h"
+#include "third_party/chrome/atomicops.h"
+#include "thread/thread.h"
+#include "util/at_exit.h"
+//#include "log/log.h"
 
 namespace nbase
 {

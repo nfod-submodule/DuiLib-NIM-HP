@@ -5,9 +5,9 @@
 
 #include <list>
 #include <string>
-#include "base/base_export.h"
-#include "base/base_types.h"
-#include "base/file/file_path.h"
+#include "base_export.h"
+#include "base_types.h"
+#include "file/file_path.h"
 
 namespace nbase
 {

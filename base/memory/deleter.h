@@ -4,9 +4,9 @@
 #define BASE_MEMORY_SCOPED_STD_HANDLE_H_
 
 #include <stdio.h>
-#include "base/base_config.h"
-#include "base/base_export.h"
-#include "base/base_types.h"
+#include "base_config.h"
+#include "base_export.h"
+#include "base_types.h"
 
 namespace nbase
 {

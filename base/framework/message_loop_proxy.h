@@ -5,10 +5,10 @@
 #define BASE_MESSAGE_LOOP_PROXY_H_
 #pragma once
 
-#include "base/base_export.h"
-#include "base/framework/message_loop.h"
-#include "base/synchronization/lock.h"
-#include "base/callback/callback.h"
+#include "base_export.h"
+#include "framework/message_loop.h"
+#include "synchronization/lock.h"
+#include "callback/callback.h"
 
 namespace nbase
 {

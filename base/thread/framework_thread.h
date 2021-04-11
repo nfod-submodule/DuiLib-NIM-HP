@@ -5,8 +5,8 @@
 
 #include "thread.h"
 #include "thread_local.h"
-#include "base/framework/message_loop.h"
-#include "base/synchronization/waitable_event.h"
+#include "framework/message_loop.h"
+#include "synchronization/waitable_event.h"
 
 namespace nbase
 {

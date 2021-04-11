@@ -6,9 +6,9 @@
 // This file trys to implement a cross flatform message loop proxy,
 // the mechanism of which is from the Google Chrome project.
 
-#include "base/framework/message_loop_proxy.h"
+#include "framework/message_loop_proxy.h"
 
-#include "base/synchronization/lock.h"
+#include "synchronization/lock.h"
 
 namespace nbase
 {

@@ -9,11 +9,11 @@
 // Utilities for file and filepath operation
 
 #include "file_util.h"
-#include "base/util/string_util.h"
+#include "util/string_util.h"
 
 #if defined(OS_WIN)
 #include <windows.h>
-#include "base/win32/scoped_win_handle.h"
+#include "win32/scoped_win_handle.h"
 
 namespace nbase
 {

@@ -5,7 +5,7 @@
 //
 // This file implements some useful thread local template data structures for Posix
 
-#include "base/thread/thread_local.h"
+#include "thread/thread_local.h"
 #if defined(OS_POSIX)
 #include <assert.h>
 #include <pthread.h>

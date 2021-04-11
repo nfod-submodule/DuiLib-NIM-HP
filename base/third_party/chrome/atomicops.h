@@ -27,7 +27,7 @@
 
 #ifndef BASE_ATOMICOPS_H_
 #define BASE_ATOMICOPS_H_
-#include "base/base_types.h"
+#include "base_types.h"
 
 namespace base {
 namespace subtle {
@@ -147,7 +147,7 @@ Atomic64 Release_Load(volatile const Atomic64* ptr);
 // On some platforms we need additional declarations to make
 // AtomicWord compatible with our other Atomic* types.
 #if defined(OS_MACOSX) || defined(OS_OPENBSD)
-//#include "base/atomicops_internals_atomicword_compat.h"
+//#include "atomicops_internals_atomicword_compat.h"
 #endif
 
 #endif  // BASE_ATOMICOPS_H_

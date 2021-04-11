@@ -4,11 +4,11 @@
 #ifndef BASE_FRAMEWORK_WIN_UI_MESSAGE_PUMP_H_
 #define BASE_FRAMEWORK_WIN_UI_MESSAGE_PUMP_H_
 
-#include "base/framework/win_message_pump.h"
+#include "framework/win_message_pump.h"
 
 #if defined(OS_WIN)
 #include <list>
-#include "base/framework/observer_list.h"
+#include "framework/observer_list.h"
 
 namespace nbase
 {

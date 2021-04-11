@@ -4,10 +4,10 @@
 
 #include <stack>
 
-#include "base/base_export.h"
-#include "base/base_types.h"
-#include "base/callback/callback.h"
-#include "base/synchronization/lock.h"
+#include "base_export.h"
+#include "base_types.h"
+#include "callback/callback.h"
+#include "synchronization/lock.h"
 
 namespace nbase
 {

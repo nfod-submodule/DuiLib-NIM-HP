@@ -4,8 +4,8 @@
 #ifndef BASE_UTIL_VALUEMAP_H_
 #define BASE_UTIL_VALUEMAP_H_
 
-#include "base/base_export.h"
-#include "base/macros.h"
+#include "base_export.h"
+#include "macros.h"
 #include <map>
 #include <vector>
 

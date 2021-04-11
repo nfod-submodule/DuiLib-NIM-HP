@@ -5,7 +5,7 @@
 //
 // A implemetation of a cross flatform waitable event based message loop
 
-#include "base/framework/default_message_pump.h"
+#include "framework/default_message_pump.h"
 #include <cassert>
 
 namespace nbase

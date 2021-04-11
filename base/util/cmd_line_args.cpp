@@ -7,9 +7,9 @@
  *
  */
 
-#include "base/util/cmd_line_args.h"
+#include "util/cmd_line_args.h"
 
-#include "base/base_config.h"
+#include "base_config.h"
 
 #if defined(COMPILER_MSVC)
 #pragma warning(push)

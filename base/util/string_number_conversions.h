@@ -6,8 +6,8 @@
 #include <string>
 #include <vector>
 
-#include "base/base_export.h"
-#include "base/base_types.h"
+#include "base_export.h"
+#include "base_types.h"
 
 // ----------------------------------------------------------------------------
 // IMPORTANT MESSAGE FROM YOUR SPONSOR

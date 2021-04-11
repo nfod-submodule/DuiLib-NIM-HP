@@ -6,7 +6,7 @@
 // Network utility function
 
 #include "network_util.h"
-#include "base/util/string_util.h"
+#include "util/string_util.h"
 #include <sstream>
 #include <stdlib.h>
 

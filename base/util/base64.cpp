@@ -6,7 +6,7 @@
 // Base64 encode/decode
 
 #include "base64.h"
-#include "base/third_party/modp_b64/modp_b64.h"
+#include "third_party/modp_b64/modp_b64.h"
 
 namespace nbase
 {

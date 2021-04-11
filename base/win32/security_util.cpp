@@ -5,12 +5,12 @@
 //
 // utilities for security associated operations
 
-#include "base/win32/security_util.h"
+#include "win32/security_util.h"
 #if defined(OS_WIN)
 #include <aclapi.h> // ConvertStringSecurityDescriptorToSecurityDescriptorW
 #include <sddl.h>	// SetSecurityInfo
-#include "base/win32/win_util.h"
-#include "base/win32/scoped_win_handle.h"
+#include "win32/win_util.h"
+#include "win32/scoped_win_handle.h"
 
 namespace nbase
 {

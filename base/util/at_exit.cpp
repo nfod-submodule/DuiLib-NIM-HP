@@ -5,12 +5,12 @@
 // Ported by wrt(guangguang)
 // Date: 2013/09/17
 
-#include "base/util/at_exit.h"
+#include "util/at_exit.h"
 
 #include <stddef.h>
 #include <ostream>
 
-//#include "base/log/log.h"
+//#include "log/log.h"
 
 namespace nbase
 {

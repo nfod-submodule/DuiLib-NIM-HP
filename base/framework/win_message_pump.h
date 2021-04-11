@@ -3,11 +3,11 @@
 #ifndef BASE_FRAMEWORK_WIN_MESSAGE_PUMP_H_
 #define BASE_FRAMEWORK_WIN_MESSAGE_PUMP_H_
 
-#include "base/framework/message_pump.h"
+#include "framework/message_pump.h"
 
 #if defined(OS_WIN)
 #include <windows.h>
-#include "base/time/time.h"
+#include "time/time.h"
 
 namespace nbase
 {

@@ -5,7 +5,7 @@
 //
 // This file implements some useful thread local template data structures for Windows
 
-#include "base/thread/thread_local.h"
+#include "thread/thread_local.h"
 #if defined(OS_WIN)
 #include <assert.h>
 #include <windows.h>

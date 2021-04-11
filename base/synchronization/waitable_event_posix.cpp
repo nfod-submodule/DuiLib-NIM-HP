@@ -6,12 +6,12 @@
 //
 // The base class of a cross flatform waitable event
 
-#include "base/synchronization/waitable_event.h"
+#include "synchronization/waitable_event.h"
 
 #if defined(OS_POSIX)
-#include "base/synchronization/condition_variable.h"
-#include "base/synchronization/lock.h"
-#include "base/framework/message_loop.h"
+#include "synchronization/condition_variable.h"
+#include "synchronization/lock.h"
+#include "framework/message_loop.h"
 
 #include <vector>
 

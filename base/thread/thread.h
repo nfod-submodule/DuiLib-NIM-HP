@@ -4,8 +4,8 @@
 #ifndef BASE_THREAD_THREAD_H_
 #define BASE_THREAD_THREAD_H_
 
-#include "base/base_config.h"
-#include "base/base_export.h"
+#include "base_config.h"
+#include "base_export.h"
 
 #if defined(OS_WIN)
 #include <process.h>
@@ -14,7 +14,7 @@
 #include <pthread.h>
 #endif
 
-#include "base/base_types.h"
+#include "base_types.h"
 
 namespace nbase
 {

@@ -3,8 +3,8 @@
 #ifndef BASE_SYNCHRONIZATION_SEMAPHORE_H_
 #define BASE_SYNCHRONIZATION_SEMAPHORE_H_
 
-#include "base/base_export.h"
-#include "base/base_types.h"
+#include "base_export.h"
+#include "base_types.h"
 
 #if defined(OS_WIN)
 #include <windows.h>

@@ -5,14 +5,14 @@
 //
 // TimeDelta/Time/TimeTicks implementation on windows platform
 
-#include "base/base_config.h"
+#include "base_config.h"
 
 #if defined(OS_WIN)
 
-#include "base/base_export.h"
-#include "base/hardware/cpu.h"
-#include "base/synchronization/lock.h"
-#include "base/time/time.h"
+#include "base_export.h"
+#include "hardware/cpu.h"
+#include "synchronization/lock.h"
+#include "time/time.h"
 
 #if defined(COMPILER_MSVC)
 #pragma comment(lib, "winmm.lib")

@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "base/win32/path_util.h"
-#include "base/thread/thread_manager.h"
+#include "win32/path_util.h"
+#include "thread/thread_manager.h"
 
 // These constants are for backward compatibility. They are the 
 // sizes used for initialization and reset in RichEdit 1.0

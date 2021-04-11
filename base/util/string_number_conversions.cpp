@@ -5,7 +5,7 @@
 //
 // String number conversion
 
-#include "base/util/string_number_conversions.h"
+#include "util/string_number_conversions.h"
 
 #include <assert.h>
 #include <ctype.h>

@@ -6,10 +6,10 @@
 // a thread manager for iter-thread communicatios, etc.
 
 #include "thread_manager.h"
-#include "base/framework/message_loop.h"
-//#include "base/log/log.h"
-#include "base/memory/singleton.h"
-#include "base/third_party/chrome/atomicops.h"
+#include "framework/message_loop.h"
+//#include "log/log.h"
+#include "memory/singleton.h"
+#include "third_party/chrome/atomicops.h"
 
 #define AUTO_MAP_LOCK() NAutoLock __l(&GetInstance()->lock_);
 #define AQUIRE_ACCESS() {if (!AquireAccess()) { /*DCHECK(false);*/ return false; }}

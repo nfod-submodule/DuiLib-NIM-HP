@@ -6,7 +6,7 @@
 
 #ifndef BASE_ATOMICOPS_INTERNALS_X86_MSVC_H_
 #define BASE_ATOMICOPS_INTERNALS_X86_MSVC_H_
-#include "base/base_config.h"
+#include "base_config.h"
 #include <windows.h>
 
 namespace base {

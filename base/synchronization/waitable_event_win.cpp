@@ -5,12 +5,12 @@
 //
 // The base class of a cross flatform waitable event
 
-#include "base/synchronization/waitable_event.h"
+#include "synchronization/waitable_event.h"
 #if defined(OS_WIN)
 
 #include <math.h>
 #include <assert.h>
-#include "base/time/time.h"
+#include "time/time.h"
 
 namespace nbase
 {

@@ -6,19 +6,19 @@
 
 #include <queue>									// for std::queue, std::priority_queue
 #include <memory>
-#include "base/base_types.h"						// for OS_WIN and NULL, etc.
-#include "base/framework/default_message_pump.h"
-#include "base/framework/message_loop_proxy.h"		// for MessageLoopProxy
-#include "base/framework/observer_list.h"			// for ObserverList
+#include "base_types.h"						// for OS_WIN and NULL, etc.
+#include "framework/default_message_pump.h"
+#include "framework/message_loop_proxy.h"		// for MessageLoopProxy
+#include "framework/observer_list.h"			// for ObserverList
 #if defined(OS_WIN)
-#include "base/framework/win_io_message_pump.h"
-#include "base/framework/win_ui_message_pump.h"
+#include "framework/win_io_message_pump.h"
+#include "framework/win_ui_message_pump.h"
 #elif defined(OS_POSIX)
-#include "base/framework/libevent_message_pump.h"
+#include "framework/libevent_message_pump.h"
 #endif // OS_WIN
-#include "base/synchronization/lock.h"				// for NLock
-#include "base/time/time.h"
-#include "base/callback/callback.h"
+#include "synchronization/lock.h"				// for NLock
+#include "time/time.h"
+#include "callback/callback.h"
 
 namespace nbase
 {

@@ -8,10 +8,10 @@
 //
 // Utilities for file and filepath operation
 
-#include "base/file/file_util.h"
+#include "file/file_util.h"
 #include <memory>
-#include "base/util/string_util.h"
-#include "base/memory/deleter.h"
+#include "util/string_util.h"
+#include "memory/deleter.h"
 
 #if defined(OS_POSIX)
 #include <sys/stat.h>

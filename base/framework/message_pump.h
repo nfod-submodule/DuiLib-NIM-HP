@@ -3,8 +3,8 @@
 #ifndef BASE_FRAMEWORK_MESSAGE_PUMP_H_
 #define BASE_FRAMEWORK_MESSAGE_PUMP_H_
 
-#include "base/base_export.h"
-#include "base/base_config.h"
+#include "base_export.h"
+#include "base_config.h"
 
 namespace nbase
 {

@@ -4,8 +4,8 @@
 #define BASE_HARDWARE_CPU_H_
 
 #include <string>
-#include "base/base_config.h"
-#include "base/base_export.h"
+#include "base_config.h"
+#include "base_export.h"
 
 namespace nbase
 {

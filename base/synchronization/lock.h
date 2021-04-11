@@ -3,8 +3,8 @@
 #ifndef BASE_SYNCHRONIZATION_LOCK_H
 #define BASE_SYNCHRONIZATION_LOCK_H
 
-#include "base/base_export.h"
-#include "base/base_config.h"
+#include "base_export.h"
+#include "base_config.h"
 
 #if defined(OS_WIN)
 #include <windows.h>

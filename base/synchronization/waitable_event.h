@@ -4,16 +4,16 @@
 #ifndef BASE_SYNCHRONIZATION_WAITABLE_EVENT_H_
 #define BASE_SYNCHRONIZATION_WAITABLE_EVENT_H_
 
-#include "base/base_config.h"
-#include "base/base_types.h"
+#include "base_config.h"
+#include "base_types.h"
 
 #if defined(OS_WIN)
 #include <windows.h>
 #elif defined(OS_POSIX)
 #include <list>
 #include <utility>
-#include "base/memory/ref_count.h"
-#include "base/synchronization/lock.h"
+#include "memory/ref_count.h"
+#include "synchronization/lock.h"
 #endif  // OS_POSIX
 
 namespace nbase

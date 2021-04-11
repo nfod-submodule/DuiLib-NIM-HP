@@ -2,9 +2,9 @@
 #define BASE_UTIL_STRING_UTIL_H_
 
 #include <list>
-#include "base/base_export.h"
-#include "base/base_types.h"
-#include "base/util/unicode.h"
+#include "base_export.h"
+#include "base_types.h"
+#include "util/unicode.h"
 
 namespace nbase
 {

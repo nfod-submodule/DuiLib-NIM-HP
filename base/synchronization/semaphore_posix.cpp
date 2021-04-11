@@ -5,11 +5,11 @@
 //
 // Semaphore implementation on posix system
 
-#include "base/base_config.h"
+#include "base_config.h"
 
 #if defined(OS_POSIX)
 
-#include "base/synchronization/semaphore.h"
+#include "synchronization/semaphore.h"
 #include <unistd.h>
 #include <fcntl.h>
 

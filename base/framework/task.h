@@ -3,8 +3,8 @@
 #ifndef BASE_FRAMEWORK_TASK_H_
 #define BASE_FRAMEWORK_TASK_H_
 
-#include "base/base_export.h"
-#include "base/callback/callback.h"
+#include "base_export.h"
+#include "callback/callback.h"
 
 namespace nbase
 {

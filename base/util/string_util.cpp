@@ -13,8 +13,8 @@
 #include <memory.h>			/* for mem*** */
 #include <stdarg.h>			/* va_list, va_start, va_end */
 #include <ctype.h>
-#include "base/macros.h"
-#include "base/third_party/convert_utf/ConvertUTF.h"
+#include "macros.h"
+#include "third_party/convert_utf/ConvertUTF.h"
 
 namespace nbase
 {

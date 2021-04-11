@@ -3,9 +3,9 @@
 #ifndef BASE_FRAMEWORK_DEFAULT_MESSAGE_PUMP_H_
 #define BASE_FRAMEWORK_DEFAULT_MESSAGE_PUMP_H_
 
-#include "base/framework/message_pump.h"
-#include "base/time/time.h"
-#include "base/synchronization/waitable_event.h"
+#include "framework/message_pump.h"
+#include "time/time.h"
+#include "synchronization/waitable_event.h"
 
 namespace nbase
 {
