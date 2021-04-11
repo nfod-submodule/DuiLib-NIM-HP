@@ -77,7 +77,7 @@ public:
 
 	void Set(bool val)
 	{
-		tlp_.Set(reinterpret_cast<void*>(val ? 1 : 0));
+		tlp_.Set(reinterpret_cast<void*>(val ? (void*)1 : (void*)0));
 	}
 
 private:
