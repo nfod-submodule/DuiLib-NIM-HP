@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="encrypt">
-      <UniqueIdentifier>{204f0949-2ae4-4658-a6f9-bbf5ad75d457}</UniqueIdentifier>
-    </Filter>
     <Filter Include="file">
       <UniqueIdentifier>{83ac3967-f616-4b9d-93b8-655e031a4a42}</UniqueIdentifier>
     </Filter>
@@ -54,9 +51,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\base\encrypt\encrypt.h">
-      <Filter>encrypt</Filter>
-    </ClInclude>
     <ClInclude Include="..\base\file\file_util.h">
       <Filter>file</Filter>
     </ClInclude>
@@ -197,9 +191,6 @@
     </ClInclude>
     <ClInclude Include="..\base\memory\singleton.h">
       <Filter>memory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\base\encrypt\des.h">
-      <Filter>encrypt</Filter>
     </ClInclude>
     <ClInclude Include="..\base\memory\deleter.h">
       <Filter>memory</Filter>
@@ -347,9 +338,6 @@
     </ClCompile>
     <ClCompile Include="..\base\util\at_exit.cpp">
       <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\base\encrypt\des.cpp">
-      <Filter>encrypt</Filter>
     </ClCompile>
     <ClCompile Include="..\base\network\network_util.cpp">
       <Filter>network</Filter>

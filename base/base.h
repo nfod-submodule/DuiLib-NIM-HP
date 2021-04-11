@@ -4,8 +4,6 @@
 #include "base_types.h"
 
 #include "callback/callback.h"
-#include "encrypt/des.h"
-#include "encrypt/encrypt.h"
 #include "file/file_path.h"
 #include "file/file_util.h"
 #include "framework/task.h"
