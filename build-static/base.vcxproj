@@ -5,13 +5,13 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
@@ -19,112 +19,112 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="base.h" />
-    <ClInclude Include="base_config.h" />
-    <ClInclude Include="base_export.h" />
-    <ClInclude Include="base_types.h" />
-    <ClInclude Include="build\build_config.h" />
-    <ClInclude Include="build\winsdk_config.h" />
-    <ClInclude Include="callback\callback.h" />
-    <ClInclude Include="encrypt\des.h" />
-    <ClInclude Include="encrypt\encrypt.h" />
-    <ClInclude Include="error.h" />
-    <ClInclude Include="file\file_path.h" />
-    <ClInclude Include="file\file_util.h" />
-    <ClInclude Include="framework\default_message_pump.h" />
-    <ClInclude Include="framework\message_loop.h" />
-    <ClInclude Include="framework\message_loop_proxy.h" />
-    <ClInclude Include="framework\message_pump.h" />
-    <ClInclude Include="framework\observer_list.h" />
-    <ClInclude Include="framework\task.h" />
-    <ClInclude Include="framework\win_io_message_pump.h" />
-    <ClInclude Include="framework\win_message_pump.h" />
-    <ClInclude Include="framework\win_ui_message_pump.h" />
-    <ClInclude Include="hardware\cpu.h" />
-    <ClInclude Include="macros.h" />
-    <ClInclude Include="memory\blockbuffer.h" />
-    <ClInclude Include="memory\lazy_instance.h" />
-    <ClInclude Include="memory\deleter.h" />
-    <ClInclude Include="memory\singleton.h" />
-    <ClInclude Include="network\network_util.h" />
-    <ClInclude Include="network\nio_base.h" />
-    <ClInclude Include="port.h" />
-    <ClInclude Include="synchronization\lock.h" />
-    <ClInclude Include="synchronization\semaphore.h" />
-    <ClInclude Include="synchronization\waitable_event.h" />
-    <ClInclude Include="third_party\chrome\atomicops.h" />
-    <ClInclude Include="third_party\chrome\atomicops_internals_arm_gcc.h" />
-    <ClInclude Include="third_party\chrome\atomicops_internals_atomicword_compat.h" />
-    <ClInclude Include="third_party\chrome\atomicops_internals_x86_gcc.h" />
-    <ClInclude Include="third_party\chrome\atomicops_internals_x86_macosx.h" />
-    <ClInclude Include="third_party\chrome\atomicops_internals_x86_msvc.h" />
-    <ClInclude Include="third_party\convert_utf\ConvertUTF.h" />
-    <ClInclude Include="third_party\modp_b64\modp_b64.h" />
-    <ClInclude Include="third_party\modp_b64\modp_b64_data.h" />
-    <ClInclude Include="thread\framework_thread.h" />
-    <ClInclude Include="thread\thread.h" />
-    <ClInclude Include="thread\thread_local.h" />
-    <ClInclude Include="thread\thread_manager.h" />
-    <ClInclude Include="time\time.h" />
-    <ClInclude Include="util\at_exit.h" />
-    <ClInclude Include="util\base64.h" />
-    <ClInclude Include="util\cmd_line_args.h" />
-    <ClInclude Include="util\string_number_conversions.h" />
-    <ClInclude Include="util\string_util.h" />
-    <ClInclude Include="util\template_util.h" />
-    <ClInclude Include="util\unicode.h" />
-    <ClInclude Include="util\valuemap.h" />
-    <ClInclude Include="win32\object_watcher.h" />
-    <ClInclude Include="win32\path_util.h" />
-    <ClInclude Include="win32\platform_string_util.h" />
-    <ClInclude Include="win32\scoped_win_handle.h" />
-    <ClInclude Include="win32\security_util.h" />
-    <ClInclude Include="win32\shared_memory.h" />
-    <ClInclude Include="win32\win_util.h" />
+    <ClInclude Include="..\base\base.h" />
+    <ClInclude Include="..\base\base_config.h" />
+    <ClInclude Include="..\base\base_export.h" />
+    <ClInclude Include="..\base\base_types.h" />
+    <ClInclude Include="..\base\build\build_config.h" />
+    <ClInclude Include="..\base\build\winsdk_config.h" />
+    <ClInclude Include="..\base\callback\callback.h" />
+    <ClInclude Include="..\base\encrypt\des.h" />
+    <ClInclude Include="..\base\encrypt\encrypt.h" />
+    <ClInclude Include="..\base\error.h" />
+    <ClInclude Include="..\base\file\file_path.h" />
+    <ClInclude Include="..\base\file\file_util.h" />
+    <ClInclude Include="..\base\framework\default_message_pump.h" />
+    <ClInclude Include="..\base\framework\message_loop.h" />
+    <ClInclude Include="..\base\framework\message_loop_proxy.h" />
+    <ClInclude Include="..\base\framework\message_pump.h" />
+    <ClInclude Include="..\base\framework\observer_list.h" />
+    <ClInclude Include="..\base\framework\task.h" />
+    <ClInclude Include="..\base\framework\win_io_message_pump.h" />
+    <ClInclude Include="..\base\framework\win_message_pump.h" />
+    <ClInclude Include="..\base\framework\win_ui_message_pump.h" />
+    <ClInclude Include="..\base\hardware\cpu.h" />
+    <ClInclude Include="..\base\macros.h" />
+    <ClInclude Include="..\base\memory\blockbuffer.h" />
+    <ClInclude Include="..\base\memory\lazy_instance.h" />
+    <ClInclude Include="..\base\memory\deleter.h" />
+    <ClInclude Include="..\base\memory\singleton.h" />
+    <ClInclude Include="..\base\network\network_util.h" />
+    <ClInclude Include="..\base\network\nio_base.h" />
+    <ClInclude Include="..\base\port.h" />
+    <ClInclude Include="..\base\synchronization\lock.h" />
+    <ClInclude Include="..\base\synchronization\semaphore.h" />
+    <ClInclude Include="..\base\synchronization\waitable_event.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops_internals_arm_gcc.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops_internals_atomicword_compat.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops_internals_x86_gcc.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops_internals_x86_macosx.h" />
+    <ClInclude Include="..\base\third_party\chrome\atomicops_internals_x86_msvc.h" />
+    <ClInclude Include="..\base\third_party\convert_utf\ConvertUTF.h" />
+    <ClInclude Include="..\base\third_party\modp_b64\modp_b64.h" />
+    <ClInclude Include="..\base\third_party\modp_b64\modp_b64_data.h" />
+    <ClInclude Include="..\base\thread\framework_thread.h" />
+    <ClInclude Include="..\base\thread\thread.h" />
+    <ClInclude Include="..\base\thread\thread_local.h" />
+    <ClInclude Include="..\base\thread\thread_manager.h" />
+    <ClInclude Include="..\base\time\time.h" />
+    <ClInclude Include="..\base\util\at_exit.h" />
+    <ClInclude Include="..\base\util\base64.h" />
+    <ClInclude Include="..\base\util\cmd_line_args.h" />
+    <ClInclude Include="..\base\util\string_number_conversions.h" />
+    <ClInclude Include="..\base\util\string_util.h" />
+    <ClInclude Include="..\base\util\template_util.h" />
+    <ClInclude Include="..\base\util\unicode.h" />
+    <ClInclude Include="..\base\util\valuemap.h" />
+    <ClInclude Include="..\base\win32\object_watcher.h" />
+    <ClInclude Include="..\base\win32\path_util.h" />
+    <ClInclude Include="..\base\win32\platform_string_util.h" />
+    <ClInclude Include="..\base\win32\scoped_win_handle.h" />
+    <ClInclude Include="..\base\win32\security_util.h" />
+    <ClInclude Include="..\base\win32\shared_memory.h" />
+    <ClInclude Include="..\base\win32\win_util.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="encrypt\des.cpp" />
-    <ClCompile Include="file\file_util.cpp" />
-    <ClCompile Include="file\file_util_posix.cpp" />
-    <ClCompile Include="file\file_util_win.cpp" />
-    <ClCompile Include="framework\default_message_pump.cpp" />
-    <ClCompile Include="framework\message_loop.cpp" />
-    <ClCompile Include="framework\message_loop_proxy.cpp" />
-    <ClCompile Include="framework\message_pump.cpp" />
-    <ClCompile Include="framework\win_io_message_pump.cpp" />
-    <ClCompile Include="framework\win_message_pump.cpp" />
-    <ClCompile Include="framework\win_ui_message_pump.cpp" />
-    <ClCompile Include="hardware\cpu.cpp" />
-    <ClCompile Include="network\network_util.cpp" />
-    <ClCompile Include="synchronization\lock_posix.cpp" />
-    <ClCompile Include="synchronization\lock_win.cpp" />
-    <ClCompile Include="synchronization\semaphore_posix.cpp" />
-    <ClCompile Include="synchronization\semaphore_win.cpp" />
-    <ClCompile Include="synchronization\waitable_event_posix.cpp" />
-    <ClCompile Include="synchronization\waitable_event_win.cpp" />
-    <ClCompile Include="third_party\chrome\atomicops_internals_x86_gcc.cc" />
-    <ClCompile Include="third_party\convert_utf\ConvertUTF.c" />
-    <ClCompile Include="third_party\modp_b64\modp_b64.cc" />
-    <ClCompile Include="thread\framework_thread.cpp" />
-    <ClCompile Include="thread\thread_local_posix.cpp" />
-    <ClCompile Include="thread\thread_local_win.cpp" />
-    <ClCompile Include="thread\thread_manager.cpp" />
-    <ClCompile Include="thread\thread_posix.cpp" />
-    <ClCompile Include="thread\thread_win.cpp" />
-    <ClCompile Include="time\time.cpp" />
-    <ClCompile Include="time\time_posix.cpp" />
-    <ClCompile Include="time\time_win.cpp" />
-    <ClCompile Include="util\at_exit.cpp" />
-    <ClCompile Include="util\base64.cpp" />
-    <ClCompile Include="util\cmd_line_args.cpp" />
-    <ClCompile Include="util\string_number_conversions.cpp" />
-    <ClCompile Include="util\string_util.cpp" />
-    <ClCompile Include="win32\object_watcher.cpp" />
-    <ClCompile Include="win32\path_util.cpp" />
-    <ClCompile Include="win32\platform_string_util.cpp" />
-    <ClCompile Include="win32\security_util.cpp" />
-    <ClCompile Include="win32\shared_memory.cpp" />
-    <ClCompile Include="win32\win_util.cpp" />
+    <ClCompile Include="..\base\encrypt\des.cpp" />
+    <ClCompile Include="..\base\file\file_util.cpp" />
+    <ClCompile Include="..\base\file\file_util_posix.cpp" />
+    <ClCompile Include="..\base\file\file_util_win.cpp" />
+    <ClCompile Include="..\base\framework\default_message_pump.cpp" />
+    <ClCompile Include="..\base\framework\message_loop.cpp" />
+    <ClCompile Include="..\base\framework\message_loop_proxy.cpp" />
+    <ClCompile Include="..\base\framework\message_pump.cpp" />
+    <ClCompile Include="..\base\framework\win_io_message_pump.cpp" />
+    <ClCompile Include="..\base\framework\win_message_pump.cpp" />
+    <ClCompile Include="..\base\framework\win_ui_message_pump.cpp" />
+    <ClCompile Include="..\base\hardware\cpu.cpp" />
+    <ClCompile Include="..\base\network\network_util.cpp" />
+    <ClCompile Include="..\base\synchronization\lock_posix.cpp" />
+    <ClCompile Include="..\base\synchronization\lock_win.cpp" />
+    <ClCompile Include="..\base\synchronization\semaphore_posix.cpp" />
+    <ClCompile Include="..\base\synchronization\semaphore_win.cpp" />
+    <ClCompile Include="..\base\synchronization\waitable_event_posix.cpp" />
+    <ClCompile Include="..\base\synchronization\waitable_event_win.cpp" />
+    <ClCompile Include="..\base\third_party\chrome\atomicops_internals_x86_gcc.cc" />
+    <ClCompile Include="..\base\third_party\convert_utf\ConvertUTF.c" />
+    <ClCompile Include="..\base\third_party\modp_b64\modp_b64.cc" />
+    <ClCompile Include="..\base\thread\framework_thread.cpp" />
+    <ClCompile Include="..\base\thread\thread_local_posix.cpp" />
+    <ClCompile Include="..\base\thread\thread_local_win.cpp" />
+    <ClCompile Include="..\base\thread\thread_manager.cpp" />
+    <ClCompile Include="..\base\thread\thread_posix.cpp" />
+    <ClCompile Include="..\base\thread\thread_win.cpp" />
+    <ClCompile Include="..\base\time\time.cpp" />
+    <ClCompile Include="..\base\time\time_posix.cpp" />
+    <ClCompile Include="..\base\time\time_win.cpp" />
+    <ClCompile Include="..\base\util\at_exit.cpp" />
+    <ClCompile Include="..\base\util\base64.cpp" />
+    <ClCompile Include="..\base\util\cmd_line_args.cpp" />
+    <ClCompile Include="..\base\util\string_number_conversions.cpp" />
+    <ClCompile Include="..\base\util\string_util.cpp" />
+    <ClCompile Include="..\base\win32\object_watcher.cpp" />
+    <ClCompile Include="..\base\win32\path_util.cpp" />
+    <ClCompile Include="..\base\win32\platform_string_util.cpp" />
+    <ClCompile Include="..\base\win32\security_util.cpp" />
+    <ClCompile Include="..\base\win32\shared_memory.cpp" />
+    <ClCompile Include="..\base\win32\win_util.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8D9A6595-717A-41C8-B468-0011A72BE3D1}</ProjectGuid>
@@ -136,126 +136,106 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>false</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="build.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="build.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="build.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="build.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)..\libs\</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(ProjectDir)..\tmp\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_d</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>$(ProjectName)_d</TargetName>
-    <OutDir>$(ProjectDir)..\libs\x64\</OutDir>
-    <IntDir>$(ProjectDir)..\tmp\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(LibOutDir)</OutDir>
+    <IntDir>$(LibIntDir)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(LibOutDir)</OutDir>
+    <IntDir>$(LibIntDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)..\libs\</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(ProjectDir)..\tmp\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(LibOutDir)</OutDir>
+    <IntDir>$(LibIntDir)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)..\libs\x64\</OutDir>
-    <IntDir>$(ProjectDir)..\tmp\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir>$(LibOutDir)</OutDir>
+    <IntDir>$(LibIntDir)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>.\;..\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4100;4127;4244;4245;4310;4355;4505;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\libs\</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalOptions>/IGNORE:4006,4221 %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level4</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>.\;..\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4100;4127;4244;4245;4310;4355;4505;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_DEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\libs\x64\</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalOptions>/IGNORE:4006,4221 %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>.\;..\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4100;4127;4189;4244;4245;4310;4355;4505;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -263,24 +243,18 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\libs\</AdditionalLibraryDirectories>
-      <AdditionalOptions>/IGNORE:4006,4221 %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level4</WarningLevel>
       <PrecompiledHeader>
       </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <AdditionalIncludeDirectories>.\;..\</AdditionalIncludeDirectories>
-      <DisableSpecificWarnings>4100;4127;4189;4244;4245;4310;4355;4505;%(DisableSpecificWarnings)</DisableSpecificWarnings>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>NDEBUG;_LIB;NOMINMAX;WITH_ENCRYPT;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -288,10 +262,6 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\libs\x64\</AdditionalLibraryDirectories>
-      <AdditionalOptions>/IGNORE:4006,4221 %(AdditionalOptions)</AdditionalOptions>
-    </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
