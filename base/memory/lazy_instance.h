@@ -26,6 +26,10 @@ public:
 	~LazyInstance()
 	{
 		// |instance_| should be deleted by |OnExit|
+		if (instance_) {
+			delete reinterpret_cast<Type*>(instance_);
+			base::subtle::NoBarrier_Store(&instance_, 0);
+		}
 		//DCHECK(instance_ == 0);
 	}
 
