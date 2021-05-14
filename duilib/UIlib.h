@@ -133,3 +133,12 @@
 #include "Control/RichEdit.h"
 #include "Control/VirtualListBox.h"
 
+//****************************/
+//-- Dependencies libs
+//****************************/
+/*/
+#pragma comment(lib, "ComCtl32.lib")
+#pragma comment(lib, "gdiplus.lib")
+#pragma comment(lib, "Imm32.lib")
+#pragma comment(lib, "MSImg32.lib")
+//*/
