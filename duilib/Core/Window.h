@@ -838,6 +838,13 @@ public:
 	bool SetRenderTransparent(bool bCanvasTransparent);
 
 	/**
+	 * @brief 设置冻结Tab键
+	 * @param[in] bFreezeTab 设置为 true 冻结，false 不冻结
+	 * @return 无
+	 */
+	void SetFreezeTab(bool bFreezeTab) { m_bFreezeTab = bFreezeTab; }
+
+	/**
 	 * @brief 初始化布局
 	 * @return 无
 	 */
@@ -941,7 +948,8 @@ protected:
 	
 	Shadow m_shadow;
 
-	bool m_bFakeModal = false;
+	bool m_bFakeModal;
+	bool m_bFreezeTab;
 };
 
 } // namespace ui

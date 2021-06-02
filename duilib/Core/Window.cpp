@@ -68,7 +68,9 @@ Window::Window() :
 	m_strWindowResourcePath(),
 	m_aTranslateAccelerator(),
 	m_heightPercent(0),
-	m_closeFlag()
+	m_closeFlag(),
+	m_bFakeModal(false),
+	m_bFreezeTab(false)
 {
 	LOGFONT lf = { 0 };
 	::GetObject(::GetStockObject(DEFAULT_GUI_FONT), sizeof(LOGFONT), &lf);
@@ -1507,7 +1509,7 @@ void Window::SetFocusNeeded(Control* pControl)
 	FINDTABINFO info = { 0 };
 	info.pFocus = pControl;
 	info.bForward = false;
-	m_pFocus = m_pRoot->FindControl(__FindControlFromTab, &info, UIFIND_VISIBLE | UIFIND_ENABLED | UIFIND_ME_FIRST);
+	m_pFocus = m_bFreezeTab ? nullptr : m_pRoot->FindControl(__FindControlFromTab, &info, UIFIND_VISIBLE | UIFIND_ENABLED | UIFIND_ME_FIRST);
 	m_bFocusNeeded = true;
 	if (m_pRoot != NULL) m_pRoot->Arrange();
 }
@@ -1561,6 +1563,9 @@ HWND Window::GetTooltipWindow() const
 
 bool Window::SetNextTabControl(bool bForward)
 {
+	if (m_bFreezeTab) {
+		return true;
+	}
 	// If we're in the process of restructuring the layout we can delay the
 	// focus calulation until the next repaint.
 	if (m_bIsArranged && bForward) {
