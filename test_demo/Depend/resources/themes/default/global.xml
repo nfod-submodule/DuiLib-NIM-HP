@@ -44,6 +44,9 @@
     <TextColor name="light_green" value="#ff21c7a6"/>
     <TextColor name="blue" value="#ff006DD9"/>
     <TextColor name="red" value="#ffC63535"/>
+    <TextColor name="link_green" value="#ff21c7a6"/>
+    <TextColor name="link_blue" value="#ff006DD9"/>
+    <TextColor name="link_red" value="#ffC63535"/>
 
     <!--文字色值，不带透明层-->
     <TextColor name="textdefaultcolor" value="#ff333333"/>
@@ -104,8 +107,8 @@
     <Class name="circle_option_2" height="18" textpadding="25,0,0,0" font="system_12" normaltextcolor="darkcolor" normalimage="file='../public/option/circle_unselected.png' dest='0,0,18,18'" selectednormalimage="file='../public/option/circle_selected.png' dest='0,0,18,18'"/>
 
     <!--复选框-->
-    <Class name="checkbox_font12" height="16" textpadding="20,0,0,0" font="system_12" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16' fade='80'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16' fade='80'"/>
-    <Class name="checkbox_font14" height="20" textpadding="20,0,0,0" font="system_14" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18' fade='80'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18' fade='80'"/>
+    <Class name="checkbox_font12" height="16" textpadding="20,0,0,0" font="system_12" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16' fade='80'" hotimage="file='../public/CheckBox/check_hot.png' dest='0,0,16,16'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16' fade='80'"/>
+    <Class name="checkbox_font14" height="20" textpadding="20,0,0,0" font="system_14" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18' fade='80'" hotimage="file='../public/CheckBox/check_hot.png' dest='0,2,16,18'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18' fade='80'"/>
     <Class name="checkbox_green" normalimage="file='../public/CheckBox/check_green_no.png'" disabledimage="file='../public/CheckBox/check_green_no.png' fade='80'" selectednormalimage="file='../public/CheckBox/check_green_yes.png'" selecteddisabledimage="file='../public/CheckBox/check_green_yes.png' fade='80'"/>
     
     <!--按钮-->
