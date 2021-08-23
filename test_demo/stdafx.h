@@ -23,3 +23,9 @@
 #include <atlstr.h>
 
 // TODO: reference additional headers your program requires here
+
+// base/
+#include "base.h"
+
+// duilib/
+#include "UIlib.h"
