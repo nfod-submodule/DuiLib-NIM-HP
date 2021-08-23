@@ -103,6 +103,13 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win32D;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+if not exist "$(OutDir)resources" (
+mkdir "$(OutDir)resources"
+xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -118,6 +125,13 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win64D;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+if not exist "$(OutDir)resources" (
+mkdir "$(OutDir)resources"
+xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -137,6 +151,13 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win32R;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+if not exist "$(OutDir)resources" (
+mkdir "$(OutDir)resources"
+xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -156,6 +177,13 @@
       <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win64R;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
+if not exist "$(OutDir)resources" (
+mkdir "$(OutDir)resources"
+xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
+)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h" />
@@ -163,6 +191,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_demo.h" />
     <ClInclude Include="UI\ConfUI.h" />
+    <ClInclude Include="UI\LoginForm.h" />
     <ClInclude Include="Util\Util.h" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +203,7 @@
     </ClCompile>
     <ClCompile Include="test_demo.cpp" />
     <ClCompile Include="UI\ConfUI.cpp" />
+    <ClCompile Include="UI\LoginForm.cpp" />
     <ClCompile Include="Util\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
