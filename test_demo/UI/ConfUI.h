@@ -14,4 +14,10 @@ namespace TextUI
 	extern const wchar_t* Login_SkinFile;
 	extern const wchar_t* Login_ClassName;
 	extern const wchar_t* Login_WindowName;
+
+	// MainForm - 主窗口
+	extern const wchar_t* Main_SkinFolder;
+	extern const wchar_t* Main_SkinFile;
+	extern const wchar_t* Main_ClassName;
+	extern const wchar_t* Main_WindowName;
 }

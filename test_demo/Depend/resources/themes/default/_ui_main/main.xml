@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window caption="0,0,0,35" shadowattached="true" custom_shadow="20,20,20,20" sizebox="4,4,4,4" size="800,600" mininfo="800,600">
+  <VBox bkcolor="bk_wnd_darkcolor">
+    <!-- 标题栏按钮 -->
+    <HBox width="stretch" height="35" bkcolor="bk_wnd_lightcolor">
+      <Control />
+      <Button class="btn_wnd_min" name="minbtn" margin="0,6,6,0"/>
+      <Box width="20" margin="0,6,6,0">
+        <Button class="btn_wnd_max" name="maxbtn"/>
+        <Button class="btn_wnd_restore" name="restorebtn" visible="false"/>
+      </Box>
+      <Button class="btn_wnd_close" name="closebtn" margin="0,6,6,0"/>
+    </HBox>
+    <!-- 注销和退出 -->
+    <Box>
+      <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto">
+        <Control />
+        <Button class="btn_global_blue_80x30" name="btn_logout" text="注销" margin="0,0,4,0"/>
+        <Button class="btn_global_blue_80x30" name="btn_exit" text="退出"/>
+      </HBox>
+    </Box>
+  </VBox>
+</Window>

@@ -26,6 +26,9 @@
     <ClInclude Include="UI\LoginForm.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="UI\MainForm.h">
+      <Filter>UI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -37,6 +40,9 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UI\LoginForm.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\MainForm.cpp">
       <Filter>UI</Filter>
     </ClCompile>
   </ItemGroup>
