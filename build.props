@@ -6,8 +6,7 @@
     <LibOutDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\</LibOutDir>
     <AppIntDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\$(ProjectName)\</AppIntDir>
     <AppOutDir>$(MSBuildThisFileDirectory)bin\$(Platform)$(Configuration)\</AppOutDir>
-    <BaseLibDir>$(MSBuildThisFileDirectory)base-lib\</BaseLibDir>
-    <DuilibLibDir>$(MSBuildThisFileDirectory)duilib-lib\</DuilibLibDir>
+    <ExportDir>$(MSBuildThisFileDirectory)libs\</ExportDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -28,12 +27,8 @@
       <Value>$(AppOutDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
-    <BuildMacro Include="BaseLibDir">
-      <Value>$(BaseLibDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="DuilibLibDir">
-      <Value>$(DuilibLibDir)</Value>
+    <BuildMacro Include="ExportDir">
+      <Value>$(ExportDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

@@ -205,9 +205,9 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(BaseLibDir)Win32D" mkdir "$(BaseLibDir)Win32D"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win32D"
-xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win32D"</Command>
+      <Command>if not exist "$(ExportDir)Win32D" mkdir "$(ExportDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win32D"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -225,9 +225,9 @@ xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win32D"</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(BaseLibDir)Win64D" mkdir "$(BaseLibDir)Win64D"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win64D"
-xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win64D"</Command>
+      <Command>if not exist "$(ExportDir)Win64D" mkdir "$(ExportDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win64D"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -248,8 +248,8 @@ xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(BaseLibDir)Win64D"</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(BaseLibDir)Win32R" mkdir "$(BaseLibDir)Win32R"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win32R"</Command>
+      <Command>if not exist "$(ExportDir)Win32R" mkdir "$(ExportDir)Win32R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win32R"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -270,8 +270,8 @@ xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win32R"</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(BaseLibDir)Win64R" mkdir "$(BaseLibDir)Win64R"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(BaseLibDir)Win64R"</Command>
+      <Command>if not exist "$(ExportDir)Win64R" mkdir "$(ExportDir)Win64R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win64R"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

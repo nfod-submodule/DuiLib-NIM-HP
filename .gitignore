@@ -40,5 +40,5 @@ _DLL_Win32*/
 _DLL_Win64*/
 _LIB_Win32*/
 _LIB_Win64*/
-base-lib/
-duilib-lib/
+bin/
+libs/

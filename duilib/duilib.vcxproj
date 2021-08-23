@@ -100,9 +100,9 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(DuilibLibDir)Win32D" mkdir "$(DuilibLibDir)Win32D"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win32D"
-xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(DuilibLibDir)Win32D"</Command>
+      <Command>if not exist "$(ExportDir)Win32D" mkdir "$(ExportDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win32D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win32D"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -120,9 +120,9 @@ xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(DuilibLibDir)Win32D"</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(DuilibLibDir)Win64D" mkdir "$(DuilibLibDir)Win64D"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win64D"
-xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(DuilibLibDir)Win64D"</Command>
+      <Command>if not exist "$(ExportDir)Win64D" mkdir "$(ExportDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win64D"
+xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win64D"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -143,8 +143,8 @@ xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(DuilibLibDir)Win64D"</Command>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(DuilibLibDir)Win32R" mkdir "$(DuilibLibDir)Win32R"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win32R"</Command>
+      <Command>if not exist "$(ExportDir)Win32R" mkdir "$(ExportDir)Win32R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win32R"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -165,8 +165,8 @@ xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win32R"</Comman
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(DuilibLibDir)Win64R" mkdir "$(DuilibLibDir)Win64R"
-xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win64R"</Command>
+      <Command>if not exist "$(ExportDir)Win64R" mkdir "$(ExportDir)Win64R"
+xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win64R"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
