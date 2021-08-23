@@ -54,19 +54,19 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="build.props" />
+    <Import Project="..\build.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="build.props" />
+    <Import Project="..\build.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="build.props" />
+    <Import Project="..\build.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="build.props" />
+    <Import Project="..\build.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -170,111 +170,111 @@ xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(DuilibLibDir)Win64R"</Comman
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\duilib\Animation\AnimationManager.cpp" />
-    <ClCompile Include="..\duilib\Animation\AnimationPlayer.cpp" />
-    <ClCompile Include="..\duilib\Box\ChildBox.cpp" />
-    <ClCompile Include="..\duilib\Box\HBox.cpp" />
-    <ClCompile Include="..\duilib\Box\TabBox.cpp" />
-    <ClCompile Include="..\duilib\Box\TileBox.cpp" />
-    <ClCompile Include="..\duilib\Box\VBox.cpp" />
-    <ClCompile Include="..\duilib\Control\CircleProgress.cpp" />
-    <ClCompile Include="..\duilib\Control\VirtualListBox.cpp" />
-    <ClCompile Include="..\duilib\Core\Define.cpp" />
-    <ClCompile Include="..\duilib\Core\Image.cpp" />
-    <ClCompile Include="..\duilib\Core\Placeholder.cpp" />
-    <ClCompile Include="..\duilib\Render\Bitmap.cpp" />
-    <ClCompile Include="..\duilib\Render\Brush.cpp" />
-    <ClCompile Include="..\duilib\Render\Clip.cpp" />
-    <ClCompile Include="..\duilib\Render\Factory.cpp" />
-    <ClCompile Include="..\duilib\Render\IRender.cpp" />
-    <ClCompile Include="..\duilib\Render\Matrix.cpp" />
-    <ClCompile Include="..\duilib\Render\Path.cpp" />
-    <ClCompile Include="..\duilib\Render\Pen.cpp" />
-    <ClCompile Include="..\duilib\Render\Render.cpp" />
-    <ClCompile Include="..\duilib\StdAfx.cpp">
+    <ClCompile Include="Animation\AnimationManager.cpp" />
+    <ClCompile Include="Animation\AnimationPlayer.cpp" />
+    <ClCompile Include="Box\ChildBox.cpp" />
+    <ClCompile Include="Box\HBox.cpp" />
+    <ClCompile Include="Box\TabBox.cpp" />
+    <ClCompile Include="Box\TileBox.cpp" />
+    <ClCompile Include="Box\VBox.cpp" />
+    <ClCompile Include="Control\CircleProgress.cpp" />
+    <ClCompile Include="Control\VirtualListBox.cpp" />
+    <ClCompile Include="Core\Define.cpp" />
+    <ClCompile Include="Core\Image.cpp" />
+    <ClCompile Include="Core\Placeholder.cpp" />
+    <ClCompile Include="Render\Bitmap.cpp" />
+    <ClCompile Include="Render\Brush.cpp" />
+    <ClCompile Include="Render\Clip.cpp" />
+    <ClCompile Include="Render\Factory.cpp" />
+    <ClCompile Include="Render\IRender.cpp" />
+    <ClCompile Include="Render\Matrix.cpp" />
+    <ClCompile Include="Render\Path.cpp" />
+    <ClCompile Include="Render\Pen.cpp" />
+    <ClCompile Include="Render\Render.cpp" />
+    <ClCompile Include="StdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\duilib\UIlib.cpp" />
-    <ClCompile Include="..\duilib\Utils\ApiWrapper.cpp" />
-    <ClCompile Include="..\duilib\Utils\DpiManager.cpp" />
-    <ClCompile Include="..\duilib\Utils\MultiLangSupport.cpp" />
-    <ClCompile Include="..\duilib\Utils\OnScreenKeyboardManager.cpp" />
-    <ClCompile Include="..\duilib\Utils\Shadow.cpp" />
-    <ClCompile Include="..\duilib\Utils\StringUtil.cpp" />
-    <ClCompile Include="..\duilib\Utils\TimerManager.cpp" />
-    <ClCompile Include="..\duilib\Core\Window.cpp" />
-    <ClCompile Include="..\duilib\Core\Box.cpp" />
-    <ClCompile Include="..\duilib\Core\Control.cpp" />
-    <ClCompile Include="..\duilib\Core\WindowBuilder.cpp" />
-    <ClCompile Include="..\duilib\Core\GlobalManager.cpp" />
-    <ClCompile Include="..\duilib\Core\Markup.cpp" />
-    <ClCompile Include="..\duilib\Control\Combo.cpp" />
-    <ClCompile Include="..\duilib\Control\List.cpp" />
-    <ClCompile Include="..\duilib\Control\Progress.cpp" />
-    <ClCompile Include="..\duilib\Control\RichEdit.cpp" />
-    <ClCompile Include="..\duilib\Control\ScrollBar.cpp" />
-    <ClCompile Include="..\duilib\Control\Slider.cpp" />
-    <ClCompile Include="..\duilib\Control\TreeView.cpp" />
-    <ClCompile Include="..\duilib\Utils\UnZip.cpp" />
-    <ClCompile Include="..\duilib\Utils\WinImplBase.cpp" />
+    <ClCompile Include="UIlib.cpp" />
+    <ClCompile Include="Utils\ApiWrapper.cpp" />
+    <ClCompile Include="Utils\DpiManager.cpp" />
+    <ClCompile Include="Utils\MultiLangSupport.cpp" />
+    <ClCompile Include="Utils\OnScreenKeyboardManager.cpp" />
+    <ClCompile Include="Utils\Shadow.cpp" />
+    <ClCompile Include="Utils\StringUtil.cpp" />
+    <ClCompile Include="Utils\TimerManager.cpp" />
+    <ClCompile Include="Core\Window.cpp" />
+    <ClCompile Include="Core\Box.cpp" />
+    <ClCompile Include="Core\Control.cpp" />
+    <ClCompile Include="Core\WindowBuilder.cpp" />
+    <ClCompile Include="Core\GlobalManager.cpp" />
+    <ClCompile Include="Core\Markup.cpp" />
+    <ClCompile Include="Control\Combo.cpp" />
+    <ClCompile Include="Control\List.cpp" />
+    <ClCompile Include="Control\Progress.cpp" />
+    <ClCompile Include="Control\RichEdit.cpp" />
+    <ClCompile Include="Control\ScrollBar.cpp" />
+    <ClCompile Include="Control\Slider.cpp" />
+    <ClCompile Include="Control\TreeView.cpp" />
+    <ClCompile Include="Utils\UnZip.cpp" />
+    <ClCompile Include="Utils\WinImplBase.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\duilib\Animation\AnimationManager.h" />
-    <ClInclude Include="..\duilib\Animation\AnimationPlayer.h" />
-    <ClInclude Include="..\duilib\Box\ChildBox.h" />
-    <ClInclude Include="..\duilib\Box\HBox.h" />
-    <ClInclude Include="..\duilib\Box\TabBox.h" />
-    <ClInclude Include="..\duilib\Box\TileBox.h" />
-    <ClInclude Include="..\duilib\Box\VBox.h" />
-    <ClInclude Include="..\duilib\Control\CircleProgress.h" />
-    <ClInclude Include="..\duilib\Control\VirtualListBox.h" />
-    <ClInclude Include="..\duilib\Core\Image.h" />
-    <ClInclude Include="..\duilib\Core\Placeholder.h" />
-    <ClInclude Include="..\duilib\Render\Bitmap.h" />
-    <ClInclude Include="..\duilib\Render\Brush.h" />
-    <ClInclude Include="..\duilib\Render\Clip.h" />
-    <ClInclude Include="..\duilib\Render\Factory.h" />
-    <ClInclude Include="..\duilib\Render\IRender.h" />
-    <ClInclude Include="..\duilib\Render\Matrix.h" />
-    <ClInclude Include="..\duilib\Render\Path.h" />
-    <ClInclude Include="..\duilib\Render\Pen.h" />
-    <ClInclude Include="..\duilib\Render\Render.h" />
-    <ClInclude Include="..\duilib\StdAfx.h" />
-    <ClInclude Include="..\duilib\UIlib.h" />
-    <ClInclude Include="..\duilib\Utils\ApiWrapper.h" />
-    <ClInclude Include="..\duilib\Utils\DpiManager.h" />
-    <ClInclude Include="..\duilib\Utils\Macros.h" />
-    <ClInclude Include="..\duilib\Utils\MultiLangSupport.h" />
-    <ClInclude Include="..\duilib\Utils\OnScreenKeyboardManager.h" />
-    <ClInclude Include="..\duilib\Utils\Shadow.h" />
-    <ClInclude Include="..\duilib\Utils\StringUtil.h" />
-    <ClInclude Include="..\duilib\Utils\Delegate.h" />
-    <ClInclude Include="..\duilib\Utils\TimerManager.h" />
-    <ClInclude Include="..\duilib\Utils\UnZip.h" />
-    <ClInclude Include="..\duilib\Utils\Utils.h" />
-    <ClInclude Include="..\duilib\Utils\VersionHelpers.h" />
-    <ClInclude Include="..\duilib\Utils\WinImplBase.h" />
-    <ClInclude Include="..\duilib\Core\Window.h" />
-    <ClInclude Include="..\duilib\Core\Box.h" />
-    <ClInclude Include="..\duilib\Core\Control.h" />
-    <ClInclude Include="..\duilib\Core\Define.h" />
-    <ClInclude Include="..\duilib\Core\WindowBuilder.h" />
-    <ClInclude Include="..\duilib\Core\GlobalManager.h" />
-    <ClInclude Include="..\duilib\Core\Markup.h" />
-    <ClInclude Include="..\duilib\Control\Button.h" />
-    <ClInclude Include="..\duilib\Control\CheckBox.h" />
-    <ClInclude Include="..\duilib\Control\Combo.h" />
-    <ClInclude Include="..\duilib\Control\Label.h" />
-    <ClInclude Include="..\duilib\Control\List.h" />
-    <ClInclude Include="..\duilib\Control\Option.h" />
-    <ClInclude Include="..\duilib\Control\Progress.h" />
-    <ClInclude Include="..\duilib\Control\RichEdit.h" />
-    <ClInclude Include="..\duilib\Control\ScrollBar.h" />
-    <ClInclude Include="..\duilib\Control\Slider.h" />
-    <ClInclude Include="..\duilib\Control\TreeView.h" />
+    <ClInclude Include="Animation\AnimationManager.h" />
+    <ClInclude Include="Animation\AnimationPlayer.h" />
+    <ClInclude Include="Box\ChildBox.h" />
+    <ClInclude Include="Box\HBox.h" />
+    <ClInclude Include="Box\TabBox.h" />
+    <ClInclude Include="Box\TileBox.h" />
+    <ClInclude Include="Box\VBox.h" />
+    <ClInclude Include="Control\CircleProgress.h" />
+    <ClInclude Include="Control\VirtualListBox.h" />
+    <ClInclude Include="Core\Image.h" />
+    <ClInclude Include="Core\Placeholder.h" />
+    <ClInclude Include="Render\Bitmap.h" />
+    <ClInclude Include="Render\Brush.h" />
+    <ClInclude Include="Render\Clip.h" />
+    <ClInclude Include="Render\Factory.h" />
+    <ClInclude Include="Render\IRender.h" />
+    <ClInclude Include="Render\Matrix.h" />
+    <ClInclude Include="Render\Path.h" />
+    <ClInclude Include="Render\Pen.h" />
+    <ClInclude Include="Render\Render.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="UIlib.h" />
+    <ClInclude Include="Utils\ApiWrapper.h" />
+    <ClInclude Include="Utils\DpiManager.h" />
+    <ClInclude Include="Utils\Macros.h" />
+    <ClInclude Include="Utils\MultiLangSupport.h" />
+    <ClInclude Include="Utils\OnScreenKeyboardManager.h" />
+    <ClInclude Include="Utils\Shadow.h" />
+    <ClInclude Include="Utils\StringUtil.h" />
+    <ClInclude Include="Utils\Delegate.h" />
+    <ClInclude Include="Utils\TimerManager.h" />
+    <ClInclude Include="Utils\UnZip.h" />
+    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Utils\VersionHelpers.h" />
+    <ClInclude Include="Utils\WinImplBase.h" />
+    <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="Core\Box.h" />
+    <ClInclude Include="Core\Control.h" />
+    <ClInclude Include="Core\Define.h" />
+    <ClInclude Include="Core\WindowBuilder.h" />
+    <ClInclude Include="Core\GlobalManager.h" />
+    <ClInclude Include="Core\Markup.h" />
+    <ClInclude Include="Control\Button.h" />
+    <ClInclude Include="Control\CheckBox.h" />
+    <ClInclude Include="Control\Combo.h" />
+    <ClInclude Include="Control\Label.h" />
+    <ClInclude Include="Control\List.h" />
+    <ClInclude Include="Control\Option.h" />
+    <ClInclude Include="Control\Progress.h" />
+    <ClInclude Include="Control\RichEdit.h" />
+    <ClInclude Include="Control\ScrollBar.h" />
+    <ClInclude Include="Control\Slider.h" />
+    <ClInclude Include="Control\TreeView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

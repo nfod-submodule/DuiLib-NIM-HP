@@ -6,8 +6,8 @@
     <LibOutDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\</LibOutDir>
     <AppIntDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\$(ProjectName)\</AppIntDir>
     <AppOutDir>$(MSBuildThisFileDirectory)bin\$(Platform)$(Configuration)\</AppOutDir>
-    <BaseLibDir>$(MSBuildThisFileDirectory)..\base-lib\</BaseLibDir>
-    <DuilibLibDir>$(MSBuildThisFileDirectory)..\duilib-lib\</DuilibLibDir>
+    <BaseLibDir>$(MSBuildThisFileDirectory)base-lib\</BaseLibDir>
+    <DuilibLibDir>$(MSBuildThisFileDirectory)duilib-lib\</DuilibLibDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />

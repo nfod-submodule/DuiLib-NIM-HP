@@ -1,6 +1,6 @@
 @echo off
 
-set Solution="duilib.sln"
+set Solution="build.sln"
 set Projects=(base,duilib)
 set Configurations=(Debug,Release)
 set Platforms=(x64,x86)
