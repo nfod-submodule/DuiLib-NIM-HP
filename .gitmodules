@@ -1,0 +1,3 @@
+[submodule "test_demo/Depend/vld"]
+	path = test_demo/Depend/vld
+	url = https://github.com/nfod-submodule/vld-2.5.1-dll.git
