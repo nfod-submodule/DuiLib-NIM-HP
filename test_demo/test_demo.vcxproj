@@ -95,12 +95,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win32D;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win32D;$(ProjectDir)Depend\vld\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -108,7 +108,8 @@
 if not exist "$(OutDir)resources" (
 mkdir "$(OutDir)resources"
 xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
-)</Command>
+)
+xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win32\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -117,12 +118,12 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win64D;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\libs\Win64D;$(ProjectDir)Depend\vld\lib\Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -130,7 +131,8 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
 if not exist "$(OutDir)resources" (
 mkdir "$(OutDir)resources"
 xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
-)</Command>
+)
+xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win64\*.*" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

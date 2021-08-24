@@ -4,6 +4,10 @@
 #include "Util.h"
 #include "LoginForm.h"
 
+#ifdef _DEBUG
+#include "vld.h"
+#endif
+
 int APIENTRY wWinMain(
 	_In_ HINSTANCE hInstance,
 	_In_opt_ HINSTANCE hPrevInstance,
