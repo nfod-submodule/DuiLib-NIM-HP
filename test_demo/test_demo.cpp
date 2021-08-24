@@ -17,12 +17,26 @@ int APIENTRY wWinMain(
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
+	OnInit();
+
 	do  {
 		UIThread td;
 		td.RunOnCurrentThreadWithLoop(nbase::MessageLoop::kUIMessageLoop);
 	} while (0);
 
+	OnExit();
+
 	return 0;
+}
+
+bool OnInit()
+{
+	return true;
+}
+
+void OnExit()
+{
+
 }
 
 //****************************/

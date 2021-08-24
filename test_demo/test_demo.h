@@ -2,6 +2,9 @@
 
 #include "resource.h"
 
+bool OnInit();
+void OnExit();
+
 //****************************/
 //-- class UIThread
 //****************************/
