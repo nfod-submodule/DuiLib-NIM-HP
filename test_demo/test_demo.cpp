@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "test_demo.h"
 #include "ConfUI.h"
+#include "Console.h"
 #include "Util.h"
 #include "LoginForm.h"
 
@@ -31,12 +32,13 @@ int APIENTRY wWinMain(
 
 bool OnInit()
 {
+	Console::Open();
 	return true;
 }
 
 void OnExit()
 {
-
+	Console::Close();
 }
 
 //****************************/

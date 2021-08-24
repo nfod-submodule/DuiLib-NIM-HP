@@ -29,6 +29,9 @@
     <ClInclude Include="UI\MainForm.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="Util\Console.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="UI\MainForm.cpp">
       <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Console.cpp">
+      <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
