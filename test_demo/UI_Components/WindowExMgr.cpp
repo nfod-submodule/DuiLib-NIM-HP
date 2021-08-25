@@ -19,71 +19,62 @@ WindowExMgr::~WindowExMgr()
 	windows_map_.clear();
 }
 
-bool WindowExMgr::RegisterWindow(const std::wstring wnd_class_name, const std::wstring wnd_id, WindowEx *wnd)
+bool WindowExMgr::RegisterWindow(
+	const std::wstring& wnd_class_name,
+	const std::wstring& wnd_id,
+	WindowEx* wnd)
 {
 	if (IsStopRegister())
 	{
 		assert(!stop_register_);
 		return false;
 	}
-	WindowsMap::iterator it = windows_map_.find(wnd_class_name);
-	if (it != windows_map_.end())
+	auto iter1 = windows_map_.find(wnd_class_name);
+	if (iter1 != windows_map_.end())
 	{
-		std::map<std::wstring, WindowEx*>::iterator it2 = it->second.find(wnd_id);
-		it->second[wnd_id] = wnd;
+		auto iter2 = iter1->second.find(wnd_id);
+		if (iter2 != iter1->second.end()) {
+			wprintf(L"The window <class name: %s, id: %s> has already registered !", wnd_class_name.c_str(), wnd_id.c_str());
+		}
+		iter1->second[wnd_id] = wnd;
 	}
 	else
 	{
-		std::map<std::wstring, WindowEx*> id_win;
-		id_win[wnd_id] = wnd;
-		windows_map_[wnd_class_name] = id_win;
+		std::map<std::wstring, WindowEx*> subitem_map_; // map<´°¿Úid£¬´°¿ÚÖ¸Õë>
+		subitem_map_[wnd_id] = wnd;
+		windows_map_[wnd_class_name] = subitem_map_;
 	}
 	return true;
 }
 
-void WindowExMgr::UnRegisterWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id, WindowEx *wnd)
+void WindowExMgr::UnRegisterWindow(
+	const std::wstring& wnd_class_name,
+	const std::wstring& wnd_id,
+	WindowEx* wnd)
 {
-	WindowsMap::iterator it = windows_map_.find(wnd_class_name);
-	if (it != windows_map_.end())
+	auto iter1 = windows_map_.find(wnd_class_name);
+	if (iter1 != windows_map_.end())
 	{
-		std::map<std::wstring, WindowEx*>::iterator it2 = it->second.find(wnd_id);
-		if (it2 != it->second.end())
+		auto iter2 = iter1->second.find(wnd_id);
+		if (iter2 != iter1->second.end())
 		{
-			it->second.erase(it2);
+			iter1->second.erase(iter2);
 		}
 	}
 }
 
-WindowList WindowExMgr::GetAllWindows()
+WindowEx* WindowExMgr::GetWindow(
+	const std::wstring& wnd_class_name,
+	const std::wstring& wnd_id)
 {
-	WindowList list;
-	WindowsMap::iterator it = windows_map_.begin();
-	for (; it != windows_map_.end(); ++it)
+	auto iter1 = windows_map_.find(wnd_class_name);
+	if (iter1 != windows_map_.end())
 	{
-		std::map<std::wstring, WindowEx*>::iterator it2 = it->second.begin();
-		for (; it2 != it->second.end(); ++it2)
+		auto iter2 = iter1->second.find(wnd_id);
+		if (iter2 != iter1->second.end())
 		{
-			WindowEx *wnd = (WindowEx *)(it2->second);
-			if (wnd && ::IsWindow(wnd->GetHWND()))
-			{
-				list.push_back(wnd);
-			}
-		}
-	}
-	return list;
-}
-
-WindowEx* WindowExMgr::GetWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id)
-{
-	WindowsMap::iterator it = windows_map_.find(wnd_class_name);
-	if (it != windows_map_.end())
-	{
-		std::map<std::wstring, WindowEx*>::iterator it2 = it->second.find(wnd_id);
-		if (it2 != it->second.end())
-		{
-			WindowEx* wnd = (WindowEx*)(it2->second);
-			if (wnd && ::IsWindow(wnd->GetHWND()))
-			{
+			WindowEx* wnd = (WindowEx*)(iter2->second);
+			if (wnd && ::IsWindow(wnd->GetHWND())) {
 				return wnd;
 			}
 		}
@@ -91,36 +82,48 @@ WindowEx* WindowExMgr::GetWindow(const std::wstring &wnd_class_name, const std::
 	return NULL;
 }
 
-WindowList WindowExMgr::GetWindowsByClassName(LPCTSTR classname)
+void WindowExMgr::GetWindowsByClassName(std::list<WindowEx*>& wnd_list, LPCWSTR class_name)
 {
-	WindowList wnd_list;
-	WindowsMap::iterator it = windows_map_.find(classname);
-	if (it != windows_map_.end())
+	wnd_list.clear();
+	if (class_name == nullptr) {
+		return;
+	}
+	auto iter1 = windows_map_.find(class_name);
+	if (iter1 != windows_map_.end())
 	{
-		std::map<std::wstring, WindowEx*>::iterator it2 = it->second.begin();
-		for (; it2 != it->second.end(); it2++)
+		for (auto iter2 = iter1->second.begin(); iter2 != iter1->second.end(); ++iter2)
 		{
-			WindowEx* wnd = (WindowEx*)(it2->second);
-			if (wnd && ::IsWindow(wnd->GetHWND()))
-			{
+			WindowEx* wnd = (WindowEx*)(iter2->second);
+			if (wnd && ::IsWindow(wnd->GetHWND())) {
 				wnd_list.push_back(wnd);
 			}
 		}
 	}
-	return wnd_list;
+}
+
+void WindowExMgr::GetAllWindows(std::list<WindowEx*>& wnd_list)
+{
+	for (auto iter1 = windows_map_.begin(); iter1 != windows_map_.end(); ++iter1)
+	{
+		for (auto iter2 = iter1->second.begin(); iter2 != iter1->second.end(); ++iter2)
+		{
+			WindowEx* wnd = (WindowEx*)(iter2->second);
+			if (wnd && ::IsWindow(wnd->GetHWND())) {
+				wnd_list.push_back(wnd);
+			}
+		}
+	}
 }
 
 void WindowExMgr::DestroyAllWindows()
 {
 	SetStopRegister();
-
-	WindowList lst_wnd = GetAllWindows();
-	WindowList::iterator it = lst_wnd.begin();
-	for (; it != lst_wnd.end(); ++it)
+	std::list<WindowEx*> wnd_list;
+	GetAllWindows(wnd_list);
+	for (auto iter = wnd_list.begin(); iter != wnd_list.end(); ++iter)
 	{
-		WindowEx *wnd = (WindowEx *)*it;
-		if (wnd && ::IsWindow(wnd->GetHWND()))
-		{
+		WindowEx* wnd = (WindowEx*)(*iter);
+		if (wnd && ::IsWindow(wnd->GetHWND())) {
 			::DestroyWindow(wnd->GetHWND());
 		}
 	}
