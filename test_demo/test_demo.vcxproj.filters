@@ -32,6 +32,9 @@
     <ClInclude Include="Util\Console.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="Util\Log4z.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -49,6 +52,9 @@
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Util\Console.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Log4z.cpp">
       <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>

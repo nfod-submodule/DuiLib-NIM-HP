@@ -192,7 +192,7 @@
 #include <math.h>
 #include <cmath>
 #include <stdlib.h>
-#ifdef WIN32
+#ifdef _WINDOWS // #ifdef WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #endif
@@ -259,7 +259,7 @@ const bool LOG4Z_ALL_SYNCHRONOUS_OUTPUT = false;
 const bool LOG4Z_ALL_DEBUGOUTPUT_DISPLAY = false;
 
 //! default logger output file.
-const char* const LOG4Z_DEFAULT_PATH = "./log/";
+const char* const LOG4Z_DEFAULT_PATH = "./logs/";
 //! default log filter level
 const int LOG4Z_DEFAULT_LEVEL = LOG_LEVEL_DEBUG;
 //! default logger display
@@ -402,8 +402,8 @@ do{\
 //! fast macro
 #define LOG_TRACE(id, log) LOG_STREAM(id, LOG_LEVEL_TRACE, __FILE__, __LINE__, log)
 #define LOG_DEBUG(id, log) LOG_STREAM(id, LOG_LEVEL_DEBUG, __FILE__, __LINE__, log)
-#define LOG_INFO(id, log)  LOG_STREAM(id, LOG_LEVEL_INFO, __FILE__, __LINE__, log)
-#define LOG_WARN(id, log)  LOG_STREAM(id, LOG_LEVEL_WARN, __FILE__, __LINE__, log)
+#define LOG_INFO( id, log) LOG_STREAM(id, LOG_LEVEL_INFO , __FILE__, __LINE__, log)
+#define LOG_WARN( id, log) LOG_STREAM(id, LOG_LEVEL_WARN , __FILE__, __LINE__, log)
 #define LOG_ERROR(id, log) LOG_STREAM(id, LOG_LEVEL_ERROR, __FILE__, __LINE__, log)
 #define LOG_ALARM(id, log) LOG_STREAM(id, LOG_LEVEL_ALARM, __FILE__, __LINE__, log)
 #define LOG_FATAL(id, log) LOG_STREAM(id, LOG_LEVEL_FATAL, __FILE__, __LINE__, log)
@@ -411,8 +411,8 @@ do{\
 //! super macro.
 #define LOGT( log ) LOG_TRACE(LOG4Z_MAIN_LOGGER_ID, log )
 #define LOGD( log ) LOG_DEBUG(LOG4Z_MAIN_LOGGER_ID, log )
-#define LOGI( log ) LOG_INFO(LOG4Z_MAIN_LOGGER_ID, log )
-#define LOGW( log ) LOG_WARN(LOG4Z_MAIN_LOGGER_ID, log )
+#define LOGI( log ) LOG_INFO( LOG4Z_MAIN_LOGGER_ID, log )
+#define LOGW( log ) LOG_WARN( LOG4Z_MAIN_LOGGER_ID, log )
 #define LOGE( log ) LOG_ERROR(LOG4Z_MAIN_LOGGER_ID, log )
 #define LOGA( log ) LOG_ALARM(LOG4Z_MAIN_LOGGER_ID, log )
 #define LOGF( log ) LOG_FATAL(LOG4Z_MAIN_LOGGER_ID, log )
@@ -449,15 +449,15 @@ do{ \
 //!format string
 #define LOGFMT_TRACE(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_TRACE, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #define LOGFMT_DEBUG(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_DEBUG, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#define LOGFMT_INFO(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_INFO, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
-#define LOGFMT_WARN(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_WARN, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
+#define LOGFMT_INFO( id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_INFO , __FILE__, __LINE__, fmt, ##__VA_ARGS__)
+#define LOGFMT_WARN( id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_WARN , __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #define LOGFMT_ERROR(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_ERROR, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #define LOGFMT_ALARM(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_ALARM, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #define LOGFMT_FATAL(id, fmt, ...)  LOG_FORMAT(id, LOG_LEVEL_FATAL, __FILE__, __LINE__, fmt, ##__VA_ARGS__)
 #define LOGFMTT( fmt, ...) LOGFMT_TRACE(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
 #define LOGFMTD( fmt, ...) LOGFMT_DEBUG(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
-#define LOGFMTI( fmt, ...) LOGFMT_INFO(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
-#define LOGFMTW( fmt, ...) LOGFMT_WARN(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
+#define LOGFMTI( fmt, ...) LOGFMT_INFO( LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
+#define LOGFMTW( fmt, ...) LOGFMT_WARN( LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
 #define LOGFMTE( fmt, ...) LOGFMT_ERROR(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
 #define LOGFMTA( fmt, ...) LOGFMT_ALARM(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
 #define LOGFMTF( fmt, ...) LOGFMT_FATAL(LOG4Z_MAIN_LOGGER_ID, fmt,  ##__VA_ARGS__)
@@ -466,8 +466,8 @@ inline void empty_log_format_function1(LoggerId id, const char*, ...){}
 inline void empty_log_format_function2(const char*, ...){}
 #define LOGFMT_TRACE empty_log_format_function1
 #define LOGFMT_DEBUG LOGFMT_TRACE
-#define LOGFMT_INFO LOGFMT_TRACE
-#define LOGFMT_WARN LOGFMT_TRACE
+#define LOGFMT_INFO  LOGFMT_TRACE
+#define LOGFMT_WARN  LOGFMT_TRACE
 #define LOGFMT_ERROR LOGFMT_TRACE
 #define LOGFMT_ALARM LOGFMT_TRACE
 #define LOGFMT_FATAL LOGFMT_TRACE
@@ -826,7 +826,7 @@ inline Log4zStream & Log4zStream::writeDouble(double t, bool isSimple)
     {
         if ( fabst < 0.0001 || (!isSimple && fabst > 4503599627370495ULL) || (isSimple && fabst > 8388607))
         {
-            gcvt(t, isSimple ? 7 : 16, _cur);
+            _gcvt_s(_cur, count, t, isSimple ? 7 : 16);
             size_t len = strlen(_cur);
             if (len > count) len = count;
             _cur += len;
@@ -928,4 +928,69 @@ inline Log4zStream & zsummer::log4z::Log4zStream::writeString(const char * t, si
 _ZSUMMER_LOG4Z_END
 _ZSUMMER_END
 
-#endif
+//////////////////////////////////////////////////////////////////////////
+
+void Log4zLogA(ENUM_LOG_LEVEL eLogLv, const char* file, int line, const std::string& text);
+void Log4zLogW(ENUM_LOG_LEVEL eLogLv, const char* file, int line, const std::wstring& text);
+
+#define LOGASTR(level, fmt, ...)													\
+	do  {																			\
+		std::string buffAStr;														\
+		size_t nLen = 1024;															\
+		int snpfLen = -1;															\
+		do  {																		\
+			nLen = nLen << 1;														\
+			if (nLen >= UINT_MAX) {													\
+				printf("Out of bound : nLen >= UINT_MAX.\n");						\
+				buffAStr.clear();													\
+				break;																\
+			}																		\
+			char* szBuff = new char[nLen];											\
+			memset(szBuff, 0, nLen);												\
+			snpfLen = _snprintf_s(szBuff, nLen, _TRUNCATE, fmt, ##__VA_ARGS__);		\
+			szBuff[nLen - 1] = '\0';												\
+			buffAStr = szBuff;														\
+			if (szBuff) { delete[] szBuff; szBuff = NULL; }							\
+		} while (snpfLen < 0 || buffAStr.length() >= nLen - 1);						\
+		Log4zLogA(level, __FILE__, __LINE__, buffAStr);								\
+	} while (0);
+
+#define LOGWSTR(level, fmt, ...)													\
+	do  {																			\
+		std::wstring buffWStr;														\
+		size_t nLen = 1024;															\
+		int snpfLen = -1;															\
+		do  {																		\
+			nLen = nLen << 1;														\
+			if (nLen >= UINT_MAX) {													\
+				printf("Out of bound : nLen >= UINT_MAX.\n");						\
+				buffWStr.clear();													\
+				break;																\
+			}																		\
+			wchar_t* szBuff = new wchar_t[nLen];									\
+			wmemset(szBuff, 0, nLen);												\
+			snpfLen = _snwprintf_s(szBuff, nLen, _TRUNCATE, fmt, ##__VA_ARGS__);	\
+			szBuff[nLen - 1] = '\0';												\
+			buffWStr = szBuff;														\
+			if (szBuff) { delete[] szBuff; szBuff = NULL; }							\
+		} while (snpfLen < 0 || buffWStr.length() >= nLen - 1);						\
+		Log4zLogW(level, __FILE__, __LINE__, buffWStr);								\
+	} while (0);
+
+#define LOGA_TRACE(fmt, ...) LOGASTR(LOG_LEVEL_TRACE, fmt, ##__VA_ARGS__)
+#define LOGA_DEBUG(fmt, ...) LOGASTR(LOG_LEVEL_DEBUG, fmt, ##__VA_ARGS__)
+#define LOGA_INFO( fmt, ...) LOGASTR(LOG_LEVEL_INFO , fmt, ##__VA_ARGS__)
+#define LOGA_WARN( fmt, ...) LOGASTR(LOG_LEVEL_WARN , fmt, ##__VA_ARGS__)
+#define LOGA_ERROR(fmt, ...) LOGASTR(LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__)
+#define LOGA_ALARM(fmt, ...) LOGASTR(LOG_LEVEL_ALARM, fmt, ##__VA_ARGS__)
+#define LOGA_FATAL(fmt, ...) LOGASTR(LOG_LEVEL_FATAL, fmt, ##__VA_ARGS__)
+
+#define LOGW_TRACE(fmt, ...) LOGWSTR(LOG_LEVEL_TRACE, fmt, ##__VA_ARGS__)
+#define LOGW_DEBUG(fmt, ...) LOGWSTR(LOG_LEVEL_DEBUG, fmt, ##__VA_ARGS__)
+#define LOGW_INFO( fmt, ...) LOGWSTR(LOG_LEVEL_INFO , fmt, ##__VA_ARGS__)
+#define LOGW_WARN( fmt, ...) LOGWSTR(LOG_LEVEL_WARN , fmt, ##__VA_ARGS__)
+#define LOGW_ERROR(fmt, ...) LOGWSTR(LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__)
+#define LOGW_ALARM(fmt, ...) LOGWSTR(LOG_LEVEL_ALARM, fmt, ##__VA_ARGS__)
+#define LOGW_FATAL(fmt, ...) LOGWSTR(LOG_LEVEL_FATAL, fmt, ##__VA_ARGS__)
+
+#endif // _ZSUMMER_LOG4Z_H_

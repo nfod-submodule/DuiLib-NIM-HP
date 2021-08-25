@@ -196,6 +196,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="UI\LoginForm.h" />
     <ClInclude Include="UI\MainForm.h" />
     <ClInclude Include="Util\Console.h" />
+    <ClInclude Include="Util\Log4z.h" />
     <ClInclude Include="Util\Util.h" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +211,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClCompile Include="UI\LoginForm.cpp" />
     <ClCompile Include="UI\MainForm.cpp" />
     <ClCompile Include="Util\Console.cpp" />
+    <ClCompile Include="Util\Log4z.cpp" />
     <ClCompile Include="Util\Util.cpp" />
   </ItemGroup>
   <ItemGroup>

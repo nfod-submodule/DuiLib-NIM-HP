@@ -34,7 +34,8 @@
  * (end of COPYRIGHT)
  */
 
-#include "log4z.h"
+#include "stdafx.h"
+#include "Log4z.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -101,8 +102,8 @@ static const size_t LOG_STRING_LEN[] =
 {
     sizeof("LOG_TRACE") - 1,
     sizeof("LOG_DEBUG") - 1,
-    sizeof("LOG_INFO") - 1,
-    sizeof("LOG_WARN") - 1,
+    sizeof("LOG_INFO ") - 1,
+    sizeof("LOG_WARN ") - 1,
     sizeof("LOG_ERROR") - 1,
     sizeof("LOG_ALARM") - 1,
     sizeof("LOG_FATAL") - 1,
@@ -1293,8 +1294,9 @@ LogData * LogerManager::makeLogData(LoggerId id, int level)
         ls.writeULongLong(pLog->_threadID, 4);
         ls.writeChar(']');
 
-        ls.writeChar(' ');
-        ls.writeString(LOG_STRING[pLog->_level], LOG_STRING_LEN[pLog->_level]);
+		ls.writeChar('[');
+		ls.writeString(LOG_STRING[pLog->_level], LOG_STRING_LEN[pLog->_level]);
+		ls.writeChar(']');
         ls.writeChar(' ');
         pLog->_contentLen = ls.getCurrentLen();
     }
@@ -1920,16 +1922,16 @@ bool LogerManager::popLog(LogData *& log)
 void LogerManager::run()
 {
     _runing = true;
-    LOGA("-----------------  log4z thread started!   ----------------------------");
+    LOGA("-----------------  log4z started  -----------------");
     for (int i = 0; i <= _lastId; i++)
     {
         if (_loggers[i]._enable)
         {
-            LOGA("logger id=" << i
-                << " key=" << _loggers[i]._key
-                << " name=" << _loggers[i]._name
-                << " path=" << _loggers[i]._path
-                << " level=" << _loggers[i]._level
+            LOGA("logger id="  << i
+                << " key="     << _loggers[i]._key
+                << " name="    << _loggers[i]._name
+                << " path="    << _loggers[i]._path
+                << " level="   << _loggers[i]._level
                 << " display=" << _loggers[i]._display);
         }
     }
@@ -2063,3 +2065,38 @@ ILog4zManager * ILog4zManager::getInstance()
 
 _ZSUMMER_LOG4Z_END
 _ZSUMMER_END
+
+//////////////////////////////////////////////////////////////////////////
+
+bool WCharToAnsi(const std::wstring& wstrUni, std::string& strAnsi)
+{
+	if (wstrUni.empty()) {
+		return false;
+	}
+	int nLen1 = WideCharToMultiByte(CP_ACP, 0, wstrUni.c_str(), -1, NULL, 0, NULL, NULL);
+	if (nLen1 == 0) {
+		return false;
+	}
+	bool bRet = false;
+	char* pch = new char[nLen1 + 1];
+	memset(pch, 0, nLen1 + 1);
+	int nLen2 = WideCharToMultiByte(CP_ACP, NULL, wstrUni.c_str(), -1, (LPSTR)pch, nLen1, NULL, NULL);
+	if (nLen2 != 0) {
+		strAnsi = pch;
+		bRet = true;
+	}
+	if (pch) { delete[] pch; pch = NULL; }
+	return bRet;
+}
+
+void Log4zLogA(ENUM_LOG_LEVEL eLogLv, const char* file, int line, const std::string& text)
+{
+	LOG_FORMAT(LOG4Z_MAIN_LOGGER_ID, eLogLv, file, line, "%s", text.c_str());
+}
+
+void Log4zLogW(ENUM_LOG_LEVEL eLogLv, const char* file, int line, const std::wstring& text)
+{
+	std::string textAnsi;
+	WCharToAnsi(text, textAnsi);
+	Log4zLogA(eLogLv, file, line, textAnsi);
+}

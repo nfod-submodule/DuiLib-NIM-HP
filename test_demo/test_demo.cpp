@@ -2,6 +2,7 @@
 #include "test_demo.h"
 #include "ConfUI.h"
 #include "Console.h"
+#include "Log4z.h"
 #include "Util.h"
 #include "LoginForm.h"
 
@@ -32,7 +33,21 @@ int APIENTRY wWinMain(
 
 bool OnInit()
 {
+	// 控制台
 	Console::Open();
+	// 日志系统
+	do  {
+		std::string logPathAnsi = Util::GetAppDirA() + "logs\\";
+		LoggerId logid = LOG4Z_MAIN_LOGGER_ID;
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerDisplay(logid, true);
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerOutFile(logid, true);
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerMonthdir(logid, true);
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerFileLine(logid, true);
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerName(logid, "LOG");
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerPath(logid, logPathAnsi.c_str());
+		zsummer::log4z::ILog4zManager::getInstance()->setLoggerLevel(logid, LOG_LEVEL_TRACE);
+		zsummer::log4z::ILog4zManager::getInstance()->start();
+	} while (0);
 	return true;
 }
 
@@ -56,7 +71,7 @@ void UIThread::Init()
 	// 默认皮肤使用 resources\\themes\\default
 	// 默认语言使用 resources\\lang\\zh_CN
 	// 如需修改请指定 Startup 最后两个参数
-	std::wstring resPath = Util::GetAppDir() + L"resources\\";
+	std::wstring resPath = Util::GetAppDirW() + L"resources\\";
 	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false);
 
 	// 登录窗口
