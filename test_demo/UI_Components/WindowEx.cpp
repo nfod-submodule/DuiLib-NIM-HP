@@ -77,14 +77,14 @@ bool WindowEx::RegisterWnd()
 {
 	std::wstring wnd_class_name = GetWindowClassName();
 	std::wstring wnd_id = GetWindowId();
-	return WindowsManager::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this);
+	return WindowExMgr::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this);
 }
 
 void WindowEx::UnRegisterWnd()
 {
 	std::wstring wnd_class_name = GetWindowClassName();
 	std::wstring wnd_id = GetWindowId();
-	WindowsManager::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
+	WindowExMgr::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
 }
 
 NS_UI_COMP_END

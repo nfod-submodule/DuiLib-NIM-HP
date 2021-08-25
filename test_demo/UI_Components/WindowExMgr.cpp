@@ -4,22 +4,22 @@
 NS_UI_COMP_BEGIN
 
 //****************************/
-//-- class WindowsManager
+//-- class WindowExMgr
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
-WindowsManager::WindowsManager()
+WindowExMgr::WindowExMgr()
 {
 	stop_register_ = false;
 	windows_map_.clear();
 }
 
-WindowsManager::~WindowsManager()
+WindowExMgr::~WindowExMgr()
 {
 	windows_map_.clear();
 }
 
-bool WindowsManager::RegisterWindow(const std::wstring wnd_class_name, const std::wstring wnd_id, WindowEx *wnd)
+bool WindowExMgr::RegisterWindow(const std::wstring wnd_class_name, const std::wstring wnd_id, WindowEx *wnd)
 {
 	if (IsStopRegister())
 	{
@@ -41,7 +41,7 @@ bool WindowsManager::RegisterWindow(const std::wstring wnd_class_name, const std
 	return true;
 }
 
-void WindowsManager::UnRegisterWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id, WindowEx *wnd)
+void WindowExMgr::UnRegisterWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id, WindowEx *wnd)
 {
 	WindowsMap::iterator it = windows_map_.find(wnd_class_name);
 	if (it != windows_map_.end())
@@ -54,7 +54,7 @@ void WindowsManager::UnRegisterWindow(const std::wstring &wnd_class_name, const 
 	}
 }
 
-WindowList WindowsManager::GetAllWindows()
+WindowList WindowExMgr::GetAllWindows()
 {
 	WindowList list;
 	WindowsMap::iterator it = windows_map_.begin();
@@ -73,7 +73,7 @@ WindowList WindowsManager::GetAllWindows()
 	return list;
 }
 
-WindowEx* WindowsManager::GetWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id)
+WindowEx* WindowExMgr::GetWindow(const std::wstring &wnd_class_name, const std::wstring &wnd_id)
 {
 	WindowsMap::iterator it = windows_map_.find(wnd_class_name);
 	if (it != windows_map_.end())
@@ -91,7 +91,7 @@ WindowEx* WindowsManager::GetWindow(const std::wstring &wnd_class_name, const st
 	return NULL;
 }
 
-WindowList WindowsManager::GetWindowsByClassName(LPCTSTR classname)
+WindowList WindowExMgr::GetWindowsByClassName(LPCTSTR classname)
 {
 	WindowList wnd_list;
 	WindowsMap::iterator it = windows_map_.find(classname);
@@ -110,7 +110,7 @@ WindowList WindowsManager::GetWindowsByClassName(LPCTSTR classname)
 	return wnd_list;
 }
 
-void WindowsManager::DestroyAllWindows()
+void WindowExMgr::DestroyAllWindows()
 {
 	SetStopRegister();
 

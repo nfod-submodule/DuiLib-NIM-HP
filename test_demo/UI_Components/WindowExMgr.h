@@ -11,14 +11,14 @@ typedef std::list<WindowEx*> WindowList;
 
 //-- 窗体管理
 //****************************/
-//-- class WindowsManager
+//-- class WindowExMgr
 //****************************/
-class WindowsManager
+class WindowExMgr
 {
 public:
-	SINGLETON_DEFINE(WindowsManager);
-	WindowsManager();
-	virtual ~WindowsManager();
+	SINGLETON_DEFINE(WindowExMgr);
+	WindowExMgr();
+	virtual ~WindowExMgr();
 
 	/**
 	 * 创建（或激活）一个唯一存在的窗口
@@ -29,7 +29,7 @@ public:
 	static WindowType* SingletonShow(const std::wstring& wnd_id, const TInstanceParams&... params)
 	{
 		std::wstring wnd_class_name = wnd_id;
-		WindowType* window = (WindowType*)WindowsManager::GetInstance()->GetWindow(wnd_class_name, wnd_id);
+		WindowType* window = (WindowType*)WindowExMgr::GetInstance()->GetWindow(wnd_class_name, wnd_id);
 		if (window == nullptr) {
 			window = new WindowType(params...);
 			window->Create(NULL, wnd_class_name, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
