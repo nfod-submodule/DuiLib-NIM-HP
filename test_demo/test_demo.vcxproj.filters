@@ -44,6 +44,9 @@
     <ClInclude Include="UI_Components\WindowExMgr.h">
       <Filter>UI_Components</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Components\ConfUI_Components.h">
+      <Filter>UI_Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />

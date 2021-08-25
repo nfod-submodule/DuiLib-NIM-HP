@@ -2,24 +2,45 @@
 
 #include "WindowEx.h"
 
-namespace nim_comp
-{
-//map<窗口类名，map<窗口id，窗口指针>>, 如果同一类只有一个窗口，使用类名作为id
-typedef std::map<std::wstring, std::map<std::wstring, WindowEx*>> WindowsMap;
-typedef std::list<WindowEx *> WindowList;
+NS_UI_COMP_BEGIN
 
-/** @class WindowsManager
- * @brief 所有窗体的控制接
- * @copyright (c) 2015, NetEase Inc. All rights reserved
- * @author Redrain
- * @date 2015/9/16
- */
+// map<窗口类名，map<窗口id，窗口指针>>  如果同一类只有一个窗口，使用类名作为id
+typedef std::map<std::wstring, std::map<std::wstring, WindowEx*>> WindowsMap;
+// list<窗口指针>
+typedef std::list<WindowEx*> WindowList;
+
+//-- 窗体管理
+//****************************/
+//-- class WindowsManager
+//****************************/
 class WindowsManager
 {
 public:
 	SINGLETON_DEFINE(WindowsManager);
 	WindowsManager();
 	virtual ~WindowsManager();
+
+	/**
+	 * 创建（或激活）一个唯一存在的窗口
+	 * @param[in] wnd_id 窗口id
+	 * @return WindowType* 窗口指针
+	 */
+	template<typename WindowType, typename... TInstanceParams>
+	static WindowType* SingletonShow(const std::wstring& wnd_id, const TInstanceParams&... params)
+	{
+		std::wstring wnd_class_name = wnd_id;
+		WindowType* window = (WindowType*)WindowsManager::GetInstance()->GetWindow(wnd_class_name, wnd_id);
+		if (window == nullptr) {
+			window = new WindowType(params...);
+			window->Create(NULL, wnd_class_name, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
+			window->CenterWindow();
+			window->ShowWindow();
+		}
+		else {
+			window->ActiveWindow();
+		}
+		return window;
+	}
 
 	/**
 	 * 根据窗口类名和id注册窗口
@@ -79,33 +100,9 @@ public:
 	 */
 	bool IsStopRegister() { return stop_register_; }
 
-	/**
-	 * 根据窗口id创建一个唯一存在的窗口
-	 * @param[in] window_id 窗口id
-	 * @return WindowType* 窗口指针
-	 */
-	template<typename WindowType, typename... TInstanceParams>
-	static WindowType* SingletonShow(const std::wstring& window_id, const TInstanceParams&... params)
-	{
-		WindowType *window = (WindowType*)(WindowsManager::GetInstance()->GetWindow(WindowType::kClassName, window_id));
-		if (!window)
-		{
-			window = new WindowType(params...);
-			window->Create(NULL, WindowType::kClassName, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
-			window->CenterWindow();
-			window->ShowWindow();
-		}
-		else
-		{
-			window->ActiveWindow();
-		}
-
-		return window;
-	}
-
 private:
-	WindowsMap					windows_map_;	//所有窗口
-	std::string					user_id_;
-	bool						stop_register_;	//禁止窗口创建
+	WindowsMap	windows_map_;	// 所有窗口
+	bool		stop_register_;	// 禁止窗口创建
 };
-}
+
+NS_UI_COMP_END

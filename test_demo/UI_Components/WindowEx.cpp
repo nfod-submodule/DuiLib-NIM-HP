@@ -2,23 +2,34 @@
 #include "WindowEx.h"
 #include "WindowExMgr.h"
 
-namespace nim_comp
-{
+NS_UI_COMP_BEGIN
+
+//****************************/
+//-- class WindowEx
+//****************************/
+//////////////////////////////////////////////////////////////////////////
+
 WindowEx::WindowEx()
 {
+
 }
 
 WindowEx::~WindowEx()
 {
+
 }
 
-HWND WindowEx::Create(HWND hwndParent, LPCTSTR pstrName, DWORD dwStyle, DWORD dwExStyle, bool isLayeredWindow, const ui::UiRect& rc)
+HWND WindowEx::Create(
+	HWND hwndParent,
+	LPCTSTR pstrName,
+	DWORD dwStyle,
+	DWORD dwExStyle,
+	bool isLayeredWindow /*= true*/,
+	const ui::UiRect& rc /*= ui::UiRect(0, 0, 0, 0)*/)
 {
-	if (!RegisterWnd())
-	{
+	if (!RegisterWnd()) {
 		return NULL;
 	}
-
 	HWND hwnd = __super::Create(hwndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
 	ASSERT(hwnd);
 	return hwnd;
@@ -35,30 +46,11 @@ void WindowEx::OnEsc(BOOL &bHandled)
 	bHandled = FALSE;
 }
 
-bool WindowEx::RegisterWnd()
-{
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	if (!WindowsManager::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this))
-	{
-		return false;
-	}
-	return true;
-}
-
-void WindowEx::UnRegisterWnd()
-{
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	WindowsManager::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
-}
-
 LRESULT WindowEx::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	if (uMsg == WM_CLOSE)
 	{
-		if (!::IsWindowEnabled(m_hWnd))
-		{
+		if (::IsWindowEnabled(m_hWnd) == FALSE) {
 			::SetForegroundWindow(m_hWnd);
 			return FALSE;
 		}
@@ -73,29 +65,26 @@ LRESULT WindowEx::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 			BOOL bHandled = FALSE;
 			OnEsc(bHandled);
-			if (!bHandled)
+			if (!bHandled) {
 				this->Close();
+			}
 		}
 	}
 	return __super::HandleMessage(uMsg, wParam, lParam);
 }
 
-POINT GetPopupWindowPos(WindowEx* window)
+bool WindowEx::RegisterWnd()
 {
-	ASSERT(window && IsWindow(window->GetHWND()));
-
-	//ÆÁÄ»´óÐ¡
-	MONITORINFO oMonitor = { sizeof(oMonitor) };
-	::GetMonitorInfo(::MonitorFromWindow(window->GetHWND(), MONITOR_DEFAULTTONEAREST), &oMonitor);
-	RECT screen = oMonitor.rcWork;
-
-	ui::UiRect rect = window->GetPos(true);
-
-	POINT pt = { 0, 0 };
-	pt.x = screen.right - rect.GetWidth();
-	pt.y = screen.bottom - rect.GetHeight();
-
-	return pt;
+	std::wstring wnd_class_name = GetWindowClassName();
+	std::wstring wnd_id = GetWindowId();
+	return WindowsManager::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this);
 }
 
+void WindowEx::UnRegisterWnd()
+{
+	std::wstring wnd_class_name = GetWindowClassName();
+	std::wstring wnd_id = GetWindowId();
+	WindowsManager::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
 }
+
+NS_UI_COMP_END

@@ -1,8 +1,13 @@
 #include "stdafx.h"
 #include "WindowExMgr.h"
 
-namespace nim_comp
-{
+NS_UI_COMP_BEGIN
+
+//****************************/
+//-- class WindowsManager
+//****************************/
+//////////////////////////////////////////////////////////////////////////
+
 WindowsManager::WindowsManager()
 {
 	stop_register_ = false;
@@ -120,4 +125,5 @@ void WindowsManager::DestroyAllWindows()
 		}
 	}
 }
-}
+
+NS_UI_COMP_END

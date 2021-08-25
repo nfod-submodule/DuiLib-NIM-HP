@@ -195,6 +195,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="UI\ConfUI.h" />
     <ClInclude Include="UI\LoginForm.h" />
     <ClInclude Include="UI\MainForm.h" />
+    <ClInclude Include="UI_Components\ConfUI_Components.h" />
     <ClInclude Include="UI_Components\WindowEx.h" />
     <ClInclude Include="UI_Components\WindowExMgr.h" />
     <ClInclude Include="Util\Console.h" />

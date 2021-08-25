@@ -1,14 +1,14 @@
 #pragma once
 
 #include "UIlib.h"
+#include "ConfUI_Components.h"
 
-namespace nim_comp
-{
-/** @class WindowEx
- * @brief 所有窗体的基类
- * @copyright (c) 2015, NetEase Inc. All rights reserved
- * @date 2015/9/16
- */
+NS_UI_COMP_BEGIN
+
+//-- 窗体基类
+//****************************/
+//-- class WindowEx
+//****************************/
 class WindowEx : public ui::WindowImplBase
 {
 public:
@@ -25,8 +25,13 @@ public:
 	 * @param[in] rc 窗口位置
 	 * @return HWND 窗口句柄
 	 */
-	virtual HWND Create(HWND hwndParent, LPCTSTR pstrName, DWORD dwStyle, DWORD dwExStyle,
-		bool isLayeredWindow = true, const ui::UiRect& rc = ui::UiRect(0, 0, 0, 0)) override;
+	virtual HWND Create(
+		HWND hwndParent,
+		LPCTSTR pstrName,
+		DWORD dwStyle,
+		DWORD dwExStyle,
+		bool isLayeredWindow = true,
+		const ui::UiRect& rc = ui::UiRect(0, 0, 0, 0)) override;
 
 	/**
 	 * 处理窗口被销毁的消息
@@ -80,10 +85,4 @@ private:
 	void UnRegisterWnd();
 };
 
-/**
-* 获取弹出窗口可以显示在右下角位置的坐标
-* @return POINT 窗口坐标
-*/
-POINT GetPopupWindowPos(WindowEx* window);
-
-}
+NS_UI_COMP_END
