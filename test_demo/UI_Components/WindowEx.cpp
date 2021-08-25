@@ -27,7 +27,9 @@ HWND WindowEx::Create(
 	bool isLayeredWindow /*= true*/,
 	const ui::UiRect& rc /*= ui::UiRect(0, 0, 0, 0)*/)
 {
-	if (!RegisterWnd()) {
+	std::wstring wnd_class_name = GetWindowClassName();
+	std::wstring wnd_id = GetWindowId();
+	if (!WindowExMgr::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this)) {
 		return NULL;
 	}
 	HWND hwnd = __super::Create(hwndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
@@ -37,13 +39,10 @@ HWND WindowEx::Create(
 
 LRESULT WindowEx::OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	UnRegisterWnd();
+	std::wstring wnd_class_name = GetWindowClassName();
+	std::wstring wnd_id = GetWindowId();
+	WindowExMgr::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
 	return __super::OnDestroy(uMsg, wParam, lParam, bHandled);
-}
-
-void WindowEx::OnEsc(BOOL &bHandled)
-{
-	bHandled = FALSE;
 }
 
 LRESULT WindowEx::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -73,18 +72,9 @@ LRESULT WindowEx::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return __super::HandleMessage(uMsg, wParam, lParam);
 }
 
-bool WindowEx::RegisterWnd()
+void WindowEx::OnEsc(BOOL &bHandled)
 {
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	return WindowExMgr::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this);
-}
-
-void WindowEx::UnRegisterWnd()
-{
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	WindowExMgr::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
+	bHandled = FALSE;
 }
 
 NS_UI_COMP_END

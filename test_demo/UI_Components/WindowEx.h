@@ -41,7 +41,16 @@ public:
 	 * @param[out] bHandled 消息是否被处理
 	 * @return LRESULT 处理结果
 	 */
-	virtual LRESULT OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	virtual LRESULT OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) override;
+	
+	/**
+	 * 处理窗口消息
+	 * @param[in] uMsg 消息
+	 * @param[in] wParam 参数
+	 * @param[in] lParam 参数
+	 * @return LRESULT 处理结果
+	 */
+	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
 	/**
 	 * 处理ESC键单击的消息
@@ -50,6 +59,7 @@ public:
 	 */
 	virtual void OnEsc(BOOL &bHandled);
 
+protected:
 	/**
 	 * 获取窗口类名的接口
 	 * @return wstring 窗口类名
@@ -61,28 +71,6 @@ public:
 	 * @return wstring 窗口id
 	 */
 	virtual std::wstring GetWindowId(void) const = 0;
-
-	/**
-	 * 处理窗口消息
-	 * @param[in] uMsg 消息
-	 * @param[in] wParam 参数
-	 * @param[in] lParam 参数
-	 * @return LRESULT 处理结果
-	 */
-	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
-
-private:
-	/**
-	 * 从WindowManager中注册自己
-	 * @return bool true 注册成功，false 注册失败
-	 */
-	bool RegisterWnd();
-
-	/**
-	 * 从WindowManager中反注册自己
-	 * @return void 无返回值
-	 */
-	void UnRegisterWnd();
 };
 
 NS_UI_COMP_END
