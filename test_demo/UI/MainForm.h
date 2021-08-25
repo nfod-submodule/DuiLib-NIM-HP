@@ -1,23 +1,28 @@
 #pragma once
 
+#include "ConfUI.h"
+#include "WindowEx.h"
+
 //****************************/
 //-- class MainForm
 //****************************/
-class MainForm : public ui::WindowImplBase
+class MainForm : public ui_comp::WindowEx
 {
 public:
 	MainForm();
 	~MainForm();
 
 	/**
-	 * 以下三个接口是必须要覆写的接口，父类会调用这三个接口来构建窗口
+	 * 以下四个接口是必须要覆写的接口，父类会调用这四个接口来构建窗口
 	 * GetSkinFolder		接口设置要绘制的窗口皮肤资源路径
 	 * GetSkinFile			接口设置要绘制的窗口的 xml 描述文件
-	 * GetWindowClassName	接口设置窗口唯一的类名称
+	 * GetWindowClassName	接口设置窗口类名
+	 * GetWindowId			接口设置窗口id
 	 */
-	virtual std::wstring GetSkinFolder() override;
-	virtual std::wstring GetSkinFile() override;
-	virtual std::wstring GetWindowClassName() const override;
+	virtual std::wstring GetSkinFolder() override			{ return ConfUI::Main_SkinFolder; }
+	virtual std::wstring GetSkinFile() override				{ return ConfUI::Main_SkinFile; }
+	virtual std::wstring GetWindowClassName() const override{ return ConfUI::Main_ClassName; }
+	virtual std::wstring GetWindowId() const override		{ return ConfUI::Main_WindowId; }
 
 	/**
 	 * 收到 WM_CREATE 消息时该函数会被调用，通常做一些控件初始化的操作

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "MainForm.h"
-#include "ConfUI.h"
 
 //****************************/
 //-- namespace NS_MainForm
@@ -34,21 +33,6 @@ MainForm::MainForm()
 MainForm::~MainForm()
 {
 
-}
-
-std::wstring MainForm::GetSkinFolder()
-{
-	return ConfUI::Main_SkinFolder;
-}
-
-std::wstring MainForm::GetSkinFile()
-{
-	return ConfUI::Main_SkinFile;
-}
-
-std::wstring MainForm::GetWindowClassName() const
-{
-	return ConfUI::Main_ClassName;
 }
 
 void MainForm::InitWindow()

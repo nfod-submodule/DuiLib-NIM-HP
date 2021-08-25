@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "LoginForm.h"
-#include "ConfUI.h"
 
 //****************************/
 //-- namespace NS_LoginForm
@@ -53,21 +52,6 @@ LoginForm::LoginForm()
 LoginForm::~LoginForm()
 {
 
-}
-
-std::wstring LoginForm::GetSkinFolder()
-{
-	return ConfUI::Login_SkinFolder;
-}
-
-std::wstring LoginForm::GetSkinFile()
-{
-	return ConfUI::Login_SkinFile;
-}
-
-std::wstring LoginForm::GetWindowClassName() const
-{
-	return ConfUI::Login_ClassName;
 }
 
 void LoginForm::InitWindow()
