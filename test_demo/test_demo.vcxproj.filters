@@ -54,9 +54,6 @@
     <ClCompile Include="Util\Util.cpp">
       <Filter>Util</Filter>
     </ClCompile>
-    <ClCompile Include="UI\ConfUI.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
     <ClCompile Include="UI\LoginForm.cpp">
       <Filter>UI</Filter>
     </ClCompile>

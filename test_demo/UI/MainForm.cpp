@@ -38,23 +38,23 @@ MainForm::~MainForm()
 
 std::wstring MainForm::GetSkinFolder()
 {
-	return TextUI::Main_SkinFolder;
+	return ConfUI::Main_SkinFolder;
 }
 
 std::wstring MainForm::GetSkinFile()
 {
-	return TextUI::Main_SkinFile;
+	return ConfUI::Main_SkinFile;
 }
 
 std::wstring MainForm::GetWindowClassName() const
 {
-	return TextUI::Main_ClassName;
+	return ConfUI::Main_ClassName;
 }
 
 void MainForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);
-	SetTaskbarTitle(TextUI::Main_WindowName);
+	SetTaskbarTitle(ConfUI::Main_WindowName);
 
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&MainForm::OnNotify, this, std::placeholders::_1));
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&MainForm::OnClicked, this, std::placeholders::_1));

@@ -57,23 +57,23 @@ LoginForm::~LoginForm()
 
 std::wstring LoginForm::GetSkinFolder()
 {
-	return TextUI::Login_SkinFolder;
+	return ConfUI::Login_SkinFolder;
 }
 
 std::wstring LoginForm::GetSkinFile()
 {
-	return TextUI::Login_SkinFile;
+	return ConfUI::Login_SkinFile;
 }
 
 std::wstring LoginForm::GetWindowClassName() const
 {
-	return TextUI::Login_ClassName;
+	return ConfUI::Login_ClassName;
 }
 
 void LoginForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);
-	SetTaskbarTitle(TextUI::Login_WindowName);
+	SetTaskbarTitle(ConfUI::Login_WindowName);
 
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&LoginForm::OnNotify, this, std::placeholders::_1));
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&LoginForm::OnClicked, this, std::placeholders::_1));

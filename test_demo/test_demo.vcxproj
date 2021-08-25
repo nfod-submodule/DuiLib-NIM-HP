@@ -210,7 +210,6 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_demo.cpp" />
-    <ClCompile Include="UI\ConfUI.cpp" />
     <ClCompile Include="UI\LoginForm.cpp" />
     <ClCompile Include="UI\MainForm.cpp" />
     <ClCompile Include="UI_Components\WindowEx.cpp" />
