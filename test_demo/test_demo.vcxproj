@@ -95,7 +95,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)UI_Components;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,7 +118,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win32\*.*" "$(OutDir)"</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)UI_Components;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,7 +143,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win64\*.*" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)UI_Components;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -169,7 +169,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI;$(ProjectDir)UI_Components;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -195,6 +195,8 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="UI\ConfUI.h" />
     <ClInclude Include="UI\LoginForm.h" />
     <ClInclude Include="UI\MainForm.h" />
+    <ClInclude Include="UI_Components\WindowEx.h" />
+    <ClInclude Include="UI_Components\WindowExMgr.h" />
     <ClInclude Include="Util\Console.h" />
     <ClInclude Include="Util\Log4z.h" />
     <ClInclude Include="Util\Util.h" />
@@ -210,6 +212,8 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClCompile Include="UI\ConfUI.cpp" />
     <ClCompile Include="UI\LoginForm.cpp" />
     <ClCompile Include="UI\MainForm.cpp" />
+    <ClCompile Include="UI_Components\WindowEx.cpp" />
+    <ClCompile Include="UI_Components\WindowExMgr.cpp" />
     <ClCompile Include="Util\Console.cpp" />
     <ClCompile Include="Util\Log4z.cpp" />
     <ClCompile Include="Util\Util.cpp" />

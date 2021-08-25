@@ -11,6 +11,9 @@
     <Filter Include="UI">
       <UniqueIdentifier>{9f7ca044-65e2-4a95-a054-d50266308e5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI_Components">
+      <UniqueIdentifier>{32fcf0af-8378-4e7d-8b54-45062ff8389f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test_demo.h" />
@@ -35,6 +38,12 @@
     <ClInclude Include="Util\Log4z.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Components\WindowEx.h">
+      <Filter>UI_Components</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Components\WindowExMgr.h">
+      <Filter>UI_Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -56,6 +65,12 @@
     </ClCompile>
     <ClCompile Include="Util\Log4z.cpp">
       <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\WindowEx.cpp">
+      <Filter>UI_Components</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\WindowExMgr.cpp">
+      <Filter>UI_Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
