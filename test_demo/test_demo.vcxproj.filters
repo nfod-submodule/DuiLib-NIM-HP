@@ -14,6 +14,9 @@
     <Filter Include="UI_Form">
       <UniqueIdentifier>{9f7ca044-65e2-4a95-a054-d50266308e5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="UI_Kit">
+      <UniqueIdentifier>{8238e8ad-22cf-4ab1-8930-1afd5b4c66b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="test_demo.h" />
@@ -47,6 +50,12 @@
     <ClInclude Include="UI_Form\MainForm.h">
       <Filter>UI_Form</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Kit\LoginKit.h">
+      <Filter>UI_Kit</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Kit\MainKit.h">
+      <Filter>UI_Kit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -71,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="UI_Form\MainForm.cpp">
       <Filter>UI_Form</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Kit\LoginKit.cpp">
+      <Filter>UI_Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Kit\MainKit.cpp">
+      <Filter>UI_Kit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
