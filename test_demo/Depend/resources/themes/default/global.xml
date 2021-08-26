@@ -95,7 +95,7 @@
     <Class name="font_title" font="system_14"/>
 
     <!--标题栏-->
-    <Class name="caption" height="34" bkimage="file='../public/caption/caption_public.png' corner='0,0,0,1'" padding="10,0,5,0" />
+    <Class name="caption" height="36" bkimage="file='../public/caption/caption_public.png' corner='0,0,0,1'" padding="10,0,6,0" />
 
     <!--滚动条-->
     <Class name="vscrollbar" width="14" fadealpha="true" thumbnormalimage="file='../public/vscrollbar/thumb_normal.png'  corner='0,8,0,8'" thumbhotimage="file='../public/vscrollbar/thumb_hovered.png' corner='0,8,0,8'" bkhotimage="file='../public/vscrollbar/bk_hovered.png' corner='0,4,0,4'" showbutton1="false" showbutton2="false" />   
