@@ -8,11 +8,11 @@
     <Filter Include="Util">
       <UniqueIdentifier>{18c941e8-901b-4181-a96a-2dd2df690998}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI">
-      <UniqueIdentifier>{9f7ca044-65e2-4a95-a054-d50266308e5e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI_Components">
       <UniqueIdentifier>{32fcf0af-8378-4e7d-8b54-45062ff8389f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI_Form">
+      <UniqueIdentifier>{9f7ca044-65e2-4a95-a054-d50266308e5e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,15 +22,6 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Util\Util.h">
       <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\ConfUI.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\LoginForm.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="UI\MainForm.h">
-      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="Util\Console.h">
       <Filter>Util</Filter>
@@ -47,18 +38,21 @@
     <ClInclude Include="UI_Components\ConfUI_Components.h">
       <Filter>UI_Components</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Form\ConfUI.h">
+      <Filter>UI_Form</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Form\LoginForm.h">
+      <Filter>UI_Form</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Form\MainForm.h">
+      <Filter>UI_Form</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Util\Util.cpp">
       <Filter>Util</Filter>
-    </ClCompile>
-    <ClCompile Include="UI\LoginForm.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="UI\MainForm.cpp">
-      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="Util\Console.cpp">
       <Filter>Util</Filter>
@@ -71,6 +65,12 @@
     </ClCompile>
     <ClCompile Include="UI_Components\WindowExMgr.cpp">
       <Filter>UI_Components</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Form\LoginForm.cpp">
+      <Filter>UI_Form</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Form\MainForm.cpp">
+      <Filter>UI_Form</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
