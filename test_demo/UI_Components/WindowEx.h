@@ -11,9 +11,23 @@ NS_UI_COMP_BEGIN
 //****************************/
 class WindowEx : public ui::WindowImplBase
 {
+protected:
+	WindowEx(const std::wstring& wnd_class_name, const std::wstring& wnd_id)
+		: m_wnd_class_name(wnd_class_name), m_wnd_id(wnd_id) {}
+	virtual ~WindowEx() {}
+
 public:
-	WindowEx();
-	virtual ~WindowEx();
+	/**
+	 * 获取窗口类名的接口
+	 * @return wstring 窗口类名
+	 */
+	virtual std::wstring GetWindowClassName() const override { return m_wnd_class_name; }
+
+	/**
+	 * 获取窗口id的接口
+	 * @return wstring 窗口id
+	 */
+	virtual std::wstring GetWindowId() const { return m_wnd_id; }
 
 	/**
 	 * 创建窗口
@@ -60,17 +74,8 @@ public:
 	virtual void OnEsc(BOOL &bHandled);
 
 protected:
-	/**
-	 * 获取窗口类名的接口
-	 * @return wstring 窗口类名
-	 */
-	virtual std::wstring GetWindowClassName(void) const = 0;
-
-	/**
-	 * 获取窗口id的接口
-	 * @return wstring 窗口id
-	 */
-	virtual std::wstring GetWindowId(void) const = 0;
+	std::wstring m_wnd_class_name;	// 窗口类名
+	std::wstring m_wnd_id;			// 窗口id
 };
 
 NS_UI_COMP_END

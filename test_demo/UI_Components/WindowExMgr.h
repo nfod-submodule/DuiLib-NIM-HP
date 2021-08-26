@@ -27,17 +27,30 @@ public:
 		const std::wstring& wnd_id,
 		const TInstanceParams&... params)
 	{
-		WindowType* pWnd = (WindowType*)WindowExMgr::GetInstance()->GetWindow(wnd_class_name, wnd_id);
-		if (pWnd == nullptr) {
-			pWnd = new WindowType(params...);
-			pWnd->Create(NULL, NULL, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
-			pWnd->CenterWindow();
-			pWnd->ShowWindow();
+		WindowType* pWndExT = NULL;
+		WindowEx* pWndEx = WindowExMgr::GetInstance()->GetWindow(wnd_class_name, wnd_id);
+		if (pWndEx)
+		{
+			pWndExT = (WindowType*)pWndEx;
+			if (pWndExT) {
+				pWndExT->ActiveWindow();
+			}
 		}
-		else {
-			pWnd->ActiveWindow();
+		else
+		{
+			pWndExT = new WindowType(wnd_id, params...);
+			pWndEx = (WindowEx*)pWndExT;
+			if (pWndExT && pWndEx && 0 == wnd_class_name.compare(pWndEx->GetWindowClassName())) {
+				pWndExT->Create(NULL, NULL, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
+				pWndExT->CenterWindow();
+				pWndExT->ShowWindow();
+			}
+			else if (pWndExT) {
+				delete pWndExT;
+				pWndExT = NULL;
+			}
 		}
-		return pWnd;
+		return pWndExT;
 	}
 
 	/**

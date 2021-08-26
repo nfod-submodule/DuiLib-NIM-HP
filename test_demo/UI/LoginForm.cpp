@@ -44,16 +44,6 @@ USING_NS_LoginForm;
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
-LoginForm::LoginForm()
-{
-
-}
-
-LoginForm::~LoginForm()
-{
-
-}
-
 void LoginForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);

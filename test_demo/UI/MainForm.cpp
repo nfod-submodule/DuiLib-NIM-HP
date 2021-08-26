@@ -25,16 +25,6 @@ USING_NS_MainForm;
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
-MainForm::MainForm()
-{
-
-}
-
-MainForm::~MainForm()
-{
-
-}
-
 void MainForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);

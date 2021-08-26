@@ -5,6 +5,7 @@
 #include "Log4z.h"
 #include "Util.h"
 #include "LoginForm.h"
+#include "WindowExMgr.h"
 
 #ifdef _DEBUG
 #include "vld.h"
@@ -75,10 +76,7 @@ void UIThread::Init()
 	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false);
 
 	// µÇÂ¼´°¿Ú
-	LoginForm* window = new LoginForm();
-	window->Create(NULL, NULL, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
-	window->CenterWindow();
-	window->ShowWindow();
+	ui_comp::WindowExMgr::GetInstance()->SingletonShow<LoginForm>(ConfUI::Login_ClassName, ConfUI::Login_WindowId);
 }
 
 void UIThread::Cleanup()

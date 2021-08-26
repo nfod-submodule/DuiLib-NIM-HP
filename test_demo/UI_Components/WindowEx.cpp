@@ -9,16 +9,6 @@ NS_UI_COMP_BEGIN
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
-WindowEx::WindowEx()
-{
-
-}
-
-WindowEx::~WindowEx()
-{
-
-}
-
 HWND WindowEx::Create(
 	HWND hwndParent,
 	LPCTSTR pstrName,
@@ -27,21 +17,15 @@ HWND WindowEx::Create(
 	bool isLayeredWindow /*= true*/,
 	const ui::UiRect& rc /*= ui::UiRect(0, 0, 0, 0)*/)
 {
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	if (!WindowExMgr::GetInstance()->RegisterWindow(wnd_class_name, wnd_id, this)) {
+	if (!WindowExMgr::GetInstance()->RegisterWindow(m_wnd_class_name, m_wnd_id, this)) {
 		return NULL;
 	}
-	HWND hwnd = __super::Create(hwndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
-	ASSERT(hwnd);
-	return hwnd;
+	return __super::Create(hwndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
 }
 
 LRESULT WindowEx::OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	std::wstring wnd_class_name = GetWindowClassName();
-	std::wstring wnd_id = GetWindowId();
-	WindowExMgr::GetInstance()->UnRegisterWindow(wnd_class_name, wnd_id, this);
+	WindowExMgr::GetInstance()->UnRegisterWindow(m_wnd_class_name, m_wnd_id, this);
 	return __super::OnDestroy(uMsg, wParam, lParam, bHandled);
 }
 

@@ -9,20 +9,17 @@
 class LoginForm : public ui_comp::WindowEx
 {
 public:
-	LoginForm();
-	~LoginForm();
+	LoginForm(const std::wstring& wnd_id = ConfUI::Login_WindowId)
+		: ui_comp::WindowEx(ConfUI::Login_ClassName, wnd_id) {}
+	~LoginForm() {}
 
 	/**
-	 * 以下四个接口是必须要覆写的接口，父类会调用这四个接口来构建窗口
-	 * GetSkinFolder		接口设置要绘制的窗口皮肤资源路径
-	 * GetSkinFile			接口设置要绘制的窗口的 xml 描述文件
-	 * GetWindowClassName	接口设置窗口类名
-	 * GetWindowId			接口设置窗口id
+	 * 以下两个接口是必须要覆写的接口，父类会调用来构建窗口
+	 * GetSkinFolder	接口设置要绘制的窗口皮肤资源路径
+	 * GetSkinFile		接口设置要绘制的窗口的 xml 描述文件
 	 */
-	virtual std::wstring GetSkinFolder() override			{ return ConfUI::Login_SkinFolder; }
-	virtual std::wstring GetSkinFile() override				{ return ConfUI::Login_SkinFile; }
-	virtual std::wstring GetWindowClassName() const override{ return ConfUI::Login_ClassName; }
-	virtual std::wstring GetWindowId() const override		{ return ConfUI::Login_WindowId; }
+	virtual std::wstring GetSkinFolder() override { return ConfUI::Login_SkinFolder; }
+	virtual std::wstring GetSkinFile() override   { return ConfUI::Login_SkinFile; }
 
 	/**
 	 * 收到 WM_CREATE 消息时该函数会被调用，通常做一些控件初始化的操作
