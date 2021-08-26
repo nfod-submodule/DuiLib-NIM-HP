@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "LoginForm.h"
+#include "LoginKit.h"
 
 //****************************/
 //-- namespace NS_LoginForm
@@ -227,6 +228,9 @@ void LoginForm::DoLogin()
 	m_btn_login->SetEnabled(false);
 	m_btn_cancel->SetVisible(true);
 	m_btn_cancel->SetEnabled(true);
+
+	// Ö´ÐÐµÇÂ¼²Ù×÷
+	LoginKit::GetInstance()->DoLogin(username, password);
 }
 
 void LoginForm::SetLoginTip(const std::wstring& text, const std::wstring& textcolor)
