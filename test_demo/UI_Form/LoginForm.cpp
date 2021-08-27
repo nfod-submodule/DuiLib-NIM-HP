@@ -105,7 +105,7 @@ void LoginForm::RegisterCallback()
 		::DestroyWindow(this->GetHWND());
 	};
 	auto cb_ShowMainWindow = [this] {
-		ui_comp::WindowExMgr::GetInstance()->SingletonShow<MainForm>(ConfUI::Main_ClassName, ConfUI::Main_WindowId);
+		MainForm::SingletonShow();
 	};
 
 	LoginKit::GetInstance()->RegisterCallback(

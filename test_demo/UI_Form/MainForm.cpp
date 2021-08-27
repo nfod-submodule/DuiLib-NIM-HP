@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Resource.h"
 #include "MainForm.h"
+#include "LoginKit.h"
 
 //****************************/
 //-- namespace NS_MainForm
@@ -66,7 +67,7 @@ bool MainForm::OnClicked(ui::EventArgs* msg)
 	std::wstring sSenderName = msg->pSender->GetName();
 	if (sSenderName == WGT_btn_logout)
 	{
-		;
+		LoginKit::GetInstance()->DoLogout();
 	}
 	else if (sSenderName == WGT_btn_exit)
 	{
