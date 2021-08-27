@@ -33,6 +33,12 @@ public:
 
 private:
 	/**
+	 * 注册登录窗口的回调函数
+	 * @return void	无返回值
+	 */
+	void RegisterCallback();
+
+	/**
 	 * 处理所有控件的所有消息
 	 * @param[in] msg 消息的相关信息
 	 * @return bool true 继续传递控件消息，false 停止传递控件消息
@@ -49,13 +55,19 @@ private:
 	 */
 	bool OnClicked(ui::EventArgs* msg);
 
+private:
+	/**
+	 * 响应登录错误的回调，
+	 * @return void	无返回值
+	 */
+	void OnLoginError(int error);
+
 	/**
 	 * 响应取消登录的回调，重置界面控件效果
 	 * @return void	无返回值
 	 */
 	void OnCancelLogin();
 
-private:
 	/**
 	 * 执行登录操作
 	 * @return void	无返回值

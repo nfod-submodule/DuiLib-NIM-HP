@@ -2,6 +2,9 @@
 #include "Resource.h"
 #include "LoginForm.h"
 #include "LoginKit.h"
+#include "MainForm.h"
+#include "WindowExMgr.h"
+#include "Log4z.h"
 
 //****************************/
 //-- namespace NS_LoginForm
@@ -31,6 +34,7 @@ CONST PWSTR TXT_empty			= L"";
 CONST PWSTR TXT_input_username	= L"ÇëÊäÈëÕÊºÅ";
 CONST PWSTR TXT_input_password	= L"ÇëÊäÈëÃÜÂë";
 CONST PWSTR TXT_login_ing		= L"ÕýÔÚµÇÂ¼...";
+CONST PWSTR TXT_login_error		= L"µÇÂ¼´íÎó";
 CONST PWSTR TXT_pwd_chs_denied	= L"ÃÜÂë²»ÔÊÐíº¬ÓÐÖÐÎÄ×Ö·û";
 
 //-- ÎÄ±¾ÑÕÉ«
@@ -50,6 +54,7 @@ void LoginForm::InitWindow()
 	SetIcon(IDI_TEST_DEMO);
 	SetTaskbarTitle(ConfUI::Login_WindowName);
 
+	RegisterCallback();
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&LoginForm::OnNotify, this, std::placeholders::_1));
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&LoginForm::OnClicked, this, std::placeholders::_1));
 
@@ -84,6 +89,32 @@ LRESULT LoginForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
 {
 	::PostQuitMessage(0L);
 	return __super::OnClose(uMsg, wParam, lParam, bHandled);
+}
+
+void LoginForm::RegisterCallback()
+{
+	auto cb_LoginError = [this](int error) {
+		this->OnLoginError(error);
+	};
+	auto cb_CancelLogin = [this] {
+		this->OnCancelLogin();
+	};
+	auto cb_HideWindow = [this] {
+		this->ShowWindow(false, false);
+	};
+	auto cb_DestroyWindow = [this] {
+		::DestroyWindow(this->GetHWND());
+	};
+	auto cb_ShowMainWindow = [this] {
+		ui_comp::WindowExMgr::GetInstance()->SingletonShow<MainForm>(ConfUI::Main_ClassName, ConfUI::Main_WindowId);
+	};
+
+	LoginKit::GetInstance()->RegisterCallback(
+		ToWeakCallback(cb_LoginError),
+		ToWeakCallback(cb_CancelLogin),
+		ToWeakCallback(cb_HideWindow),
+		ToWeakCallback(cb_DestroyWindow),
+		ToWeakCallback(cb_ShowMainWindow));
 }
 
 bool LoginForm::OnNotify(ui::EventArgs* msg)
@@ -170,9 +201,16 @@ bool LoginForm::OnClicked(ui::EventArgs* msg)
 	}
 	else if (sSenderName == WGT_btn_cancel)
 	{
-		OnCancelLogin();
+		LoginKit::GetInstance()->CancelLogin();
 	}
 	return true;
+}
+
+void LoginForm::OnLoginError(int error)
+{
+	LOGA_DEBUG("login failed, error = %d", error);
+	OnCancelLogin();
+	SetLoginTip(TXT_login_error, COLOR_red);
 }
 
 void LoginForm::OnCancelLogin()
