@@ -56,6 +56,9 @@
     <ClInclude Include="UI_Kit\MainKit.h">
       <Filter>UI_Kit</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Components\MsgBox.h">
+      <Filter>UI_Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -86,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="UI_Kit\MainKit.cpp">
       <Filter>UI_Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Components\MsgBox.cpp">
+      <Filter>UI_Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
