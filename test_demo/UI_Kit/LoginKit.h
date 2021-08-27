@@ -54,6 +54,12 @@ public:
 	 * @return void	无返回值
 	 */
 	void CancelLogin();
+	
+	/**
+	 * 注销登录
+	 * @return void	无返回值
+	 */
+	void DoLogout();
 
 private:
 	/**
@@ -63,13 +69,6 @@ private:
 	 * @return void	无返回值
 	 */
 	void OnLoginCallback(std::string username, bool logined);
-
-	/**
-	 * 登录回调（UI）
-	 * @param[in] logined 是否登录成功
-	 * @param[in] username 帐号
-	 * @return void	无返回值
-	 */
 	void UILoginCallback(std::string username, bool logined);
 
 private:

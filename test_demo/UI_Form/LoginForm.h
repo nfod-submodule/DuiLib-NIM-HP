@@ -1,13 +1,17 @@
 #pragma once
 
 #include "ConfUI.h"
-#include "WindowEx.h"
+#include "WindowExMgr.h"
 
 //****************************/
 //-- class LoginForm
 //****************************/
 class LoginForm : public ui_comp::WindowEx
 {
+public:
+	static void SingletonShow() {
+		ui_comp::WindowExMgr::GetInstance()->SingletonShow<LoginForm>(ConfUI::Login_ClassName, ConfUI::Login_WindowId);
+	}
 public:
 	LoginForm(const std::wstring& wnd_id = ConfUI::Login_WindowId)
 		: ui_comp::WindowEx(ConfUI::Login_ClassName, wnd_id) {}

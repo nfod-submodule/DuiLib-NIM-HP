@@ -2,6 +2,7 @@
 #include "LoginKit.h"
 #include "ConfUI.h"
 #include "Log4z.h"
+#include "LoginForm.h"
 
 //****************************/
 //-- class LoginKit
@@ -53,15 +54,41 @@ void LoginKit::DoLogin(const std::string& username, const std::string& password)
 
 void LoginKit::CancelLogin()
 {
-	LOGA_DEBUG("cancel login ... username = %s, password = %s", m_username.c_str(), m_password.c_str());
+	LOGA_DEBUG("cancel login ...");
 	m_status = eLoginStatus_CANCEL;
+}
+
+void LoginKit::DoLogout()
+{
+	LOGA_DEBUG("logout start ...");
+	if (m_status == eLoginStatus_EXIT) {
+		return;
+	}
+	auto logout = [this]()
+	{
+		// 销毁所有窗口
+		LOGA_DEBUG("logging out ...");
+		ui_comp::WindowExMgr::GetInstance()->DestroyAllWindows();
+		ui_comp::WindowExMgr::GetInstance()->SetStopRegister(false);
+
+		// 重置数据，如：帐号等信息
+		m_status = eLoginStatus_NULL;
+		m_username.clear();
+		m_password.clear();
+
+		// 打开新的登录窗口
+		LOGA_DEBUG("new login form");
+		LoginForm::SingletonShow();
+	};
+	auto task = std::bind<void>(logout);
+	nbase::ThreadManager::PostDelayedTask(eThread_UI, task, nbase::TimeDelta::FromMilliseconds(100));
 }
 
 void LoginKit::OnLoginCallback(std::string username, bool logined)
 {
 	LOGA_DEBUG("[cb]: username = %s, logined = %s", username.c_str(), logined ? "true" : "false");
-	auto callback_ui = std::bind<void>(&LoginKit::UILoginCallback, this, username, logined);
-	nbase::ThreadManager::PostTask(eThread_UI, callback_ui);
+	auto task = std::bind<void>(&LoginKit::UILoginCallback, this, username, logined);
+	nbase::ThreadManager::PostTask(eThread_UI, task);
 }
 
 void LoginKit::UILoginCallback(std::string username, bool logined)

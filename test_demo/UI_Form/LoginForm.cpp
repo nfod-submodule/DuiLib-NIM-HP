@@ -3,7 +3,6 @@
 #include "LoginForm.h"
 #include "LoginKit.h"
 #include "MainForm.h"
-#include "WindowExMgr.h"
 #include "Log4z.h"
 
 //****************************/

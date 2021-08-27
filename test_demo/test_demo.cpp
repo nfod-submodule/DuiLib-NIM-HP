@@ -76,7 +76,7 @@ void UIThread::Init()
 	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false);
 
 	// µÇÂ¼´°¿Ú
-	ui_comp::WindowExMgr::GetInstance()->SingletonShow<LoginForm>(ConfUI::Login_ClassName, ConfUI::Login_WindowId);
+	LoginForm::SingletonShow();
 }
 
 void UIThread::Cleanup()
