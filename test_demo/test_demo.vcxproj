@@ -193,6 +193,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_demo.h" />
     <ClInclude Include="UI_Components\ConfUI_Components.h" />
+    <ClInclude Include="UI_Components\MenuWnd.h" />
     <ClInclude Include="UI_Components\MsgBox.h" />
     <ClInclude Include="UI_Components\WindowEx.h" />
     <ClInclude Include="UI_Components\WindowExMgr.h" />
@@ -213,6 +214,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_demo.cpp" />
+    <ClCompile Include="UI_Components\MenuWnd.cpp" />
     <ClCompile Include="UI_Components\MsgBox.cpp" />
     <ClCompile Include="UI_Components\WindowEx.cpp" />
     <ClCompile Include="UI_Components\WindowExMgr.cpp" />
