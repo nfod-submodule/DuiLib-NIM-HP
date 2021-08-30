@@ -5,6 +5,7 @@
     <HBox class="caption" height="36">
       <Label class="font_title" name="title" text="主窗口" width="stretch" valign="center" normaltextcolor="darkcolor"/>
       <Control />
+      <Button class="btn_wnd_white_menu" name="btn_menu" margin="6,6,0,0"/>
       <Button class="btn_wnd_min" name="minbtn" margin="6,6,0,0"/>
       <Box width="20" margin="6,6,0,0">
         <Button class="btn_wnd_max" name="maxbtn"/>
@@ -17,7 +18,7 @@
       <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto">
         <Control />
         <Button class="btn_global_blue_80x30" name="btn_logout" text="注销" margin="0,0,4,0"/>
-        <Button class="btn_global_blue_80x30" name="btn_exit" text="退出"/>
+        <Button class="btn_global_blue_80x30" name="btn_quit" text="退出"/>
       </HBox>
     </Box>
   </VBox>

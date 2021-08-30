@@ -51,7 +51,12 @@ private:
 	bool OnClicked(ui::EventArgs* msg);
 
 private:
+	// µ¯³ö²Ëµ¥´°¿Ú
+	void PopupMenu(POINT point);
+
+private:
+	ui::Button*	m_btn_menu;
 	ui::Button*	m_btn_logout;
-	ui::Button*	m_btn_exit;
+	ui::Button*	m_btn_quit;
 };
 

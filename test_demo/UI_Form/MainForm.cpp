@@ -2,6 +2,7 @@
 #include "Resource.h"
 #include "MainForm.h"
 #include "LoginKit.h"
+#include "MenuWnd.h"
 #include "MsgBox.h"
 
 //****************************/
@@ -17,8 +18,9 @@ NS_MainForm_BEGIN
 
 //-- 控件名称
 CONST PWSTR WGT_closebtn2	= L"closebtn2";		// Button: 关闭（窗口右上角叉）
+CONST PWSTR WGT_btn_menu	= L"btn_menu";		// Button: 菜单
 CONST PWSTR WGT_btn_logout	= L"btn_logout";	// Button: 注销
-CONST PWSTR WGT_btn_exit	= L"btn_exit";		// Button: 退出
+CONST PWSTR WGT_btn_quit	= L"btn_quit";		// Button: 退出
 
 //-- 文本内容
 CONST PWSTR TXT_exit_confirm	= L"确定退出程序？";
@@ -43,8 +45,9 @@ void MainForm::InitWindow()
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&MainForm::OnClicked, this, std::placeholders::_1));
 	
 	// 根据控件名称查找控件
+	m_btn_menu   = (ui::Button*)FindControl(WGT_btn_menu);
 	m_btn_logout = (ui::Button*)FindControl(WGT_btn_logout);
-	m_btn_exit   = (ui::Button*)FindControl(WGT_btn_exit);
+	m_btn_quit   = (ui::Button*)FindControl(WGT_btn_quit);
 }
 
 LRESULT MainForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
@@ -82,13 +85,57 @@ bool MainForm::OnClicked(ui::EventArgs* msg)
 		};
 		ui_comp::MsgBox::Show(m_hWnd, ToWeakCallback(cb_Close), TXT_exit_confirm, TXT_title_hint, TXT_btn_confirm, TXT_btn_cancel);
 	}
+	else if (sSenderName == WGT_btn_menu)
+	{
+		RECT rect = msg->pSender->GetPos();
+		POINT point;
+		point.x = rect.left - 15;
+		point.y = rect.bottom + 10;
+		::ClientToScreen(m_hWnd, &point);
+		PopupMenu(point);
+	}
 	else if (sSenderName == WGT_btn_logout)
 	{
 		LoginKit::GetInstance()->DoLogout();
 	}
-	else if (sSenderName == WGT_btn_exit)
+	else if (sSenderName == WGT_btn_quit)
 	{
 		this->Close();
 	}
 	return true;
+}
+
+void MainForm::PopupMenu(POINT point)
+{
+	static CONST PWSTR XML_SkinFile = L"main_menu.xml";
+	static CONST PWSTR WGT_element_about  = L"about";
+	static CONST PWSTR WGT_element_logout = L"logout";
+	static CONST PWSTR WGT_element_quit   = L"quit";
+
+ 	ui_comp::MenuWnd* pMenu = new ui_comp::MenuWnd();
+ 	pMenu->Init(XML_SkinFile, point, ui_comp::MenuWnd::RIGHT_BOTTOM);
+	{
+		// 注册回调-关于
+		ui::EventCallback cb_about = [this](ui::EventArgs*) {
+			ui_comp::MsgBox::Show(m_hWnd, nullptr, L"版本：V1.0.0", L"关于", L"知道了", L"");
+			return true;
+		};
+		ui_comp::MenuElementUI* pAbout = (ui_comp::MenuElementUI*)pMenu->FindControl(WGT_element_about);
+		pAbout->AttachSelect(cb_about);
+		// 注册回调-注销
+		ui::EventCallback cb_logout = [this](ui::EventArgs*) {
+			LoginKit::GetInstance()->DoLogout();
+			return true;
+		};
+		ui_comp::MenuElementUI* pLogout = (ui_comp::MenuElementUI*)pMenu->FindControl(WGT_element_logout);
+		pLogout->AttachSelect(cb_logout);
+		// 注册回调-退出
+		ui::EventCallback cb_quit = [this](ui::EventArgs*) {
+			this->Close();
+			return true;
+		};
+		ui_comp::MenuElementUI* pQuit = (ui_comp::MenuElementUI*)pMenu->FindControl(WGT_element_quit);
+		pQuit->AttachSelect(cb_quit);
+	}
+ 	pMenu->Show();
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window>
+    <VListBox class="menu">
+        <MenuElement class="menu_element" name="about" width="180">
+            <Button margin="2,0,0,0" normalimage="icon_about_normal.png" valign="center" mouse="false" />
+            <Label class="menu_text" text="关于" margin="27,0,0,0"/>
+        </MenuElement>
+        <MenuElement class="menu_element" name="logout" width="180">
+            <Button margin="2,0,0,0" normalimage="icon_logout_normal.png" valign="center" mouse="false" />
+            <Label class="menu_text" text="注销" margin="27,0,0,0"/>
+        </MenuElement>
+        <MenuElement class="menu_element" name="quit" width="180">
+            <Button margin="2,0,0,0" normalimage="icon_exit_normal.png" valign="center" mouse="false" />
+            <Label class="menu_text" text="退出" margin="27,0,0,0"/>
+        </MenuElement>
+    </VListBox>
+</Window>
