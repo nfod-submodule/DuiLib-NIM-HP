@@ -5,62 +5,53 @@
 
 NS_UI_COMP_BEGIN
 
-enum MenuAlignment
+//-- UI接口类名
+static CONST PWSTR UIInterfaceName_MenuElement = L"MenuElement";
+
+//****************************/
+//-- class MenuElementUI
+//****************************/
+class MenuElementUI : public ui::ListContainerElement
 {
-	eMenuAlignment_Left = 1 << 1,
-	eMenuAlignment_Top = 1 << 2,
-	eMenuAlignment_Right = 1 << 3,
-	eMenuAlignment_Bottom = 1 << 4,
+public:
+	MenuElementUI() { m_bMouseChildEnabled = false; }
+
+	virtual bool ButtonUp(ui::EventArgs& msg) override
+	{
+		std::weak_ptr<nbase::WeakFlag> weakFlag = m_pWindow->GetWeakFlag();
+		bool bRet = __super::ButtonUp(msg);
+		if (bRet && !weakFlag.expired()) {
+			m_pWindow->Close();
+		}
+		return bRet;
+	}
 };
 
-/////////////////////////////////////////////////////////////////////////////////////
-//
-
-extern const TCHAR* const kMenuElementUIInterfaceName;// = _T("MenuElement);
-class MenuElementUI;
+//****************************/
+//-- class MenuWnd
+//****************************/
 class MenuWnd : public ui::WindowImplBase
 {
 public:
+	enum EPopupPosType { RIGHT_BOTTOM, RIGHT_TOP };
+	MenuWnd(HWND hParent = NULL) : m_hParent(hParent), m_popupPosType(RIGHT_BOTTOM), m_no_focus(false) {}
+
+	virtual std::wstring GetSkinFolder() override { return ConfUI_Components::MenuWnd_SkinFolder; }
+	virtual std::wstring GetSkinFile() override { return m_xmlSkinFile; }
+	virtual std::wstring GetWindowClassName() const override { return ConfUI_Components::MenuWnd_ClassName; }
+
 	virtual ui::Control* CreateControl(const std::wstring& pstrClass) override;
+	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
-	enum PopupPosType
-	{
-		RIGHT_BOTTOM,
-		RIGHT_TOP
-	};
-
-	MenuWnd(HWND hParent = NULL);
-	void Init(ui::STRINGorID xml, LPCTSTR pSkinType, POINT point, PopupPosType popupPosType = RIGHT_BOTTOM, bool no_focus = false);
-	std::wstring GetWindowClassName() const;
-
-	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
-	virtual std::wstring GetSkinFolder() override {
-		return L"menu";
-	}
-	virtual std::wstring GetSkinFile() override {
-		return m_xml.m_lpstr;
-	}
-
+	void Init(const std::wstring& xmlSkinFile, POINT basedPoint, EPopupPosType popupPosType = RIGHT_BOTTOM, bool no_focus = false);
 	void Show();
 
 public:
 	HWND m_hParent;
-	POINT m_BasedPoint;
-	PopupPosType m_popupPosType;
-	ui::STRINGorID m_xml;
-	std::wstring m_sType;
-	bool no_focus_;
-};
-
-class ListContainerElement;
-class MenuElementUI : public ui::ListContainerElement
-{
-	friend MenuWnd;
-public:
-	MenuElementUI();
-	~MenuElementUI();
-
-	virtual bool ButtonUp(ui::EventArgs& msg) override;
+	std::wstring m_xmlSkinFile;
+	POINT m_basedPoint;
+	EPopupPosType m_popupPosType;
+	bool m_no_focus;
 };
 
 NS_UI_COMP_END

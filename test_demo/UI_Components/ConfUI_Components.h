@@ -16,8 +16,10 @@
 //-- ≈‰÷√
 namespace ConfUI_Components
 {
-	static const wchar_t* MsgBox_SkinFolder	= L"ui_comp_msgbox";
-	static const wchar_t* MsgBox_SkinFile	= L"msgbox.xml";
-	static const wchar_t* MsgBox_ClassName	= L"MsgBox";
-	static const wchar_t* MsgBox_WindowId	= L"12345678901234567890123456789012-MSGBOX";
+	static const wchar_t* MsgBox_SkinFolder		= L"ui_comp_msgbox";
+	static const wchar_t* MsgBox_SkinFile		= L"msgbox.xml";
+	static const wchar_t* MsgBox_ClassName		= L"MsgBox";
+	
+	static const wchar_t* MenuWnd_SkinFolder	= L"ui_comp_menuwnd";
+	static const wchar_t* MenuWnd_ClassName		= L"MenuWnd";
 }

@@ -28,7 +28,6 @@ public:
 	virtual std::wstring GetSkinFolder() override { return ConfUI_Components::MsgBox_SkinFolder; }
 	virtual std::wstring GetSkinFile() override { return ConfUI_Components::MsgBox_SkinFile; }
 	virtual std::wstring GetWindowClassName() const override { return ConfUI_Components::MsgBox_ClassName; }
-	virtual std::wstring GetWindowId() const { return ConfUI_Components::MsgBox_WindowId; }
 	virtual UINT GetClassStyle() const override { return (UI_CLASSSTYLE_FRAME | CS_DBLCLKS); }
 
 	virtual void Close(UINT nRet = IDOK) override;
