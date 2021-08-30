@@ -10,7 +10,7 @@
         <Button class="btn_wnd_max" name="maxbtn"/>
         <Button class="btn_wnd_restore" name="restorebtn" visible="false"/>
       </Box>
-      <Button class="btn_wnd_close" name="closebtn" margin="6,6,0,0"/>
+      <Button class="btn_wnd_close" name="closebtn2" margin="6,6,0,0"/>
     </HBox>
     <!-- 注销和退出 -->
     <Box>
