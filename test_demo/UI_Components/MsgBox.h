@@ -5,13 +5,8 @@
 
 NS_UI_COMP_BEGIN
 
-enum MsgBoxRet
-{
-	MB_YES,
-	MB_NO
-};
-
-typedef std::function<void(MsgBoxRet)> MsgboxCallback; 
+enum EMsgBoxRet { eMsgBox_YES, eMsgBox_NO };
+typedef std::function<void(EMsgBoxRet eRet)> MsgBoxCallback; 
 
 //****************************/
 //-- class MsgBox
@@ -19,39 +14,46 @@ typedef std::function<void(MsgBoxRet)> MsgboxCallback;
 class MsgBox : public ui::WindowImplBase
 {
 public:
-	MsgBox() {}
-	virtual ~MsgBox() {}
+	static void Show(
+		HWND hwnd,
+		MsgBoxCallback callback,
+		const std::wstring& content,
+		const std::wstring& title = L"提示",
+		const std::wstring& btn_yes = L"确定",
+		const std::wstring& btn_no = L"取消");
 
-	virtual std::wstring GetSkinFolder() override;
-	virtual std::wstring GetSkinFile() override;
-	virtual ui::UILIB_RESOURCETYPE GetResourceType() const;
-	virtual std::wstring GetZIPFileName() const;
+public:
+	MsgBox() : m_callback(nullptr) {}
+
+	virtual std::wstring GetSkinFolder() override { return ConfUI_Components::MsgBox_SkinFolder; }
+	virtual std::wstring GetSkinFile() override { return ConfUI_Components::MsgBox_SkinFile; }
+	virtual std::wstring GetWindowClassName() const override { return ConfUI_Components::MsgBox_ClassName; }
+	virtual std::wstring GetWindowId() const { return ConfUI_Components::MsgBox_WindowId; }
+	virtual UINT GetClassStyle() const override { return (UI_CLASSSTYLE_FRAME | CS_DBLCLKS); }
+
+	virtual void Close(UINT nRet = IDOK) override;
 	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 	virtual void OnEsc(BOOL &bHandled);
-	virtual void Close(UINT nRet = IDOK) override;
 
-	virtual std::wstring GetWindowClassName() const override;
-	virtual std::wstring GetWindowId() const /*override*/;
-	virtual UINT GetClassStyle() const override;
 	virtual void InitWindow() override;
+
 private:
 	bool OnClicked(ui::EventArgs* msg);
 
-	void SetTitle(const std::wstring &str);
-	void SetContent(const std::wstring &str);
-	void SetButton(const std::wstring &yes, const std::wstring &no);
-	void Show(HWND hwnd, MsgboxCallback cb);
+	void SetCallback(MsgBoxCallback callback);
+	void SetTitle(const std::wstring& title);
+	void SetContent(const std::wstring& content);
+	void SetButton(const std::wstring& btn_yes, const std::wstring& btn_no);
 
-	void EndMsgBox(MsgBoxRet ret);
-public:
-	static const LPCTSTR kClassName;
+	void EndMsgBox(EMsgBoxRet eRet);
+
 private:
-	ui::Label*		title_;
-	ui::RichEdit*	content_;
-	ui::Button*		btn_yes_;
-	ui::Button*		btn_no_;
+	ui::Label*		m_title;
+	ui::RichEdit*	m_content;
+	ui::Button*		m_btn_yes;
+	ui::Button*		m_btn_no;
 
-	MsgboxCallback	 msgbox_callback_;
+	MsgBoxCallback	m_callback;
 };
 
 NS_UI_COMP_END

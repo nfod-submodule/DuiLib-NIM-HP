@@ -12,3 +12,12 @@
 #   define USING_NS_HELPER
 #   define NS_HELPER
 #endif
+
+//-- ≈‰÷√
+namespace ConfUI_Components
+{
+	static const wchar_t* MsgBox_SkinFolder	= L"ui_comp_msgbox";
+	static const wchar_t* MsgBox_SkinFile	= L"msgbox.xml";
+	static const wchar_t* MsgBox_ClassName	= L"MsgBox";
+	static const wchar_t* MsgBox_WindowId	= L"12345678901234567890123456789012-MSGBOX";
+}
