@@ -17,28 +17,28 @@ CONST PWSTR WGT_closebtn	= L"closebtn";	// Button: 关闭（窗口右上角叉）
 //////////////////////////////////////////////////////////////////////////
 
 void MsgBox::Show(
-	HWND hwnd,
+	HWND hWndParent,
 	MsgBoxCallback callback,
 	const std::wstring& content,
 	const std::wstring& title /*= L"提示"*/,
 	const std::wstring& btn_yes /*= L"确定"*/,
 	const std::wstring& btn_no /*= L"取消"*/)
 {
-	MsgBox* pWndMB = new MsgBox();
-	if (pWndMB) {
-		HWND hWndMB = pWndMB->Create(hwnd, NULL, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
-		if (hWndMB) {
-			pWndMB->SetCallback(callback);
-			pWndMB->SetTitle(title);
-			pWndMB->SetContent(content);
-			pWndMB->SetButton(btn_yes, btn_no);
-			::EnableWindow(hwnd, FALSE);
-			pWndMB->CenterWindow();
-			pWndMB->ShowWindow();
+	MsgBox* pWnd = new MsgBox();
+	if (pWnd) {
+		HWND hWnd = pWnd->Create(hWndParent, NULL, WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX, 0);
+		if (hWnd) {
+			pWnd->SetCallback(callback);
+			pWnd->SetTitle(title);
+			pWnd->SetContent(content);
+			pWnd->SetButton(btn_yes, btn_no);
+			::EnableWindow(hWndParent, FALSE);
+			pWnd->CenterWindow();
+			pWnd->ShowWindow();
 		}
 		else {
-			delete pWndMB;
-			pWndMB = NULL;
+			delete pWnd;
+			pWnd = NULL;
 		}
 	}
 }

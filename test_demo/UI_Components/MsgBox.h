@@ -14,8 +14,18 @@ typedef std::function<void(EMsgBoxRet eRet)> MsgBoxCallback;
 class MsgBox : public ui::WindowImplBase
 {
 public:
+	/**
+	 * 在屏幕中间显示一个消息框
+	 * @param[in] hWndParent 父窗口句柄，如果提供的话msgbox会显示在父窗口的中心，且为模态
+	 * @param[in] callback 回调函数
+	 * @param[in] content  消息内容
+	 * @param[in] title    窗口标题
+	 * @param[in] btn_yes  确定按钮内容，如果内容为空则不显示按钮
+	 * @param[in] btn_no   取消按钮内容，如果内容为空则不显示按钮
+	 * @return void 无返回值
+	 */
 	static void Show(
-		HWND hwnd,
+		HWND hWndParent,
 		MsgBoxCallback callback,
 		const std::wstring& content,
 		const std::wstring& title = L"提示",
