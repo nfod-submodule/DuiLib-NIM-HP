@@ -22,4 +22,8 @@ namespace ConfUI_Components
 	
 	static const wchar_t* MenuWnd_SkinFolder	= L"ui_comp_menuwnd";
 	static const wchar_t* MenuWnd_ClassName		= L"MenuWnd";
+	
+	static const wchar_t* Toast_SkinFolder		= L"ui_comp_toast";
+	static const wchar_t* Toast_SkinFile		= L"toast.xml";
+	static const wchar_t* Toast_ClassName		= L"Toast";
 }
