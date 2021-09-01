@@ -1,6 +1,5 @@
 #pragma once
 
-#include "UIlib.h"
 #include "ConfUI_Components.h"
 
 NS_UI_COMP_BEGIN

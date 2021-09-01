@@ -1,5 +1,7 @@
 #pragma once
 
+#include "UIlib.h"
+
 // namespace ui_comp
 #ifdef __cplusplus
 #   define NS_UI_COMP_BEGIN  namespace ui_comp {
@@ -16,12 +18,12 @@
 //-- ≈‰÷√
 namespace ConfUI_Components
 {
+	static const wchar_t* MenuWnd_SkinFolder	= L"ui_comp_menuwnd";
+	static const wchar_t* MenuWnd_ClassName		= L"MenuWnd";
+	
 	static const wchar_t* MsgBox_SkinFolder		= L"ui_comp_msgbox";
 	static const wchar_t* MsgBox_SkinFile		= L"msgbox.xml";
 	static const wchar_t* MsgBox_ClassName		= L"MsgBox";
-	
-	static const wchar_t* MenuWnd_SkinFolder	= L"ui_comp_menuwnd";
-	static const wchar_t* MenuWnd_ClassName		= L"MenuWnd";
 	
 	static const wchar_t* Toast_SkinFolder		= L"ui_comp_toast";
 	static const wchar_t* Toast_SkinFile		= L"toast.xml";
