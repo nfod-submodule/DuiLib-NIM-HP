@@ -58,5 +58,8 @@ private:
 	ui::Button*	m_btn_menu;
 	ui::Button*	m_btn_logout;
 	ui::Button*	m_btn_quit;
+	ui::Option* m_opt_tab_r;
+	ui::Option* m_opt_tab_g;
+	ui::TabBox* m_box_tabs;
 };
 

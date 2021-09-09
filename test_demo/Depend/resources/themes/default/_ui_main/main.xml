@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Window caption="0,0,0,35" shadowattached="true" custom_shadow="20,20,20,20" sizebox="4,4,4,4" size="800,600" mininfo="800,600">
-  <VBox bkcolor="bk_wnd_lightcolor">
+  <VBox bkcolor="bk_wnd_darkcolor">
     <!-- 标题栏按钮 -->
     <HBox class="caption" height="36">
       <Label class="font_title" name="title" text="主窗口" width="stretch" valign="center" normaltextcolor="darkcolor"/>
@@ -14,12 +14,27 @@
       <Button class="btn_wnd_close" name="closebtn2" margin="6,6,0,0"/>
     </HBox>
     <!-- 注销和退出 -->
-    <Box>
-      <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto">
-        <Control />
-        <Button class="btn_global_blue_80x30" name="btn_logout" text="注销" margin="0,0,4,0"/>
-        <Button class="btn_global_blue_80x30" name="btn_quit" text="退出"/>
+    <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto">
+      <Button class="btn_global_blue_80x30" name="btn_logout" text="注销" margin="0,0,4,0"/>
+      <Button class="btn_global_blue_80x30" name="btn_quit" text="退出"/>
+    </HBox>
+    <VBox bkcolor="bk_wnd_lightcolor" width="stretch" height="stretch" margin="12,12,12,12" childmargin="0">
+      <!-- 标签页-头 -->
+      <HBox bkcolor="bk_wnd_lightcolor" width="stretch" height="36" bordersize="1,1,1,1" bordercolor="splitline_level1" padding="1,1,1,1">
+        <Option name="opt_tab_r" width="80" height="stretch" cursortype="hand" group="option_show_group" text="标签-红" font="system_14" align="vcenter" textpadding="0,0,0,2" normaltextcolor="darkcolor" selectedtextcolor="darkcolor" selectednormalimage="file='bk_tab_selected.png' corner='0,0,0,2'" selected="true" />
+        <Option name="opt_tab_g" width="80" height="stretch" cursortype="hand" group="option_show_group" text="标签-绿" font="system_14" align="vcenter" textpadding="0,0,0,2" normaltextcolor="darkcolor" selectedtextcolor="darkcolor" selectednormalimage="file='bk_tab_selected.png' corner='0,0,0,2'"/>
       </HBox>
-    </Box>
+      <!-- 标签页-体 -->
+      <TabBox name="box_tabs" width="stretch" height="stretch">
+        <!-- 红色 -->
+        <Box bkcolor="red" margin="0,0,0,0">
+          <Button class="btn_global_blue_80x30" valign="center" halign="center" width="80" height="30" name="btn_color_r" normaltextcolor="white" text="红色" />
+        </Box>
+        <!-- 绿色 -->
+        <Box bkcolor="green" margin="0,0,0,0">
+          <Button class="btn_global_blue_80x30" valign="center" halign="center" width="80" height="30" name="btn_color_g" normaltextcolor="white" text="绿色" />
+        </Box>
+      </TabBox>
+    </VBox>
   </VBox>
 </Window>

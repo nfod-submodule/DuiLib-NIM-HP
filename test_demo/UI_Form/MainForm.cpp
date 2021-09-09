@@ -21,6 +21,12 @@ CONST PWSTR WGT_closebtn2	= L"closebtn2";		// Button: 关闭（窗口右上角叉）
 CONST PWSTR WGT_btn_menu	= L"btn_menu";		// Button: 菜单
 CONST PWSTR WGT_btn_logout	= L"btn_logout";	// Button: 注销
 CONST PWSTR WGT_btn_quit	= L"btn_quit";		// Button: 退出
+CONST PWSTR WGT_opt_tab_r	= L"opt_tab_r";		// Option: 标签-红
+CONST PWSTR WGT_opt_tab_g	= L"opt_tab_g";		// Option: 标签-绿
+CONST PWSTR WGT_box_tabs	= L"box_tabs";		// TabBox: 标签内容
+
+CONST INT WGT_box_tab_r_index = 0;	// 标签内容-红-索引
+CONST INT WGT_box_tab_g_index = 1;	// 标签内容-绿-索引
 
 //-- 文本内容
 CONST PWSTR TXT_exit_confirm	= L"确定退出程序？";
@@ -48,6 +54,13 @@ void MainForm::InitWindow()
 	m_btn_menu   = (ui::Button*)FindControl(WGT_btn_menu);
 	m_btn_logout = (ui::Button*)FindControl(WGT_btn_logout);
 	m_btn_quit   = (ui::Button*)FindControl(WGT_btn_quit);
+	m_opt_tab_r  = (ui::Option*)FindControl(WGT_opt_tab_r);
+	m_opt_tab_g  = (ui::Option*)FindControl(WGT_opt_tab_g);
+	m_box_tabs   = (ui::TabBox*)FindControl(WGT_box_tabs);
+
+	// 默认显示：标签-绿
+	m_opt_tab_g->Selected(true);
+	m_box_tabs->SelectItem(WGT_box_tab_g_index);
 }
 
 LRESULT MainForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
@@ -101,6 +114,14 @@ bool MainForm::OnClicked(ui::EventArgs* msg)
 	else if (sSenderName == WGT_btn_quit)
 	{
 		this->Close();
+	}
+	else if (sSenderName == WGT_opt_tab_r)
+	{
+		m_box_tabs->SelectItem(WGT_box_tab_r_index);
+	}
+	else if (sSenderName == WGT_opt_tab_g)
+	{
+		m_box_tabs->SelectItem(WGT_box_tab_g_index);
 	}
 	return true;
 }
