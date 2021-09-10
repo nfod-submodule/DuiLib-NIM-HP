@@ -61,5 +61,37 @@ private:
 	ui::Option* m_opt_tab_r;
 	ui::Option* m_opt_tab_g;
 	ui::TabBox* m_box_tabs;
+	ui::ListBox* m_list_r;
+	ui::ListBox* m_list_g;
 };
 
+//****************************/
+//-- class ListItemG
+//****************************/
+class ListItemG : public ui::ListContainerElement
+{
+public:
+	ListItemG() : m_nId(0) {}
+
+	void InitSubControls(
+		const int nId,
+		const std::wstring& txt_col1,
+		const std::wstring& txt_col2,
+		const std::wstring& txt_col3,
+		const std::wstring& txt_col4,
+		const std::wstring& txt_col5);
+
+private:
+	bool OnColumn3(ui::EventArgs* args);
+	bool OnColumn5(ui::EventArgs* args);
+	bool OnColumn6(ui::EventArgs* args);
+
+private:
+	int m_nId;
+	ui::Label*	m_column1;
+	ui::Label*	m_column2;
+	ui::Button*	m_column3;
+	ui::Label*	m_column4;
+	ui::Button*	m_column5;
+	ui::Button*	m_column6;
+};

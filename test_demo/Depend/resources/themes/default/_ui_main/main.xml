@@ -20,19 +20,41 @@
     </HBox>
     <VBox bkcolor="bk_wnd_lightcolor" width="stretch" height="stretch" margin="12,12,12,12" childmargin="0">
       <!-- 标签页-头 -->
-      <HBox bkcolor="bk_wnd_lightcolor" width="stretch" height="36" bordersize="1,1,1,1" bordercolor="splitline_level1" padding="1,1,1,1">
+      <HBox bkcolor="bk_wnd_lightcolor" width="162" height="36" bordersize="1,1,1,1" bordercolor="splitline_level1" padding="1,1,1,1">
         <Option name="opt_tab_r" width="80" height="stretch" cursortype="hand" group="option_show_group" text="标签-红" font="system_14" align="vcenter" textpadding="0,0,0,2" normaltextcolor="darkcolor" selectedtextcolor="darkcolor" selectednormalimage="file='bk_tab_selected.png' corner='0,0,0,2'" selected="true" />
         <Option name="opt_tab_g" width="80" height="stretch" cursortype="hand" group="option_show_group" text="标签-绿" font="system_14" align="vcenter" textpadding="0,0,0,2" normaltextcolor="darkcolor" selectedtextcolor="darkcolor" selectednormalimage="file='bk_tab_selected.png' corner='0,0,0,2'"/>
       </HBox>
       <!-- 标签页-体 -->
       <TabBox name="box_tabs" width="stretch" height="stretch">
         <!-- 红色 -->
-        <Box bkcolor="red" margin="0,0,0,0">
-          <Button class="btn_global_blue_80x30" valign="center" halign="center" width="80" height="30" name="btn_color_r" normaltextcolor="white" text="红色" />
+        <Box bkcolor="red">
+          <VListBox class="list" name="list_r" visible="false"/>
         </Box>
         <!-- 绿色 -->
-        <Box bkcolor="green" margin="0,0,0,0">
-          <Button class="btn_global_blue_80x30" valign="center" halign="center" width="80" height="30" name="btn_color_g" normaltextcolor="white" text="绿色" />
+        <Box bkcolor="green">
+          <VBox bkcolor="bk_wnd_lightcolor">
+            <HBox width="stretch" height="32" bordersize="0,1,0,1" bordercolor="splitline_level1">
+              <Box width="240" bordersize="0,0,1,0" bordercolor="splitline_level1">
+                <Label name="list_g_head1" text="项目名称" margin="10" valign="center" halign="left"/>
+              </Box>
+              <Box width="100" bordersize="0,0,1,0" bordercolor="splitline_level1">
+                <Label name="list_g_head2" text="管理员" margin="10" valign="center" halign="left"/>
+              </Box>
+              <Box width="stretch" bordersize="0,0,1,0" bordercolor="splitline_level1">
+                <Label name="list_g_head3" text="工作目录" margin="10" valign="center" halign="left"/>
+              </Box>
+              <Box width="100" bordersize="0,0,1,0" bordercolor="splitline_level1">
+                <Label name="list_g_head4" text="到期时间" margin="10" valign="center" halign="left"/>
+              </Box>
+              <Box width="100" bordersize="0,0,1,0" bordercolor="splitline_level1">
+                <Label name="list_g_head5" text="设备授权" margin="10" valign="center" halign="left"/>
+              </Box>
+              <Box width="60" bordersize="0,0,0,0" bordercolor="splitline_level1">
+                <Label name="list_g_head6" text="删除" margin="10" valign="center" halign="left"/>
+              </Box>
+            </HBox>
+            <VListBox class="list" name="list_g"/>
+          </VBox>
         </Box>
       </TabBox>
     </VBox>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window>
+  <ListContainerElement class="listitem" height="auto">
+    <HBox width="stretch" height="auto" mouse="false">
+      <Box width="240" height="auto" padding="10,10,10,10">
+        <Label name="column1" valign="center" halign="left"/>
+      </Box>
+      <Box width="100" height="auto" padding="10,10,10,10">
+        <Label name="column2" valign="center" halign="left"/>
+      </Box>
+      <Box width="stretch" height="auto" padding="10,10,10,10">
+        <Button name="column3" cursortype="hand"/>
+      </Box>
+      <Box width="100" height="auto" padding="10,10,10,10">
+        <Label name="column4" valign="center" halign="left"/>
+      </Box>
+      <Box width="100" height="auto" padding="10,10,10,10">
+        <Button name="column5" cursortype="hand"/>
+      </Box>
+      <Box width="60" height="auto" padding="10,10,10,10">
+        <Button class="btn_recycle" name="column6"/>
+      </Box>
+    </HBox>
+  </ListContainerElement>
+</Window>
