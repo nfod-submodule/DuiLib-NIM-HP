@@ -2,9 +2,11 @@
 #include "Resource.h"
 #include "MainForm.h"
 #include "LoginKit.h"
+#include "MainKit.h"
 #include "MenuWnd.h"
 #include "MsgBox.h"
 #include "Toast.h"
+#include "Log4z.h"
 
 //****************************/
 //-- namespace NS_MainForm
@@ -50,6 +52,7 @@ void MainForm::InitWindow()
 	SetIcon(IDI_TEST_DEMO);
 	SetTaskbarTitle(ConfUI::Main_WindowName);
 
+	RegisterCallback();
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&MainForm::OnNotify, this, std::placeholders::_1));
 	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&MainForm::OnClicked, this, std::placeholders::_1));
 	
@@ -73,12 +76,13 @@ void MainForm::InitWindow()
 		ListItemG* pItem = new ListItemG();
 		if (pItem) {
 			ui::GlobalManager::FillBoxWithCache(pItem, L"_ui_main/item_g.xml");
-			std::wstring txt1 = nbase::StringPrintf(L"重大项目研发%d部", id);
-			std::wstring txt2 = L"张秘书";
-			std::wstring txt3 = L"设置目录";
-			std::wstring txt4 = L"2021-12-31";
-			std::wstring txt5 = L"申请授权";
-			pItem->InitSubControls(id, txt1, txt2, txt3, txt4, txt5);
+			std::wstring project_id   = std::to_wstring(id);
+			std::wstring project_name = nbase::StringPrintf(L"重大研发%d号项目", id);
+			std::wstring project_mgr  = L"张秘书";
+			std::wstring working_dir  = L"";
+			std::wstring expire_date  = L"2021-12-31";
+			bool bDevAuth = false;
+			pItem->InitSubControls(project_id, project_name, project_mgr, working_dir, expire_date, bDevAuth);
 		}
 		m_list_g->Add(pItem);
 	}
@@ -86,8 +90,17 @@ void MainForm::InitWindow()
 
 LRESULT MainForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+	MainKit::GetInstance()->UnRegisterCallback();
 	::PostQuitMessage(0L);
 	return __super::OnClose(uMsg, wParam, lParam, bHandled);
+}
+
+void MainForm::RegisterCallback()
+{
+	auto cb_DevAuth = [this](std::wstring ProjectId, bool bAuth) {
+		this->OnDevAuth(ProjectId, bAuth);
+	};
+	MainKit::GetInstance()->RegisterCallback(ToWeakCallback(cb_DevAuth));
 }
 
 bool MainForm::OnNotify(ui::EventArgs* msg)
@@ -182,55 +195,99 @@ void MainForm::PopupMenu(POINT point)
  	pMenu->Show();
 }
 
+void MainForm::OnDevAuth(std::wstring ProjectId, bool bAuth)
+{
+	if (bAuth == false) {
+		std::wstring content = nbase::StringPrintf(L"[Id=%s] 设备授权失败！", ProjectId.c_str());
+		ui_comp::Toast::Show(this->GetHWND(), content, 2000);
+		return;
+	}
+	for (int index = 0; index < m_list_g->GetCount(); ++index)
+	{
+		ListItemG* pItem = dynamic_cast<ListItemG*>(m_list_g->GetItemAt(index));
+		if (pItem && pItem->GetProjectId() == ProjectId) {
+			pItem->SetDeviceAuth(bAuth);
+		}
+	}
+}
+
 //****************************/
 //-- class ListItemG
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
 void ListItemG::InitSubControls(
-	const int nId,
-	const std::wstring& txt_col1,
-	const std::wstring& txt_col2,
-	const std::wstring& txt_col3,
-	const std::wstring& txt_col4,
-	const std::wstring& txt_col5)
+	const std::wstring& project_id,
+	const std::wstring& project_name,
+	const std::wstring& project_mgr,
+	const std::wstring& working_dir,
+	const std::wstring& expire_date,
+	bool bDevAuth)
 {
-	m_column1 = (ui::Label*) FindSubControl(L"column1");
-	m_column2 = (ui::Label*) FindSubControl(L"column2");
-	m_column3 = (ui::Button*)FindSubControl(L"column3");
-	m_column4 = (ui::Label*) FindSubControl(L"column4");
-	m_column5 = (ui::Button*)FindSubControl(L"column5");
-	m_column6 = (ui::Button*)FindSubControl(L"column6");
+	m_lbl_project_name = (ui::Label*) FindSubControl(L"project_name");
+	m_lbl_project_mgr  = (ui::Label*) FindSubControl(L"project_mgr");
+	m_btn_working_dir  = (ui::Button*)FindSubControl(L"working_dir");
+	m_lbl_expire_date  = (ui::Label*) FindSubControl(L"expire_date");
+	m_btn_device_auth  = (ui::Button*)FindSubControl(L"device_auth");
+	m_btn_project_del  = (ui::Button*)FindSubControl(L"project_del");
 
-	m_nId = nId;
-	m_column1->SetText(txt_col1);
-	m_column2->SetText(txt_col2);
-	m_column3->SetText(txt_col3);
-	m_column4->SetText(txt_col4);
-	m_column5->SetText(txt_col5);
+	m_project_id = project_id;
+	m_lbl_project_name->SetText(project_name);
+	m_lbl_project_mgr->SetText(project_mgr);
+	SetWorkingDir(working_dir);
+	m_lbl_expire_date->SetText(expire_date);
+	SetDeviceAuth(bDevAuth);
 
-	m_column3->SetStateTextColor(ui::kControlStateHot, L"link_blue");
-	m_column5->SetStateTextColor(ui::kControlStateHot, L"link_blue");
-
-	m_column3->AttachClick(std::bind<bool>(&ListItemG::OnColumn3, this, std::placeholders::_1));
-	m_column5->AttachClick(std::bind<bool>(&ListItemG::OnColumn5, this, std::placeholders::_1));
-	m_column6->AttachClick(std::bind<bool>(&ListItemG::OnColumn6, this, std::placeholders::_1));
+	m_btn_working_dir->AttachClick(std::bind<bool>(&ListItemG::OnWorkingDir, this, std::placeholders::_1));
+	m_btn_device_auth->AttachClick(std::bind<bool>(&ListItemG::OnDeviceAuth, this, std::placeholders::_1));
+	m_btn_project_del->AttachClick(std::bind<bool>(&ListItemG::OnProjectDel, this, std::placeholders::_1));
 }
 
-bool ListItemG::OnColumn3(ui::EventArgs* args)
+void ListItemG::SetWorkingDir(const std::wstring& working_dir)
+{
+	if (working_dir.empty()) {
+		m_btn_working_dir->SetStateTextColor(ui::kControlStateNormal, L"link_blue");
+		m_btn_working_dir->SetStateTextColor(ui::kControlStateHot, L"link_blue");
+		m_btn_working_dir->SetText(L"设置目录");
+	}
+	else {
+		m_btn_working_dir->SetStateTextColor(ui::kControlStateNormal, L"textdefaultcolor");
+		m_btn_working_dir->SetStateTextColor(ui::kControlStateHot, L"link_blue");
+		m_btn_working_dir->SetText(working_dir);
+	}
+}
+
+void ListItemG::SetDeviceAuth(bool bDevAuth)
+{
+	if (bDevAuth == false) {
+		m_btn_device_auth->SetStateTextColor(ui::kControlStateNormal, L"link_blue");
+		m_btn_device_auth->SetStateTextColor(ui::kControlStateHot, L"link_blue");
+		m_btn_device_auth->SetText(L"申请授权");
+		m_btn_device_auth->SetEnabled(true);
+	}
+	else {
+		m_btn_device_auth->SetStateTextColor(ui::kControlStateNormal, L"textdefaultcolor");
+		m_btn_device_auth->SetStateTextColor(ui::kControlStateDisabled, L"textdefaultcolor");
+		m_btn_device_auth->SetText(L"本机已授权");
+		m_btn_device_auth->SetEnabled(false);
+	}
+}
+
+bool ListItemG::OnWorkingDir(ui::EventArgs* args)
 {
 	ui_comp::MsgBox::Show(this->GetWindow()->GetHWND(), nullptr, L"请先申请设备授权！", L"提示", L"知道了", L"");
 	return true;
 }
 
-bool ListItemG::OnColumn5(ui::EventArgs* args)
+bool ListItemG::OnDeviceAuth(ui::EventArgs* args)
 {
-	std::wstring content = nbase::StringPrintf(L"[Id=%d] 已发出设备授权申请，请耐心等待！", m_nId);
+	std::wstring content = nbase::StringPrintf(L"[Id=%s] 已发出设备授权申请，请耐心等待！", m_project_id.c_str());
 	ui_comp::Toast::Show(this->GetWindow()->GetHWND(), content, 3000);
+	MainKit::GetInstance()->DoApplyDevAuth(m_project_id);
 	return true;
 }
 
-bool ListItemG::OnColumn6(ui::EventArgs* args)
+bool ListItemG::OnProjectDel(ui::EventArgs* args)
 {
 	ui::ListBox* parent = dynamic_cast<ui::ListBox*>(this->GetParent());
 	return parent ? parent->Remove(this) : false;

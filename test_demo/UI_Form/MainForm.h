@@ -37,6 +37,12 @@ public:
 
 private:
 	/**
+	 * 注册窗口的回调函数
+	 * @return void	无返回值
+	 */
+	void RegisterCallback();
+
+	/**
 	 * 处理所有控件的所有消息
 	 * @param[in] msg 消息的相关信息
 	 * @return bool true 继续传递控件消息，false 停止传递控件消息
@@ -53,6 +59,14 @@ private:
 private:
 	// 弹出菜单窗口
 	void PopupMenu(POINT point);
+
+	/**
+	 * 响应设备授权回调
+	 * @param[in] ProjectId 项目Id
+	 * @param[in] bAuth 是否已授权
+	 * @return void	无返回值
+	 */
+	void OnDevAuth(std::wstring ProjectId, bool bAuth);
 
 private:
 	ui::Button*	m_btn_menu;
@@ -71,27 +85,29 @@ private:
 class ListItemG : public ui::ListContainerElement
 {
 public:
-	ListItemG() : m_nId(0) {}
-
 	void InitSubControls(
-		const int nId,
-		const std::wstring& txt_col1,
-		const std::wstring& txt_col2,
-		const std::wstring& txt_col3,
-		const std::wstring& txt_col4,
-		const std::wstring& txt_col5);
+		const std::wstring& project_id,
+		const std::wstring& project_name,
+		const std::wstring& project_mgr,
+		const std::wstring& working_dir,
+		const std::wstring& expire_date,
+		bool bDevAuth);
+
+	const std::wstring& GetProjectId() const { return m_project_id; }
+	void SetWorkingDir(const std::wstring& working_dir);
+	void SetDeviceAuth(bool bDevAuth);
 
 private:
-	bool OnColumn3(ui::EventArgs* args);
-	bool OnColumn5(ui::EventArgs* args);
-	bool OnColumn6(ui::EventArgs* args);
+	bool OnWorkingDir(ui::EventArgs* args);
+	bool OnDeviceAuth(ui::EventArgs* args);
+	bool OnProjectDel(ui::EventArgs* args);
 
 private:
-	int m_nId;
-	ui::Label*	m_column1;
-	ui::Label*	m_column2;
-	ui::Button*	m_column3;
-	ui::Label*	m_column4;
-	ui::Button*	m_column5;
-	ui::Button*	m_column6;
+	std::wstring m_project_id;
+	ui::Label*   m_lbl_project_name;
+	ui::Label*   m_lbl_project_mgr;
+	ui::Button*  m_btn_working_dir;
+	ui::Label*   m_lbl_expire_date;
+	ui::Button*  m_btn_device_auth;
+	ui::Button*  m_btn_project_del;
 };

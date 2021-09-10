@@ -64,8 +64,8 @@ public:
 private:
 	/**
 	 * 登录回调
-	 * @param[in] logined 是否登录成功
 	 * @param[in] username 帐号
+	 * @param[in] logined 是否登录成功
 	 * @return void	无返回值
 	 */
 	void OnLoginCallback(std::string username, bool logined);
