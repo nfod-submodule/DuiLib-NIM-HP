@@ -7,6 +7,7 @@
 #include "MsgBox.h"
 #include "Toast.h"
 #include "Log4z.h"
+#include <ShlObj.h>
 
 //****************************/
 //-- namespace NS_MainForm
@@ -79,10 +80,10 @@ void MainForm::InitWindow()
 			std::wstring project_id   = std::to_wstring(id);
 			std::wstring project_name = nbase::StringPrintf(L"重大研发%d号项目", id);
 			std::wstring project_mgr  = L"张秘书";
-			std::wstring working_dir  = L"";
+			std::vector<std::wstring> working_dirs;
 			std::wstring expire_date  = L"2021-12-31";
 			bool bDevAuth = false;
-			pItem->InitSubControls(project_id, project_name, project_mgr, working_dir, expire_date, bDevAuth);
+			pItem->InitSubControls(project_id, project_name, project_mgr, working_dirs, expire_date, bDevAuth);
 		}
 		m_list_g->Add(pItem);
 	}
@@ -220,7 +221,7 @@ void ListItemG::InitSubControls(
 	const std::wstring& project_id,
 	const std::wstring& project_name,
 	const std::wstring& project_mgr,
-	const std::wstring& working_dir,
+	const std::vector<std::wstring>& working_dirs,
 	const std::wstring& expire_date,
 	bool bDevAuth)
 {
@@ -234,7 +235,7 @@ void ListItemG::InitSubControls(
 	m_project_id = project_id;
 	m_lbl_project_name->SetText(project_name);
 	m_lbl_project_mgr->SetText(project_mgr);
-	SetWorkingDir(working_dir);
+	SetWorkingDir(working_dirs);
 	m_lbl_expire_date->SetText(expire_date);
 	SetDeviceAuth(bDevAuth);
 
@@ -243,9 +244,27 @@ void ListItemG::InitSubControls(
 	m_btn_project_del->AttachClick(std::bind<bool>(&ListItemG::OnProjectDel, this, std::placeholders::_1));
 }
 
-void ListItemG::SetWorkingDir(const std::wstring& working_dir)
+void ListItemG::SetWorkingDir(const std::vector<std::wstring>& working_dirs)
 {
-	if (working_dir.empty()) {
+	// 去重
+	std::vector<std::wstring>& vecDirs = m_working_dirs;
+	vecDirs.clear();
+	for (size_t i = 0; i < working_dirs.size(); ++i) {
+		const std::wstring& dir = working_dirs[i];
+		if (vecDirs.end() == std::find(vecDirs.begin(), vecDirs.end(), dir)) {
+			vecDirs.push_back(dir);
+		}
+	}
+	// 拼接
+	std::wstring strDirs;
+	for (size_t i = 0; i < vecDirs.size(); ++i) {
+		if (strDirs.empty() == false) {
+			strDirs += L";";
+		}
+		strDirs += vecDirs[i];
+	}
+
+	if (strDirs.empty()) {
 		m_btn_working_dir->SetStateTextColor(ui::kControlStateNormal, L"link_blue");
 		m_btn_working_dir->SetStateTextColor(ui::kControlStateHot, L"link_blue");
 		m_btn_working_dir->SetText(L"设置目录");
@@ -253,12 +272,13 @@ void ListItemG::SetWorkingDir(const std::wstring& working_dir)
 	else {
 		m_btn_working_dir->SetStateTextColor(ui::kControlStateNormal, L"textdefaultcolor");
 		m_btn_working_dir->SetStateTextColor(ui::kControlStateHot, L"link_blue");
-		m_btn_working_dir->SetText(working_dir);
+		m_btn_working_dir->SetText(strDirs);
 	}
 }
 
 void ListItemG::SetDeviceAuth(bool bDevAuth)
 {
+	m_bDevAuth = bDevAuth;
 	if (bDevAuth == false) {
 		m_btn_device_auth->SetStateTextColor(ui::kControlStateNormal, L"link_blue");
 		m_btn_device_auth->SetStateTextColor(ui::kControlStateHot, L"link_blue");
@@ -275,7 +295,25 @@ void ListItemG::SetDeviceAuth(bool bDevAuth)
 
 bool ListItemG::OnWorkingDir(ui::EventArgs* args)
 {
-	ui_comp::MsgBox::Show(this->GetWindow()->GetHWND(), nullptr, L"请先申请设备授权！", L"提示", L"知道了", L"");
+	if (m_bDevAuth == false) {
+		ui_comp::MsgBox::Show(this->GetWindow()->GetHWND(), nullptr, L"请先申请设备授权！", L"提示", L"知道了", L"");
+	}
+	else {
+		BROWSEINFO bi;
+		memset(&bi, 0, sizeof(BROWSEINFO));
+		bi.hwndOwner = this->GetWindow()->GetHWND();
+		bi.lpszTitle = L"请选择工作目录";
+		bi.ulFlags = BIF_RETURNFSANCESTORS;
+		LPITEMIDLIST pIDL = ::SHBrowseForFolderW(&bi);
+		WCHAR szPath[MAX_PATH] = { 0 };
+		if (pIDL && ::SHGetPathFromIDListW(pIDL, szPath))
+		{
+			std::vector<std::wstring> working_dirs;
+			working_dirs.assign(m_working_dirs.begin(), m_working_dirs.end());
+			working_dirs.push_back(szPath);
+			SetWorkingDir(working_dirs);
+		}
+	}
 	return true;
 }
 

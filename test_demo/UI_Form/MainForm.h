@@ -85,16 +85,18 @@ private:
 class ListItemG : public ui::ListContainerElement
 {
 public:
+	ListItemG() : m_bDevAuth(false) {}
+
 	void InitSubControls(
 		const std::wstring& project_id,
 		const std::wstring& project_name,
 		const std::wstring& project_mgr,
-		const std::wstring& working_dir,
+		const std::vector<std::wstring>& working_dirs,
 		const std::wstring& expire_date,
 		bool bDevAuth);
 
 	const std::wstring& GetProjectId() const { return m_project_id; }
-	void SetWorkingDir(const std::wstring& working_dir);
+	void SetWorkingDir(const std::vector<std::wstring>& working_dirs);
 	void SetDeviceAuth(bool bDevAuth);
 
 private:
@@ -104,6 +106,9 @@ private:
 
 private:
 	std::wstring m_project_id;
+	std::vector<std::wstring> m_working_dirs;
+	bool m_bDevAuth;
+
 	ui::Label*   m_lbl_project_name;
 	ui::Label*   m_lbl_project_mgr;
 	ui::Button*  m_btn_working_dir;
