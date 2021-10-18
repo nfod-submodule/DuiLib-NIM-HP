@@ -14,7 +14,7 @@ public:
 	void OnSeleteItem();
 
 private:
-    Combo *m_pOwner;
+    Combo *m_pOwner = nullptr;
     int m_iOldSel;
 	bool m_bClosing = false;
 };
@@ -75,9 +75,12 @@ std::wstring CComboWnd::GetWindowClassName() const
 
 void CComboWnd::OnFinalMessage(HWND hWnd)
 {
-    m_pOwner->m_pWindow = NULL;
-    m_pOwner->m_uButtonState = kControlStateNormal;
-    m_pOwner->Invalidate();
+	if (m_pOwner) {
+		m_pOwner->m_pWindow = NULL;
+		m_pOwner->m_uButtonState = kControlStateNormal;
+		m_pOwner->Invalidate();
+	}
+	__super::OnFinalMessage(hWnd);
     delete this;
 }
 
@@ -145,7 +148,7 @@ Combo::Combo() :
 	m_pLayout.reset(new ListBox(new VLayout));
 	m_pLayout->GetLayout()->SetPadding(UiRect(1, 1, 1, 1));
 	m_pLayout->SetBorderSize(UiRect(1, 1, 1, 1));
-	m_pLayout->SetAutoDestroy(false);
+	m_pLayout->SetAutoDestroy(true);
 	m_pLayout->EnableScrollBar();
 	m_pLayout->ApplyAttributeList(GetDropBoxAttributeList());
 	m_pLayout->AttachSelect(nbase::Bind(&Combo::OnSelectItem, this, std::placeholders::_1));
