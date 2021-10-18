@@ -28,6 +28,7 @@ CONST PWSTR WGT_btn_quit	= L"btn_quit";		// Button: 退出
 CONST PWSTR WGT_opt_tab_r	= L"opt_tab_r";		// Option: 标签-红
 CONST PWSTR WGT_opt_tab_g	= L"opt_tab_g";		// Option: 标签-绿
 CONST PWSTR WGT_box_tabs	= L"box_tabs";		// TabBox: 标签内容
+CONST PWSTR WGT_combo_r		= L"combo_r";		// Combo: 组合框-红
 CONST PWSTR WGT_list_r		= L"list_r";		// ListBox: 列表-红
 CONST PWSTR WGT_list_g		= L"list_g";		// ListBox: 列表-绿
 
@@ -64,6 +65,7 @@ void MainForm::InitWindow()
 	m_opt_tab_r  = (ui::Option*) FindControl(WGT_opt_tab_r);
 	m_opt_tab_g  = (ui::Option*) FindControl(WGT_opt_tab_g);
 	m_box_tabs   = (ui::TabBox*) FindControl(WGT_box_tabs);
+	m_combo_r    = (ui::Combo*)  FindControl(WGT_combo_r);
 	m_list_r     = (ui::ListBox*)FindControl(WGT_list_r);
 	m_list_g     = (ui::ListBox*)FindControl(WGT_list_g);
 
@@ -71,7 +73,21 @@ void MainForm::InitWindow()
 	m_opt_tab_g->Selected(true);
 	m_box_tabs->SelectItem(WGT_box_tab_g_index);
 
-	// 初始列表
+	// 初始组合框：组合框-红
+	for (int id = 1; id <= 6; ++id)
+	{
+		ui::ListContainerElement* pElement = new ui::ListContainerElement();
+		if (pElement) {
+			pElement->SetClass(L"listitem");
+			pElement->SetFixedHeight(30);
+			pElement->SetBkColor(L"white");
+			pElement->SetTextPadding({ 6,0,6,0 });
+			pElement->SetText(nbase::StringPrintf(L"Combo element %d", id));
+		}
+		m_combo_r->Add(pElement);
+	}
+
+	// 初始列表：列表-绿
 	for (int id = 1; id <= 6; ++id)
 	{
 		ListItemG* pItem = new ListItemG();

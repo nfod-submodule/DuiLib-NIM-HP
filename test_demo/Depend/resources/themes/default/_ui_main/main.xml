@@ -27,9 +27,10 @@
       <!-- 标签页-体 -->
       <TabBox name="box_tabs" width="stretch" height="stretch">
         <!-- 红色 -->
-        <Box bkcolor="red">
+        <VBox bkcolor="red">
+          <Combo class="list" name="combo_r" height="30" margin="0,0,0,0" padding="6" bkimage="file='../public/combo/normal.png' corner='5,5,30,5'"/>
           <VListBox class="list" name="list_r" visible="false"/>
-        </Box>
+        </VBox>
         <!-- 绿色 -->
         <Box bkcolor="green">
           <VBox bkcolor="bk_wnd_lightcolor">

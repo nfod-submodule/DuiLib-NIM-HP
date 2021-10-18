@@ -75,6 +75,7 @@ private:
 	ui::Option* m_opt_tab_r;
 	ui::Option* m_opt_tab_g;
 	ui::TabBox* m_box_tabs;
+	ui::Combo*   m_combo_r;
 	ui::ListBox* m_list_r;
 	ui::ListBox* m_list_g;
 };
