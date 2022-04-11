@@ -38,7 +38,7 @@ for %%n in %Projects% do (
 @endlocal
 
 :end
-pause
+if "%~1"=="" pause
 exit /b 0
 
 :: param1=name, param2=file
