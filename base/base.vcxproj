@@ -209,6 +209,9 @@
 xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win32D"
 xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win32D"</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4221</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -229,6 +232,9 @@ xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win32D"</Command>
 xcopy /Y /Q "$(OutDir)$(TargetName)$(TargetExt)" "$(ExportDir)Win64D"
 xcopy /Y /Q "$(OutDir)$(TargetName).pdb" "$(ExportDir)Win64D"</Command>
     </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>/IGNORE:4221</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
