@@ -34,7 +34,7 @@ int APIENTRY wWinMain(
 
 bool OnInit()
 {
-	// 控制台
+	// 打开控制台
 	Console::Open();
 	// 日志系统
 	do  {
@@ -54,6 +54,7 @@ bool OnInit()
 
 void OnExit()
 {
+	// 关闭控制台
 	Console::Close();
 }
 
@@ -68,14 +69,12 @@ void UIThread::Init()
 	nbase::ThreadManager::RegisterThread(eThread_UI);
 
 	// 获取资源路径，初始化全局参数
-	// 设置使用本地文件夹作为资源（也可以使用资源中的压缩包作为资源）
-	// 默认皮肤使用 resources\\themes\\default
-	// 默认语言使用 resources\\lang\\zh_CN
-	// 如需修改请指定 Startup 最后两个参数
 	std::wstring resPath = Util::GetAppDirW() + L"resources\\";
-	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false);
+	std::wstring skin = L"skin";
+	std::wstring lang = L"lang\\zh_CN";
+	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false, skin, lang);
 
-	// 登录窗口
+	// 显示登录窗口
 	LoginForm::SingletonShow();
 }
 
