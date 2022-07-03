@@ -443,64 +443,58 @@ Control* WindowBuilder::CreateControlByClass(const std::wstring& strControlClass
 {
 	Control* pControl = nullptr;
 	SIZE_T cchLen = strControlClass.length();
-	switch( cchLen ) {
+	switch (cchLen)
+	{
 	case 3:
-		if( strControlClass == DUI_CTR_BOX )					pControl = new Box;
+		if      (strControlClass == DUI_CTR_BOX)					pControl = new Box;
 		break;
 	case 4:
-		if( strControlClass == DUI_CTR_HBOX )					pControl = new HBox;
-		else if( strControlClass == DUI_CTR_VBOX )				pControl = new VBox;
+		if      (strControlClass == DUI_CTR_HBOX)					pControl = new HBox;
+		else if (strControlClass == DUI_CTR_VBOX)					pControl = new VBox;
 		break;
 	case 5:
-		if( strControlClass == DUI_CTR_COMBO )                  pControl = new Combo;
-		else if( strControlClass == DUI_CTR_LABEL )             pControl = new Label;
+		if      (strControlClass == DUI_CTR_COMBO)					pControl = new Combo;
+		else if (strControlClass == DUI_CTR_LABEL)					pControl = new Label;
 		break;
 	case 6:
-		if( strControlClass == DUI_CTR_BUTTON )                 pControl = new Button;
-		else if( strControlClass == DUI_CTR_OPTION )            pControl = new Option;
-		else if( strControlClass == DUI_CTR_SLIDER )            pControl = new Slider;
-		else if( strControlClass == DUI_CTR_TABBOX )			pControl = new TabBox;
+		if      (strControlClass == DUI_CTR_BUTTON)					pControl = new Button;
+		else if (strControlClass == DUI_CTR_OPTION)					pControl = new Option;
+		else if (strControlClass == DUI_CTR_SLIDER)					pControl = new Slider;
+		else if (strControlClass == DUI_CTR_TABBOX)					pControl = new TabBox;
 		break;
 	case 7:
-		if( strControlClass == DUI_CTR_CONTROL )                pControl = new Control;
-		else if( strControlClass == DUI_CTR_TILEBOX )		  	pControl = new TileBox;
-		else if (strControlClass == DUI_CTR_LISTBOX)			pControl = new ListBox(new Layout);
-		//else if( pstrClass == DUI_CTR_ACTIVEX )				pControl = new ActiveX;
+		if      (strControlClass == DUI_CTR_CONTROL)				pControl = new Control;
+		else if (strControlClass == DUI_CTR_TILEBOX)				pControl = new TileBox;
+		else if (strControlClass == DUI_CTR_LISTBOX)				pControl = new ListBox(new Layout);
+//		else if (strControlClass == DUI_CTR_ACTIVEX)				pControl = new ActiveX;
 		break;
 	case 8:
-		if( strControlClass == DUI_CTR_PROGRESS )               pControl = new Progress;
-		else if( strControlClass == DUI_CTR_RICHEDIT )          pControl = new RichEdit;
-		else if( strControlClass == DUI_CTR_CHECKBOX )			pControl = new CheckBox;
-		//else if( pstrClass == DUI_CTR_DATETIME )				pControl = new DateTime;
-		else if( strControlClass == DUI_CTR_TREEVIEW )			pControl = new TreeView;
-		else if( strControlClass == DUI_CTR_TREENODE )			pControl = new TreeNode;
-		else if( strControlClass == DUI_CTR_HLISTBOX )			pControl = new ListBox(new HLayout);
-		else if( strControlClass == DUI_CTR_VLISTBOX )          pControl = new ListBox(new VLayout);
-		else if ( strControlClass == DUI_CTR_CHILDBOX )			pControl = new ChildBox;
-		else if( strControlClass == DUI_CTR_LABELBOX )          pControl = new LabelBox;
+		if      (strControlClass == DUI_CTR_PROGRESS)				pControl = new Progress;
+		else if (strControlClass == DUI_CTR_RICHEDIT)				pControl = new RichEdit;
+		else if (strControlClass == DUI_CTR_CHECKBOX)				pControl = new CheckBox;
+//		else if (strControlClass == DUI_CTR_DATETIME)				pControl = new DateTime;
+		else if (strControlClass == DUI_CTR_TREEVIEW)				pControl = new TreeView;
+		else if (strControlClass == DUI_CTR_TREENODE)				pControl = new TreeNode;
+		else if (strControlClass == DUI_CTR_HLISTBOX)				pControl = new ListBox(new HLayout);
+		else if (strControlClass == DUI_CTR_VLISTBOX)				pControl = new ListBox(new VLayout);
+		else if (strControlClass == DUI_CTR_CHILDBOX)				pControl = new ChildBox;
+		else if (strControlClass == DUI_CTR_LABELBOX)				pControl = new LabelBox;
 		break;
 	case 9:
-		if( strControlClass == DUI_CTR_SCROLLBAR )				pControl = new ScrollBar; 
-		else if( strControlClass == DUI_CTR_BUTTONBOX )         pControl = new ButtonBox;
-		else if( strControlClass == DUI_CTR_OPTIONBOX )         pControl = new OptionBox;
-		break;
-	case 10:
-		//if( pstrClass == DUI_CTR_WEBBROWSER )					pControl = new WebBrowser;
+		if      (strControlClass == DUI_CTR_SCROLLBAR)				pControl = new ScrollBar;
+		else if (strControlClass == DUI_CTR_BUTTONBOX)				pControl = new ButtonBox;
+		else if (strControlClass == DUI_CTR_OPTIONBOX)				pControl = new OptionBox;
 		break;
 	case 11:
-		if( strControlClass == DUI_CTR_TILELISTBOX )			pControl = new ListBox(new TileLayout);
-		else if( strControlClass == DUI_CTR_CHECKBOXBOX )		pControl = new CheckBoxBox;
+		if      (strControlClass == DUI_CTR_TILELISTBOX)			pControl = new ListBox(new TileLayout);
+		else if (strControlClass == DUI_CTR_CHECKBOXBOX)			pControl = new CheckBoxBox;
 		break;
 	case 14:
-		if (strControlClass == DUI_CTR_VIRTUALLISTBOX)			pControl = new VirtualListBox;
-		else if (strControlClass == DUI_CTR_CIRCLEPROGRESS)     pControl = new CircleProgress;
-		break;
-	case 15:
-		break;
-	case 16:
+		if      (strControlClass == DUI_CTR_VIRTUALLISTBOX)			pControl = new VirtualListBox;
+		else if (strControlClass == DUI_CTR_CIRCLEPROGRESS)			pControl = new CircleProgress;
 		break;
 	case 20:
-		if( strControlClass == DUI_CTR_LISTCONTAINERELEMENT )   pControl = new ListContainerElement;
+		if      (strControlClass == DUI_CTR_LISTCONTAINERELEMENT)	pControl = new ListContainerElement;
 		break;
 	}
 
