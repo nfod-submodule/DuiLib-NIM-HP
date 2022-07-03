@@ -472,7 +472,7 @@ Control* WindowBuilder::CreateControlByClass(const std::wstring& strControlClass
 		if      (strControlClass == DUI_CTR_PROGRESS)				pControl = new Progress;
 		else if (strControlClass == DUI_CTR_RICHEDIT)				pControl = new RichEdit;
 		else if (strControlClass == DUI_CTR_CHECKBOX)				pControl = new CheckBox;
-//		else if (strControlClass == DUI_CTR_DATETIME)				pControl = new DateTime;
+		else if (strControlClass == DUI_CTR_DATETIME)				pControl = new DateTime;
 		else if (strControlClass == DUI_CTR_TREEVIEW)				pControl = new TreeView;
 		else if (strControlClass == DUI_CTR_TREENODE)				pControl = new TreeNode;
 		else if (strControlClass == DUI_CTR_HLISTBOX)				pControl = new ListBox(new HLayout);

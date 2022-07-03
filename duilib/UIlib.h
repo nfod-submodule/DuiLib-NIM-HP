@@ -124,6 +124,7 @@
 #include "Control/Label.h"
 #include "Control/Button.h"
 #include "Control/CheckBox.h"
+#include "Control/DateTime.h"
 #include "Control/Option.h"
 
 #include "Control/Progress.h"
