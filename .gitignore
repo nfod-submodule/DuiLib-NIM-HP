@@ -41,4 +41,5 @@ _DLL_Win64*/
 _LIB_Win32*/
 _LIB_Win64*/
 bin/
+binExport/
 libs/

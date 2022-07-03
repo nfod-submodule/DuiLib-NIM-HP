@@ -2,25 +2,25 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <LibIntDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\$(ProjectName)\</LibIntDir>
+    <MyRootDir>$(MSBuildThisFileDirectory)</MyRootDir>
+    <IntermDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\$(ProjectName)\</IntermDir>
     <LibOutDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\</LibOutDir>
-    <AppIntDir>$(MSBuildThisFileDirectory)bin\vsout\$(Platform)$(Configuration)\$(ProjectName)\</AppIntDir>
     <AppOutDir>$(MSBuildThisFileDirectory)bin\$(Platform)$(Configuration)\</AppOutDir>
-    <ExportDir>$(MSBuildThisFileDirectory)libs\</ExportDir>
+    <ExportDir>$(MSBuildThisFileDirectory)binExport\</ExportDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
   <ItemGroup>
-    <BuildMacro Include="LibIntDir">
-      <Value>$(LibIntDir)</Value>
+    <BuildMacro Include="MyRootDir">
+      <Value>$(MyRootDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="IntermDir">
+      <Value>$(IntermDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
     <BuildMacro Include="LibOutDir">
       <Value>$(LibOutDir)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-    <BuildMacro Include="AppIntDir">
-      <Value>$(AppIntDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
     <BuildMacro Include="AppOutDir">
