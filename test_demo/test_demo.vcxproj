@@ -95,13 +95,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Components;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\binExport\Win32D;$(ProjectDir)Depend\vld\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>base.lib;duilib.lib;ui_components.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
@@ -118,13 +118,13 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win32\*.*" "$(OutDir)"</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Components;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\binExport\Win64D;$(ProjectDir)Depend\vld\lib\Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>base.lib;duilib.lib;ui_components.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
@@ -143,7 +143,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win64\*.*" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Components;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -151,7 +151,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win64\*.*" "$(OutDir)"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\binExport\Win32R;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>base.lib;duilib.lib;ui_components.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
@@ -169,7 +169,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Components;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -177,7 +177,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\binExport\Win64R;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>base.lib;duilib.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>base.lib;duilib.lib;ui_components.lib;ComCtl32.Lib;gdiplus.lib;Imm32.Lib;MSImg32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
@@ -188,17 +188,11 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConfUI.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_demo.h" />
-    <ClInclude Include="UI_Components\ConfUI_Components.h" />
-    <ClInclude Include="UI_Components\MenuWnd.h" />
-    <ClInclude Include="UI_Components\MsgBox.h" />
-    <ClInclude Include="UI_Components\Toast.h" />
-    <ClInclude Include="UI_Components\WindowEx.h" />
-    <ClInclude Include="UI_Components\WindowExMgr.h" />
-    <ClInclude Include="UI_Form\ConfUI.h" />
     <ClInclude Include="UI_Form\LoginForm.h" />
     <ClInclude Include="UI_Form\MainForm.h" />
     <ClInclude Include="UI_Kit\LoginKit.h" />
@@ -215,11 +209,6 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_demo.cpp" />
-    <ClCompile Include="UI_Components\MenuWnd.cpp" />
-    <ClCompile Include="UI_Components\MsgBox.cpp" />
-    <ClCompile Include="UI_Components\Toast.cpp" />
-    <ClCompile Include="UI_Components\WindowEx.cpp" />
-    <ClCompile Include="UI_Components\WindowExMgr.cpp" />
     <ClCompile Include="UI_Form\LoginForm.cpp" />
     <ClCompile Include="UI_Form\MainForm.cpp" />
     <ClCompile Include="UI_Kit\LoginKit.cpp" />
