@@ -48,6 +48,13 @@ USING_NS_LoginForm;
 //****************************/
 //////////////////////////////////////////////////////////////////////////
 
+void LoginForm::Close(UINT nRet /*= IDOK*/)
+{
+	// 注销窗口的回调函数
+	LoginKit::GetInstance()->UnregisterCallback();
+	__super::Close(nRet);
+}
+
 void LoginForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);
@@ -82,12 +89,6 @@ void LoginForm::InitWindow()
 	// 设置复选框默认选中
 	m_cbox_remember->Selected(true);
 	m_cbox_autologin->Selected(true);
-}
-
-LRESULT LoginForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-{
-	::PostQuitMessage(0L);
-	return __super::OnClose(uMsg, wParam, lParam, bHandled);
 }
 
 void LoginForm::RegisterCallback()

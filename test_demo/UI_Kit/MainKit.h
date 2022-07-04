@@ -19,12 +19,12 @@ public:
 	 */
 	void RegisterCallback(
 		const Callback_DevAuth& cb_DevAuth);
-	
+
 	/**
 	 * 注销窗口的回调函数，窗口退出时须调用
 	 * @return void 无返回值
 	 */
-	void UnRegisterCallback();
+	void UnregisterCallback();
 
 public:
 	/**

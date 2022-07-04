@@ -8,9 +8,6 @@
     <Filter Include="Util">
       <UniqueIdentifier>{18c941e8-901b-4181-a96a-2dd2df690998}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI_Components">
-      <UniqueIdentifier>{32fcf0af-8378-4e7d-8b54-45062ff8389f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="UI_Form">
       <UniqueIdentifier>{9f7ca044-65e2-4a95-a054-d50266308e5e}</UniqueIdentifier>
     </Filter>
@@ -32,15 +29,6 @@
     <ClInclude Include="Util\Log4z.h">
       <Filter>Util</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Components\WindowEx.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Components\WindowExMgr.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Components\ConfUI_Components.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
     <ClInclude Include="UI_Form\ConfUI.h">
       <Filter>UI_Form</Filter>
     </ClInclude>
@@ -56,15 +44,6 @@
     <ClInclude Include="UI_Kit\MainKit.h">
       <Filter>UI_Kit</Filter>
     </ClInclude>
-    <ClInclude Include="UI_Components\MsgBox.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Components\MenuWnd.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Components\Toast.h">
-      <Filter>UI_Components</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -78,12 +57,6 @@
     <ClCompile Include="Util\Log4z.cpp">
       <Filter>Util</Filter>
     </ClCompile>
-    <ClCompile Include="UI_Components\WindowEx.cpp">
-      <Filter>UI_Components</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Components\WindowExMgr.cpp">
-      <Filter>UI_Components</Filter>
-    </ClCompile>
     <ClCompile Include="UI_Form\LoginForm.cpp">
       <Filter>UI_Form</Filter>
     </ClCompile>
@@ -95,15 +68,6 @@
     </ClCompile>
     <ClCompile Include="UI_Kit\MainKit.cpp">
       <Filter>UI_Kit</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Components\MsgBox.cpp">
-      <Filter>UI_Components</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Components\MenuWnd.cpp">
-      <Filter>UI_Components</Filter>
-    </ClCompile>
-    <ClCompile Include="UI_Components\Toast.cpp">
-      <Filter>UI_Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

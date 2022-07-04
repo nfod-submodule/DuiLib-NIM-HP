@@ -3,9 +3,6 @@
 #include "MainForm.h"
 #include "LoginKit.h"
 #include "MainKit.h"
-#include "MenuWnd.h"
-#include "MsgBox.h"
-#include "Toast.h"
 #include "Log4z.h"
 #include <ShlObj.h>
 
@@ -48,6 +45,13 @@ USING_NS_MainForm;
 //-- class MainForm
 //****************************/
 //////////////////////////////////////////////////////////////////////////
+
+void MainForm::Close(UINT nRet /*= IDOK*/)
+{
+	// 注销窗口的回调函数
+	MainKit::GetInstance()->UnregisterCallback();
+	__super::Close(nRet);
+}
 
 void MainForm::InitWindow()
 {
@@ -103,13 +107,6 @@ void MainForm::InitWindow()
 		}
 		m_list_g->Add(pItem);
 	}
-}
-
-LRESULT MainForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-{
-	MainKit::GetInstance()->UnRegisterCallback();
-	::PostQuitMessage(0L);
-	return __super::OnClose(uMsg, wParam, lParam, bHandled);
 }
 
 void MainForm::RegisterCallback()
@@ -216,7 +213,7 @@ void MainForm::OnDevAuth(std::wstring ProjectId, bool bAuth)
 {
 	if (bAuth == false) {
 		std::wstring content = nbase::StringPrintf(L"[Id=%s] 设备授权失败！", ProjectId.c_str());
-		ui_comp::Toast::Show(this->GetHWND(), content, 2000);
+		ui_comp::Toast::Show(content, 2000, this->GetHWND());
 		return;
 	}
 	for (int index = 0; index < m_list_g->GetCount(); ++index)
@@ -336,7 +333,7 @@ bool ListItemG::OnWorkingDir(ui::EventArgs* args)
 bool ListItemG::OnDeviceAuth(ui::EventArgs* args)
 {
 	std::wstring content = nbase::StringPrintf(L"[Id=%s] 已发出设备授权申请，请耐心等待！", m_project_id.c_str());
-	ui_comp::Toast::Show(this->GetWindow()->GetHWND(), content, 3000);
+	ui_comp::Toast::Show(content, 3000, this->GetWindow()->GetHWND());
 	MainKit::GetInstance()->DoApplyDevAuth(m_project_id);
 	return true;
 }

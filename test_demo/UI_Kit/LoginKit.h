@@ -26,7 +26,7 @@ public:
 
 public:
 	/**
-	 * 注册登录窗口的回调函数，用来让UI组件控制登录窗口行为，登陆之前应该调用此函数注册相关回调
+	 * 注册窗口的回调函数，用来让UI组件控制窗口行为，窗口初始化时调用此函数注册相关回调
 	 * @param[in] cb_LoginError		通知登录错误并返回错误原因的回调函数
 	 * @param[in] cb_CancelLogin	通知取消登录的回调函数
 	 * @param[in] cb_HideWindow		通知隐藏登录窗口的回调函数
@@ -40,6 +40,12 @@ public:
 		const Callback_HideWindow&     cb_HideWindow,
 		const Callback_DestroyWindow&  cb_DestroyWindow,
 		const Callback_ShowMainWindow& cb_ShowMainWindow);
+
+	/**
+	 * 注销窗口的回调函数，窗口退出时须调用
+	 * @return void 无返回值
+	 */
+	void UnregisterCallback();
 
 	/**
 	 * 执行登录

@@ -34,6 +34,15 @@ void LoginKit::RegisterCallback(
 	m_cb_ShowMainWindow = cb_ShowMainWindow;
 }
 
+void LoginKit::UnregisterCallback()
+{
+	m_cb_LoginError     = nullptr;
+	m_cb_CancelLogin    = nullptr;
+	m_cb_HideWindow     = nullptr;
+	m_cb_DestroyWindow  = nullptr;
+	m_cb_ShowMainWindow = nullptr;
+}
+
 void LoginKit::DoLogin(const std::string& username, const std::string& password)
 {
 	LOGA_DEBUG("login start ... username = %s, password = %s", username.c_str(), password.c_str());
@@ -69,7 +78,6 @@ void LoginKit::DoLogout()
 		// 销毁所有窗口
 		LOGA_DEBUG("logging out ...");
 		ui_comp::WindowExMgr::GetInstance()->DestroyAllWindows();
-		ui_comp::WindowExMgr::GetInstance()->SetStopRegister(false);
 
 		// 重置数据，如：帐号等信息
 		m_status = eLoginStatus_NULL;
@@ -78,7 +86,7 @@ void LoginKit::DoLogout()
 
 		// 打开新的登录窗口
 		LOGA_DEBUG("new login form");
-		LoginForm::SingletonShow();
+		LoginForm::Show();
 	};
 	auto task = std::bind<void>(logout);
 	nbase::ThreadManager::PostDelayedTask(eThread_UI, task, nbase::TimeDelta::FromMilliseconds(100));

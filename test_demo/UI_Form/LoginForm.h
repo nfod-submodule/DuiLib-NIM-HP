@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ConfUI.h"
-#include "WindowExMgr.h"
 
 //****************************/
 //-- class LoginForm
@@ -9,31 +8,32 @@
 class LoginForm : public ui_comp::WindowEx
 {
 public:
-	static void SingletonShow() {
-		ui_comp::WindowExMgr::GetInstance()->SingletonShow<LoginForm>(ConfUI::Login_ClassName, ConfUI::Login_WindowId);
+	static void Show()
+	{
+		ui_comp::WindowExMgr::ShowSingleton<LoginForm>(
+			ConfUI::Login_ClassName,
+			ConfUI::Login_WindowId);
 	}
+
 public:
-	LoginForm(const std::wstring& wnd_id = ConfUI::Login_WindowId)
-		: ui_comp::WindowEx(ConfUI::Login_ClassName, wnd_id) {}
-	~LoginForm() {}
+	LoginForm(const std::wstring& wnd_id)
+		: ui_comp::WindowEx(
+			FL_QUIT,
+			ConfUI::Login_SkinFolder,
+			ConfUI::Login_SkinFile,
+			ConfUI::Login_ClassName,
+			wnd_id) {}
 
+public:
 	/**
-	 * 以下两个接口是必须要覆写的接口，父类会调用来构建窗口
-	 * GetSkinFolder	接口设置要绘制的窗口皮肤资源路径
-	 * GetSkinFile		接口设置要绘制的窗口的 xml 描述文件
+	 * 关闭窗口
 	 */
-	virtual std::wstring GetSkinFolder() override { return ConfUI::Login_SkinFolder; }
-	virtual std::wstring GetSkinFile() override   { return ConfUI::Login_SkinFile; }
+	virtual void Close(UINT nRet = IDOK);
 
 	/**
-	 * 收到 WM_CREATE 消息时该函数会被调用，通常做一些控件初始化的操作
+	 * 初始窗口
 	 */
 	virtual void InitWindow() override;
-
-	/**
-	 * 收到 WM_CLOSE 消息时该函数会被调用
-	 */
-	virtual LRESULT OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
 private:
 	/**

@@ -29,3 +29,6 @@
 
 // duilib/
 #include "UIlib.h"
+
+// ui_components/
+#include "ui_components.h"

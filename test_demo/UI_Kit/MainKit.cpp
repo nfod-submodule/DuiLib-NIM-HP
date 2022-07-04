@@ -21,7 +21,7 @@ void MainKit::RegisterCallback(
 	m_cb_DevAuth = cb_DevAuth;
 }
 
-void MainKit::UnRegisterCallback()
+void MainKit::UnregisterCallback()
 {
 	m_cb_DevAuth = nullptr;
 }

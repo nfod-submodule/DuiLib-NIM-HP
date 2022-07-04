@@ -5,7 +5,6 @@
 #include "Log4z.h"
 #include "Util.h"
 #include "LoginForm.h"
-#include "WindowExMgr.h"
 
 #ifdef _DEBUG
 #include "vld.h"
@@ -75,7 +74,7 @@ void UIThread::Init()
 	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false, skin, lang);
 
 	// ÏÔÊ¾µÇÂ¼´°¿Ú
-	LoginForm::SingletonShow();
+	LoginForm::Show();
 }
 
 void UIThread::Cleanup()
