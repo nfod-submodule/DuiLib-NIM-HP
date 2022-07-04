@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "LoginKit.h"
-#include "ConfUI.h"
-#include "Log4z.h"
 #include "LoginForm.h"
+#include "Log4z.h"
 
 //****************************/
 //-- class LoginKit
@@ -10,170 +9,128 @@
 //////////////////////////////////////////////////////////////////////////
 
 LoginKit::LoginKit()
-	: m_cb_LoginError(nullptr)
-	, m_cb_CancelLogin(nullptr)
-	, m_cb_HideWindow(nullptr)
-	, m_cb_DestroyWindow(nullptr)
-	, m_cb_ShowMainWindow(nullptr)
-	, m_status(eLoginStatus_NULL)
+	: m_status(eStatus_NULL)
 {
-
+	UnregisterCallback();
 }
 
 void LoginKit::RegisterCallback(
-	const Callback_LoginError&     cb_LoginError,
-	const Callback_CancelLogin&    cb_CancelLogin,
-	const Callback_HideWindow&     cb_HideWindow,
-	const Callback_DestroyWindow&  cb_DestroyWindow,
-	const Callback_ShowMainWindow& cb_ShowMainWindow)
+	const Callback_Error&    cb_Error,
+	const Callback_Cancel&   cb_Cancel,
+	const Callback_ShowMain& cb_ShowMain)
 {
-	m_cb_LoginError     = cb_LoginError;
-	m_cb_CancelLogin    = cb_CancelLogin;
-	m_cb_HideWindow     = cb_HideWindow;
-	m_cb_DestroyWindow  = cb_DestroyWindow;
-	m_cb_ShowMainWindow = cb_ShowMainWindow;
+	m_cb_Error    = cb_Error;
+	m_cb_Cancel   = cb_Cancel;
+	m_cb_ShowMain = cb_ShowMain;
 }
 
 void LoginKit::UnregisterCallback()
 {
-	m_cb_LoginError     = nullptr;
-	m_cb_CancelLogin    = nullptr;
-	m_cb_HideWindow     = nullptr;
-	m_cb_DestroyWindow  = nullptr;
-	m_cb_ShowMainWindow = nullptr;
+	m_cb_Error    = nullptr;
+	m_cb_Cancel   = nullptr;
+	m_cb_ShowMain = nullptr;
 }
 
-void LoginKit::DoLogin(const std::string& username, const std::string& password)
+bool LoginKit::DoLogin(const std::string& user, const std::string& pass)
 {
-	LOGA_DEBUG("login start ... username = %s, password = %s", username.c_str(), password.c_str());
-	m_status = eLoginStatus_LOGIN;
-	m_username = username;
-	m_password = password;
-
+	LOGA_DEBUG("login start ... user: %s, pass: %s", user.c_str(), pass.c_str());
+	// 默认帐号与密码
+	static const char* the_user = "admin";
+	static const char* the_pass = "123456";
+	// 登录状态（正在登录）
+	m_status = eStatus_LOGGING;
 	// 登录验证（异步模拟）
-	std::thread([this, username, password]() {
+	std::thread([this, user, pass]() {
 		for (int sec = 0; sec <= 2; ++sec) {
-			LOGA_DEBUG("logging in ... %d s", sec);
+			LOGA_DEBUG("logging in ... %d second", sec);
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 		}
-		bool logined = 0 == username.compare("admin") && 0 == password.compare("123456");
-		this->OnLoginCallback(username, logined);
+		bool logined = 0 == user.compare(the_user) && 0 == pass.compare(the_pass);
+		this->CB_Login(user, logined);
 	}).detach();
+	return true;
 }
 
-void LoginKit::CancelLogin()
+void LoginKit::DoCancel()
 {
 	LOGA_DEBUG("cancel login ...");
-	m_status = eLoginStatus_CANCEL;
+	m_status = eStatus_CANCEL;
 }
 
 void LoginKit::DoLogout()
 {
 	LOGA_DEBUG("logout start ...");
-	if (m_status == eLoginStatus_EXIT) {
+	if (m_status == eStatus_LOGOUT) {
 		return;
 	}
-	auto logout = [this]()
+	auto task = [this]()
 	{
-		// 销毁所有窗口
 		LOGA_DEBUG("logging out ...");
+		// 销毁所有窗口
 		ui_comp::WindowExMgr::GetInstance()->DestroyAllWindows();
-
-		// 重置数据，如：帐号等信息
-		m_status = eLoginStatus_NULL;
-		m_username.clear();
-		m_password.clear();
-
-		// 打开新的登录窗口
-		LOGA_DEBUG("new login form");
+		// 重置数据
+		m_status = eStatus_NULL;
+		// 显示登录窗口
 		LoginForm::Show();
 	};
-	auto task = std::bind<void>(logout);
 	nbase::ThreadManager::PostDelayedTask(eThread_UI, task, nbase::TimeDelta::FromMilliseconds(100));
 }
 
-void LoginKit::OnLoginCallback(std::string username, bool logined)
+void LoginKit::CB_Login(const std::string& user, bool logined)
 {
-	LOGA_DEBUG("[cb]: username = %s, logined = %s", username.c_str(), logined ? "true" : "false");
-	auto task = std::bind<void>(&LoginKit::UILoginCallback, this, username, logined);
+	LOGA_DEBUG("[cb]: user: %s, logined: %s", user.c_str(), logined ? "true" : "false");
+	auto task = std::bind<void>(&LoginKit::UI_Login, this, user, logined);
 	nbase::ThreadManager::PostTask(eThread_UI, task);
 }
 
-void LoginKit::UILoginCallback(std::string username, bool logined)
+void LoginKit::UI_Login(const std::string& user, bool logined)
 {
-	LOGA_DEBUG("[ui]: username = %s, logined = %s", username.c_str(), logined ? "true" : "false");
-	if (m_status == eLoginStatus_CANCEL)
+	LOGA_DEBUG("[ui]: user: %s, logined: %s", user.c_str(), logined ? "true" : "false");
+	if (m_status == eStatus_CANCEL)
 	{
-		m_status = eLoginStatus_NULL;
-		m_username.clear();
-		m_password.clear();
 		LOGA_DEBUG("login cancelled");
-		Invoke_CancelLogin();
+		m_status = eStatus_NULL;
+		Invoke_Cancel();
+	}
+	else if (logined)
+	{
+		LOGA_DEBUG("logined, show main window");
+		m_status = eStatus_LOGIN;
+		Invoke_ShowMain();
 	}
 	else
 	{
-		if (logined)
-		{
-			m_status = eLoginStatus_SUCCESS;
-			Invoke_HideWindow();
-			Invoke_ShowMainWindow();
-			Invoke_DestroyWindow();
-		}
-		else
-		{
-			m_status = eLoginStatus_NULL;
-			m_username.clear();
-			m_password.clear();
-			Invoke_LoginError(123);
-		}
+		LOGA_DEBUG("login error");
+		m_status = eStatus_NULL;
+		Invoke_Error(L"登录失败");
 	}
 }
 
-void LoginKit::Invoke_LoginError(int error)
+void LoginKit::Invoke_Error(const std::wstring& error)
 {
 	try {
-		if (m_cb_LoginError) {
-			m_cb_LoginError(error);
+		if (m_cb_Error) {
+			m_cb_Error(error);
 		}
 	}
 	catch (const std::exception&) {}
 }
 
-void LoginKit::Invoke_CancelLogin()
+void LoginKit::Invoke_Cancel()
 {
 	try {
-		if (m_cb_CancelLogin) {
-			m_cb_CancelLogin();
+		if (m_cb_Cancel) {
+			m_cb_Cancel();
 		}
 	}
 	catch (const std::exception&) {}
 }
 
-void LoginKit::Invoke_HideWindow()
+void LoginKit::Invoke_ShowMain()
 {
 	try {
-		if (m_cb_HideWindow) {
-			m_cb_HideWindow();
-		}
-	}
-	catch (const std::exception&) {}
-}
-
-void LoginKit::Invoke_DestroyWindow()
-{
-	try {
-		if (m_cb_DestroyWindow) {
-			m_cb_DestroyWindow();
-		}
-	}
-	catch (const std::exception&) {}
-}
-
-void LoginKit::Invoke_ShowMainWindow()
-{
-	try {
-		if (m_cb_ShowMainWindow) {
-			m_cb_ShowMainWindow();
+		if (m_cb_ShowMain) {
+			m_cb_ShowMain();
 		}
 	}
 	catch (const std::exception&) {}

@@ -37,65 +37,53 @@ public:
 
 private:
 	/**
-	 * 注册登录窗口的回调函数
-	 * @return void	无返回值
-	 */
-	void RegisterCallback();
-
-	/**
 	 * 处理所有控件的所有消息
 	 * @param[in] msg 消息的相关信息
 	 * @return bool true 继续传递控件消息，false 停止传递控件消息
 	 */
-	bool OnNotify(ui::EventArgs* msg);
-	void OnEventTextChange(const std::wstring& sSenderName);
-	void OnEventTab();
-	void OnEventReturn();
+	bool OnEventAll(ui::EventArgs* msg);
+	bool OnEventTextChange(const std::wstring& sSenderName);
+	bool OnEventTab();
+	bool OnEventReturn();
+	bool OnEventSelect(const std::wstring& sSenderName);
+	bool OnEventUnSelect(const std::wstring& sSenderName);
 
 	/**
 	 * 处理所有控件单击消息
 	 * @param[in] msg 消息的相关信息
 	 * @return bool true 继续传递控件消息，false 停止传递控件消息
 	 */
-	bool OnClicked(ui::EventArgs* msg);
+	bool OnEventClick(ui::EventArgs* msg);
 
 private:
-	/**
-	 * 响应登录错误的回调，
-	 * @return void	无返回值
-	 */
-	void OnLoginError(int error);
+	// 错误提示
+	void OnError(const std::wstring& error);
+	// 取消登录
+	void OnCancel();
+	// 显示主窗口
+	void OnShowMain();
 
-	/**
-	 * 响应取消登录的回调，重置界面控件效果
-	 * @return void	无返回值
-	 */
-	void OnCancelLogin();
-
-	/**
-	 * 执行登录操作
-	 * @return void	无返回值
-	 */
+private:
+	// 执行登录
 	void DoLogin();
 
-	/**
-	 * 设置提示信息
-	 * @param[in] text 文本内容
-	 * @param[in] textcolor 文本颜色
-	 * @return void	无返回值
-	 */
-	void SetLoginTip(const std::wstring& text, const std::wstring& textcolor);
+private:
+	// 设置提示信息
+	void SetTip(const std::wstring& text, const std::wstring& textcolor);
+	// 设置控件效果（true=正在登录 false=初始状态）
+	void SetEffect(bool bLogging);
 
 private:
-	ui::Label*		m_login_tip;
-	ui::Control*	m_usernameicon;
-	ui::Control*	m_passwordicon;
-	ui::RichEdit*	m_edit_username;
-	ui::RichEdit*	m_edit_password;
-	ui::CheckBox*	m_cbox_remember;
-	ui::CheckBox*	m_cbox_autologin;
-	ui::Button*		m_btn_forgot;
-	ui::Button*		m_btn_login;
-	ui::Button*		m_btn_cancel;
+	ui::Label*		m_title;
+	ui::Label*		m_tip;
+	ui::Control*	m_usericon;
+	ui::Control*	m_passicon;
+	ui::RichEdit*	m_user;
+	ui::RichEdit*	m_pass;
+	ui::CheckBox*	m_keep;
+	ui::CheckBox*	m_auto;
+	ui::Button*		m_regist;
+	ui::Button*		m_forgot;
+	ui::Button*		m_login;
+	ui::Button*		m_cancel;
 };
-

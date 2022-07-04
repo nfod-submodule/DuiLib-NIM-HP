@@ -9,37 +9,22 @@ public:
 	SINGLETON_DEFINE(LoginKit);
 	LoginKit();
 
-	typedef std::function<void(int error)> Callback_LoginError;	// 登录错误回调
-	typedef std::function<void()> Callback_CancelLogin;			// 取消登录回调
-	typedef std::function<void()> Callback_HideWindow;			// 隐藏登录窗口
-	typedef std::function<void()> Callback_DestroyWindow;		// 销毁登录窗口
-	typedef std::function<void()> Callback_ShowMainWindow;		// 显示主窗口
-	
-	enum ELoginStatus
-	{
-		eLoginStatus_NULL		// 初始状态
-		, eLoginStatus_LOGIN	// 正在登录
-		, eLoginStatus_CANCEL	// 取消登录
-		, eLoginStatus_SUCCESS	// 已经登录
-		, eLoginStatus_EXIT		// 退出登录
-	};
-
 public:
+	typedef std::function<void(const std::wstring& error)> Callback_Error; // 错误提示
+	typedef std::function<void()> Callback_Cancel; // 取消登录
+	typedef std::function<void()> Callback_ShowMain; // 显示主窗口
+
 	/**
 	 * 注册窗口的回调函数，用来让UI组件控制窗口行为，窗口初始化时调用此函数注册相关回调
-	 * @param[in] cb_LoginError		通知登录错误并返回错误原因的回调函数
-	 * @param[in] cb_CancelLogin	通知取消登录的回调函数
-	 * @param[in] cb_HideWindow		通知隐藏登录窗口的回调函数
-	 * @param[in] cb_DestroyWindow	通知销毁登录窗口的回调函数
-	 * @param[in] cb_ShowMainWindow	通知显示主窗口的回调函数
+	 * @param[in] cb_Error		错误提示
+	 * @param[in] cb_Cancel		取消登录
+	 * @param[in] cb_ShowMain	显示主窗口
 	 * @return void 无返回值
 	 */
 	void RegisterCallback(
-		const Callback_LoginError&     cb_LoginError,
-		const Callback_CancelLogin&    cb_CancelLogin,
-		const Callback_HideWindow&     cb_HideWindow,
-		const Callback_DestroyWindow&  cb_DestroyWindow,
-		const Callback_ShowMainWindow& cb_ShowMainWindow);
+		const Callback_Error&    cb_Error,
+		const Callback_Cancel&   cb_Cancel,
+		const Callback_ShowMain& cb_ShowMain);
 
 	/**
 	 * 注销窗口的回调函数，窗口退出时须调用
@@ -47,52 +32,36 @@ public:
 	 */
 	void UnregisterCallback();
 
-	/**
-	 * 执行登录
-	 * @param[in] username 帐号
-	 * @param[in] password 密码
-	 * @return void	无返回值
-	 */
-	void DoLogin(const std::string& username, const std::string& password);
-	
-	/**
-	 * 取消登录
-	 * @return void	无返回值
-	 */
-	void CancelLogin();
-	
-	/**
-	 * 注销登录
-	 * @return void	无返回值
-	 */
+public:
+	// 执行登录
+	bool DoLogin(const std::string& user, const std::string& pass);
+	// 取消登录
+	void DoCancel();
+	// 执行登出
 	void DoLogout();
 
 private:
-	/**
-	 * 登录回调
-	 * @param[in] username 帐号
-	 * @param[in] logined 是否登录成功
-	 * @return void	无返回值
-	 */
-	void OnLoginCallback(std::string username, bool logined);
-	void UILoginCallback(std::string username, bool logined);
+	// 登录回调
+	void CB_Login(const std::string& user, bool logined);
+	void UI_Login(const std::string& user, bool logined);
 
 private:
-	// 通知响应登录窗口的回调函数
-	void Invoke_LoginError(int error);
-	void Invoke_CancelLogin();
-	void Invoke_HideWindow();
-	void Invoke_DestroyWindow();
-	void Invoke_ShowMainWindow();
+	// 响应窗口的回调函数
+	void Invoke_Error(const std::wstring& error);
+	void Invoke_Cancel();
+	void Invoke_ShowMain();
 
 private:
-	Callback_LoginError     m_cb_LoginError;
-	Callback_CancelLogin    m_cb_CancelLogin;
-	Callback_HideWindow     m_cb_HideWindow;
-	Callback_DestroyWindow  m_cb_DestroyWindow;
-	Callback_ShowMainWindow m_cb_ShowMainWindow;
+	Callback_Error		m_cb_Error;
+	Callback_Cancel		m_cb_Cancel;
+	Callback_ShowMain	m_cb_ShowMain;
 
-	ELoginStatus m_status;		// 登录状态
-	std::string  m_username;	// 帐号
-	std::string  m_password;	// 密码
+	enum EStatus {
+		eStatus_NULL		// 初始状态
+		, eStatus_LOGGING	// 正在登录
+		, eStatus_CANCEL	// 取消登录
+		, eStatus_LOGIN		// 已经登录
+		, eStatus_LOGOUT	// 已经登出
+	};
+	EStatus m_status;	// 登录状态
 };
