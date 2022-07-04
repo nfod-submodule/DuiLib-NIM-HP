@@ -54,7 +54,6 @@ bool WindowExMgr::RegisterWindow(
 		item.insert(std::make_pair(wnd_id, wnd));
 		m_mapWndEx[wnd_class_name] = item;
 	}
-	ui::GlobalManager::AddPreMessage(wnd);
 	return true;
 }
 
@@ -71,7 +70,6 @@ void WindowExMgr::UnregisterWindow(
 		for (auto iter2 = er.first; iter2 != er.second; ++iter2)
 		{
 			if (iter2->second == wnd) {
-				ui::GlobalManager::RemovePreMessage(wnd);
 				iter1->second.erase(iter2);
 				break;
 			}
