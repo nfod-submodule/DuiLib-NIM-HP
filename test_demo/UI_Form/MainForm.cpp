@@ -56,7 +56,7 @@ void MainForm::Close(UINT nRet /*= IDOK*/)
 void MainForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);
-	SetTaskbarTitle(ConfUI::Main_WindowName);
+	SetTaskbarTitle(ConfUI::Main_WindowTitle);
 
 	RegisterCallback();
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&MainForm::OnNotify, this, std::placeholders::_1));

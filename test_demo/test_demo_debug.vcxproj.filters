@@ -16,6 +16,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConfUI.h" />
     <ClInclude Include="test_demo.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="stdafx.h" />
@@ -28,9 +29,6 @@
     </ClInclude>
     <ClInclude Include="Util\Log4z.h">
       <Filter>Util</Filter>
-    </ClInclude>
-    <ClInclude Include="UI_Form\ConfUI.h">
-      <Filter>UI_Form</Filter>
     </ClInclude>
     <ClInclude Include="UI_Form\LoginForm.h">
       <Filter>UI_Form</Filter>

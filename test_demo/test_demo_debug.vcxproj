@@ -192,11 +192,11 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ConfUI.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_demo.h" />
-    <ClInclude Include="UI_Form\ConfUI.h" />
     <ClInclude Include="UI_Form\LoginForm.h" />
     <ClInclude Include="UI_Form\MainForm.h" />
     <ClInclude Include="UI_Kit\LoginKit.h" />

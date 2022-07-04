@@ -36,10 +36,6 @@ CONST PWSTR TXT_login_ing		= L"正在登录...";
 CONST PWSTR TXT_login_error		= L"登录错误";
 CONST PWSTR TXT_pwd_chs_denied	= L"密码不允许含有中文字符";
 
-//-- 文本颜色
-CONST PWSTR COLOR_text_default	= L"textdefaultcolor";
-CONST PWSTR COLOR_red			= L"red";
-
 NS_LoginForm_END
 USING_NS_LoginForm;
 
@@ -58,7 +54,7 @@ void LoginForm::Close(UINT nRet /*= IDOK*/)
 void LoginForm::InitWindow()
 {
 	SetIcon(IDI_TEST_DEMO);
-	SetTaskbarTitle(ConfUI::Login_WindowName);
+	SetTaskbarTitle(ConfUI::Login_WindowTitle);
 
 	RegisterCallback();
 	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&LoginForm::OnNotify, this, std::placeholders::_1));
