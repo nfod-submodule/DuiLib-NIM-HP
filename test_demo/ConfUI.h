@@ -27,7 +27,7 @@ namespace ConfUI
 	static const wchar_t* Login_WindowId	= L"login";
 
 	// MainForm - 主窗口
-	static const wchar_t* Main_WindowTitle	= L"main";
+	static const wchar_t* Main_WindowTitle	= L"主窗口";
 	static const wchar_t* Main_SkinFolder	= L"_ui_main";
 	static const wchar_t* Main_SkinFile		= L"main.xml";
 	static const wchar_t* Main_ClassName	= L"main";

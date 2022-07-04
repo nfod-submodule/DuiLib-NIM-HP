@@ -8,7 +8,7 @@
 class MainForm : public ui_comp::WindowEx
 {
 public:
-	static void SingletonShow()
+	static void Show()
 	{
 		ui_comp::WindowExMgr::ShowSingleton<MainForm>(
 			ConfUI::Main_ClassName,
@@ -37,28 +37,18 @@ public:
 
 private:
 	/**
-	 * 注册窗口的回调函数
-	 * @return void	无返回值
-	 */
-	void RegisterCallback();
-
-	/**
-	 * 处理所有控件的所有消息
-	 * @param[in] msg 消息的相关信息
-	 * @return bool true 继续传递控件消息，false 停止传递控件消息
-	 */
-	bool OnNotify(ui::EventArgs* msg);
-
-	/**
 	 * 处理所有控件单击消息
 	 * @param[in] msg 消息的相关信息
 	 * @return bool true 继续传递控件消息，false 停止传递控件消息
 	 */
-	bool OnClicked(ui::EventArgs* msg);
+	bool OnEventClick(ui::EventArgs* msg);
 
 private:
 	// 弹出菜单窗口
 	void PopupMenu(POINT point);
+
+	// 错误提示
+	void OnError(const std::wstring& error);
 
 	/**
 	 * 响应设备授权回调
@@ -66,18 +56,19 @@ private:
 	 * @param[in] bAuth 是否已授权
 	 * @return void	无返回值
 	 */
-	void OnDevAuth(std::wstring ProjectId, bool bAuth);
+	void OnDevAuth(const std::wstring& ProjectId, bool bAuth);
 
 private:
-	ui::Button*	m_btn_menu;
-	ui::Button*	m_btn_logout;
-	ui::Button*	m_btn_quit;
-	ui::Option* m_opt_tab_r;
-	ui::Option* m_opt_tab_g;
-	ui::TabBox* m_box_tabs;
-	ui::Combo*   m_combo_r;
-	ui::ListBox* m_list_r;
-	ui::ListBox* m_list_g;
+	ui::Label*		m_title;
+	ui::Button*		m_btn_menu;
+	ui::Button*		m_btn_logout;
+	ui::Button*		m_btn_quit;
+	ui::Option*		m_opt_tab_r;
+	ui::Option*		m_opt_tab_g;
+	ui::TabBox*		m_box_tabs;
+	ui::Combo*		m_combo_r;
+	ui::ListBox*	m_list_r;
+	ui::ListBox*	m_list_g;
 };
 
 //****************************/

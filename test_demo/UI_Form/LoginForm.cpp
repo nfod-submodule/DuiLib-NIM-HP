@@ -233,7 +233,7 @@ void LoginForm::OnShowMain()
 	// 隐藏登录窗口
 	::ShowWindow(GetHWND(), SW_HIDE);
 	// 显示主窗口
-	MainForm::SingletonShow();
+	MainForm::Show();
 	// 销毁登录窗口
 	::DestroyWindow(GetHWND());
 }

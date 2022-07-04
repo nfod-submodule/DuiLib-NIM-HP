@@ -19,6 +19,7 @@ NS_MainForm_BEGIN
 
 //-- 控件名称
 CONST PWSTR WGT_closebtn2	= L"closebtn2";		// Button: 关闭（窗口右上角叉）
+CONST PWSTR WGT_title		= L"title";			// Label: 窗口标题
 CONST PWSTR WGT_btn_menu	= L"btn_menu";		// Button: 菜单
 CONST PWSTR WGT_btn_logout	= L"btn_logout";	// Button: 注销
 CONST PWSTR WGT_btn_quit	= L"btn_quit";		// Button: 退出
@@ -55,14 +56,12 @@ void MainForm::Close(UINT nRet /*= IDOK*/)
 
 void MainForm::InitWindow()
 {
+	// 设置图标与任务栏标题
 	SetIcon(IDI_TEST_DEMO);
 	SetTaskbarTitle(ConfUI::Main_WindowTitle);
 
-	RegisterCallback();
-	m_pRoot->AttachBubbledEvent(ui::kEventAll, std::bind<bool>(&MainForm::OnNotify, this, std::placeholders::_1));
-	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&MainForm::OnClicked, this, std::placeholders::_1));
-	
 	// 根据控件名称查找控件
+	m_title      = (ui::Label*)  FindControl(WGT_title);
 	m_btn_menu   = (ui::Button*) FindControl(WGT_btn_menu);
 	m_btn_logout = (ui::Button*) FindControl(WGT_btn_logout);
 	m_btn_quit   = (ui::Button*) FindControl(WGT_btn_quit);
@@ -73,6 +72,16 @@ void MainForm::InitWindow()
 	m_list_r     = (ui::ListBox*)FindControl(WGT_list_r);
 	m_list_g     = (ui::ListBox*)FindControl(WGT_list_g);
 
+	// 注册窗口的回调函数
+	MainKit::GetInstance()->RegisterCallback(
+		ToWeakCallback(std::bind<void>(&MainForm::OnError, this, std::placeholders::_1)),
+		ToWeakCallback(std::bind<void>(&MainForm::OnDevAuth, this, std::placeholders::_1, std::placeholders::_2)));
+
+	// 注册事件的回调函数
+	m_pRoot->AttachBubbledEvent(ui::kEventClick, std::bind<bool>(&MainForm::OnEventClick, this, std::placeholders::_1));
+
+	// 设置窗口标题
+	m_title->SetText(ConfUI::Main_WindowTitle);
 	// 默认显示：标签-绿
 	m_opt_tab_g->Selected(true);
 	m_box_tabs->SelectItem(WGT_box_tab_g_index);
@@ -109,32 +118,7 @@ void MainForm::InitWindow()
 	}
 }
 
-void MainForm::RegisterCallback()
-{
-	auto cb_DevAuth = [this](std::wstring ProjectId, bool bAuth) {
-		this->OnDevAuth(ProjectId, bAuth);
-	};
-	MainKit::GetInstance()->RegisterCallback(ToWeakCallback(cb_DevAuth));
-}
-
-bool MainForm::OnNotify(ui::EventArgs* msg)
-{
-	std::wstring sSenderName = msg->pSender->GetName();
-	switch (msg->Type)
-	{
-	case ui::kEventTextChange:
-		break;
-	case ui::kEventTab:
-		break;
-	case ui::kEventReturn:
-		break;
-	default:
-		break;
-	}
-	return true;
-}
-
-bool MainForm::OnClicked(ui::EventArgs* msg)
+bool MainForm::OnEventClick(ui::EventArgs* msg)
 {
 	std::wstring sSenderName = msg->pSender->GetName();
 	if (sSenderName == WGT_closebtn2)
@@ -209,11 +193,16 @@ void MainForm::PopupMenu(POINT point)
  	pMenu->Show();
 }
 
-void MainForm::OnDevAuth(std::wstring ProjectId, bool bAuth)
+void MainForm::OnError(const std::wstring& error)
+{
+	ui_comp::MsgBox::Show(GetHWND(), nullptr, error, L"提示", L"确定", L"");
+}
+
+void MainForm::OnDevAuth(const std::wstring& ProjectId, bool bAuth)
 {
 	if (bAuth == false) {
 		std::wstring content = nbase::StringPrintf(L"[Id=%s] 设备授权失败！", ProjectId.c_str());
-		ui_comp::Toast::Show(content, 2000, this->GetHWND());
+		ui_comp::Toast::Show(content, 2000, GetHWND());
 		return;
 	}
 	for (int index = 0; index < m_list_g->GetCount(); ++index)
