@@ -1,7 +1,7 @@
 @echo off
 
 set Solution="build.sln"
-set Projects=(base,duilib)
+set Projects=(base,duilib,ui_components)
 set Configurations=(Debug,Release)
 set Platforms=(x64,x86)
 
