@@ -1,6 +1,7 @@
 #pragma once
 
 #include "public_define.h"
+#include "shadow_wnd/shadow_wnd.h"
 
 NS_UI_COMP_BEGIN
 
@@ -14,8 +15,9 @@ protected:
 	//-- 控制标记（CtrlFL）
 	static CONST ULONG FL_NULL		= 0;
 	static CONST ULONG FL_QUIT		= 1 << 0;	// 关闭窗口时退出程序
-	static CONST ULONG FL_ESC_CLOSE = 1 << 1;	// 按ESC键关闭窗口
+	static CONST ULONG FL_ESC_CLOSE	= 1 << 1;	// 按ESC键关闭窗口
 	static CONST ULONG FL_N_LAYERED	= 1 << 2;	// 非分层窗口（dwExStyle ^= WS_EX_LAYERED）
+	static CONST ULONG FL_SHADOWWND	= 1 << 3;	// 叠加一个阴影窗口（主要用于有 WS_EX_LAYERED 属性的窗口实现阴影效果）
 
 protected:
 	WindowEx(
@@ -25,6 +27,7 @@ protected:
 		const std::wstring& ClassName,
 		const std::wstring& WindowId)
 	{
+		m_pShadowWnd = nullptr;
 		m_CtrlFL     = CtrlFL;
 		m_SkinFolder = SkinFolder;
 		m_SkinFile   = SkinFile;
@@ -102,6 +105,7 @@ public:
 	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
 protected:
+	ShadowWnd*   m_pShadowWnd;	// 阴影窗口
 	ULONG        m_CtrlFL;		// 控制标记
 	std::wstring m_SkinFolder;	// 资源路径
 	std::wstring m_SkinFile;	// 描述文件

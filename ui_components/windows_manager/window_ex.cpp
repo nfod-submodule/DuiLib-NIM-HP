@@ -34,7 +34,19 @@ HWND WindowEx::Create(
 	if (m_CtrlFL & FL_N_LAYERED) {
 		isLayeredWindow = false;
 	}
-	return __super::Create(hWndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
+	HWND hWnd = __super::Create(hWndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
+	if (m_CtrlFL & FL_SHADOWWND && !this->IsShadowAttached()) {
+		if (m_pShadowWnd == nullptr) {
+			m_pShadowWnd = new ShadowWnd();
+			this->AddMessageFilter(m_pShadowWnd);
+			m_pShadowWnd->CreateEx(this);
+			::EnableWindow(m_pShadowWnd->GetHWND(), FALSE);
+			if (::IsWindowVisible(hWnd)) {
+				m_pShadowWnd->ShowWindow();
+			}
+		}
+	}
+	return hWnd;
 }
 
 LRESULT WindowEx::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
