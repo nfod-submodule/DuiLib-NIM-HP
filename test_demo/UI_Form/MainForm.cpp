@@ -166,7 +166,7 @@ void MainForm::PopupMenu(POINT point)
 	static CONST PWSTR WGT_element_quit   = L"quit";
 
  	ui_comp::MenuWnd* pMenu = new ui_comp::MenuWnd();
- 	pMenu->Init(XML_SkinFile, point, ui_comp::MenuWnd::RIGHT_BOTTOM);
+ 	pMenu->Init(XML_SkinFile, point, ui_comp::MenuWnd::ePopupRB);
 	{
 		// 注册回调-关于
 		ui::EventCallback cb_about = [this](ui::EventArgs*) {

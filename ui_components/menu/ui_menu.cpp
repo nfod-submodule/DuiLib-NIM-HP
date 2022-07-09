@@ -63,12 +63,12 @@ void MenuWnd::Show()
 	szInit.cy -= GetShadowCorner().top  + GetShadowCorner().bottom;
 
 	switch (m_popupPosType) {
-	case RIGHT_BOTTOM:
+	case ePopupRB:
 		if (m_basedPoint.y + szInit.cy > monitor_rect.bottom) {
 			m_basedPoint.y -= szInit.cy;
 		}
 		break;
-	case RIGHT_TOP:
+	case ePopupRT:
 		if (m_basedPoint.y - szInit.cy >= monitor_rect.top) {
 			m_basedPoint.y -= szInit.cy;
 		}

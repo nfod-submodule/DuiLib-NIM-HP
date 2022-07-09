@@ -43,6 +43,10 @@ enum ThreadId
 // WindowId		窗口id
 namespace ConfUI_Components
 {
+	// menu - 菜单窗口
+	static const wchar_t* Menu_SkinFolder	= L"ui_comp_menu";
+	static const wchar_t* Menu_ClassName	= L"menu";
+
 	// msgbox - 消息框
 	static const wchar_t* MsgBox_SkinFolder	= L"ui_comp_msgbox";
 	static const wchar_t* MsgBox_SkinFile	= L"msgbox.xml";

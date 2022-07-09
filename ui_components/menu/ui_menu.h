@@ -29,17 +29,17 @@ public:
 class MenuWnd : public ui::WindowImplBase
 {
 public:
-	enum EPopupPosType { RIGHT_BOTTOM, RIGHT_TOP };
-	MenuWnd(HWND hParent = NULL) : m_hParent(hParent), m_popupPosType(RIGHT_BOTTOM), m_no_focus(false) {}
+	enum EPopupPosType { ePopupRB, ePopupRT };
+	MenuWnd(HWND hParent = NULL) : m_hParent(hParent), m_popupPosType(ePopupRB), m_no_focus(false) {}
 
-	virtual std::wstring GetSkinFolder() override { return L"ui_comp_menuwnd"; }
+	virtual std::wstring GetSkinFolder() override { return ConfUI_Components::Menu_SkinFolder; }
 	virtual std::wstring GetSkinFile() override { return m_xmlSkinFile; }
-	virtual std::wstring GetWindowClassName() const override { return L"menuwnd"; }
+	virtual std::wstring GetWindowClassName() const override { return ConfUI_Components::Menu_ClassName; }
 
 	virtual ui::Control* CreateControl(const std::wstring& pstrClass) override;
 	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
-	void Init(const std::wstring& xmlSkinFile, POINT basedPoint, EPopupPosType popupPosType = RIGHT_BOTTOM, bool no_focus = false);
+	void Init(const std::wstring& xmlSkinFile, POINT basedPoint, EPopupPosType popupPosType = ePopupRB, bool no_focus = false);
 	void Show();
 
 public:
