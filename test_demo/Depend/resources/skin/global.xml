@@ -73,10 +73,10 @@
 
     <!--背景色值，半透明-->
     <TextColor name="transbkblack" value="#80000000"/>
+    <TextColor name="maskbkblack" value="#81000000"/>
 
     <!--第一级分割线，较深-->
     <TextColor name="splitline_level1" value="#ffd2d4d6"/>
-
     <!--第二级分割线，较浅-->
     <TextColor name="splitline_level2" value="#ffebedf0"/>
 
@@ -91,6 +91,10 @@
     <TextColor name="color_palette8" value="#ffa8a8a8"/>
     <TextColor name="color_palette9" value="#ffffffff"/>
 
+    <!--duilib控件相关颜色-->
+    <TextColor name="grid_line" value="#ffcccccc"/>
+    <TextColor name="grid_sel_fore" value="#ff20b0fb"/>
+
     <!--字体大小-->
     <Class name="font_title" font="system_14"/>
 
@@ -98,7 +102,7 @@
     <Class name="caption" height="36" bkimage="file='../public/caption/caption_public.png' corner='0,0,0,1'" padding="10,0,6,0" />
 
     <!--滚动条-->
-    <Class name="vscrollbar" width="14" fadealpha="true" thumbnormalimage="file='../public/vscrollbar/thumb_normal.png'  corner='0,8,0,8'" thumbhotimage="file='../public/vscrollbar/thumb_hovered.png' corner='0,8,0,8'" bkhotimage="file='../public/vscrollbar/bk_hovered.png' corner='0,4,0,4'" showbutton1="false" showbutton2="false" />   
+    <Class name="vscrollbar" width="14" fadealpha="true" thumbnormalimage="file='../public/vscrollbar/thumb_normal.png' corner='0,8,0,8'" thumbhotimage="file='../public/vscrollbar/thumb_hovered.png' corner='0,8,0,8'" bkhotimage="file='../public/vscrollbar/bk_hovered.png' corner='0,4,0,4'" showbutton1="false" showbutton2="false" />
     <Class name="hscrollbar" height="14" fadealpha="true" thumbnormalimage="file='../public/hscrollbar/thumb_normal.png' corner='8,0,8,0'" thumbhotimage="file='../public/hscrollbar/thumb_hovered.png' corner='8,0,8,0'" bkhotimage="file='../public/hscrollbar/bk_hovered.png' corner='4,0,4,0'" showbutton1="false" showbutton2="false"/>
 
     <!--单选框-->
@@ -110,7 +114,11 @@
     <Class name="checkbox_font12" height="16" textpadding="20,0,0,0" font="system_12" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,0,16,16' fade='80'" hotimage="file='../public/CheckBox/check_hot.png' dest='0,0,16,16'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,0,16,16' fade='80'"/>
     <Class name="checkbox_font14" height="20" textpadding="20,0,0,0" font="system_14" normaltextcolor="darkcolor" normalimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18'" disabledimage="file='../public/CheckBox/check_no.png' dest='0,2,16,18' fade='80'" hotimage="file='../public/CheckBox/check_hot.png' dest='0,2,16,18'" selectednormalimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18'" selecteddisabledimage="file='../public/CheckBox/check_yes.png' dest='0,2,16,18' fade='80'"/>
     <Class name="checkbox_green" normalimage="file='../public/CheckBox/check_green_no.png'" disabledimage="file='../public/CheckBox/check_green_no.png' fade='80'" selectednormalimage="file='../public/CheckBox/check_green_yes.png'" selecteddisabledimage="file='../public/CheckBox/check_green_yes.png' fade='80'"/>
-    
+
+    <!--下拉框-->
+    <Class name="combo" value="normalimage=&quot;file='../public/combo/combo24.png' corner='3,3,24,3' textpadding='3,3,24,3'&quot; hotimage=&quot;file='../public/combo/combo24_hover.png' corner='3,3,24,3' textpadding='3,3,24,3'&quot; "/>
+    <Class name="combo2" value="normalimage=&quot;file='../public/combo/combo24_.png' corner='2,2,18,2' textpadding='2,2,18,2'&quot; hotimage=&quot;file='../public/combo/combo24_hover_.png' corner='2,2,18,2' textpadding='2,2,18,2'&quot; "/>
+
     <!--按钮-->
     <Class name="btn_global_blue_80x30" font="system_bold_14" normaltextcolor="white" normalimage="file='../public/button/btn_global_blue_80x30_normal.png'" hotimage="file='../public/button/btn_global_blue_80x30_hovered.png'" pushedimage="file='../public/button/btn_global_blue_80x30_pushed.png'" disabledimage="file='../public/button/btn_global_blue_80x30_normal.png' fade='80'"/>
     <Class name="btn_global_white_80x30" font="system_bold_14" normaltextcolor="dark_gray" normalimage="file='../public/button/btn_global_white_80x30_normal.png'" hotimage="file='../public/button/btn_global_white_80x30_hovered.png'" pushedimage="file='../public/button/btn_global_white_80x30_pushed.png'" disabledimage="file='../public/button/btn_global_white_80x30_normal.png' fade='128'"/>
@@ -160,6 +168,6 @@
     <Class name="edit" hotimage="file='../public/edit/edit1.png' corner='10,10,10,10'" focusedimage="file='../public/edit/edit2.png' corner='10,10,10,10'"/>
     <Class name="input" normalimage="file='../public/edit/edit0.png' corner='10,10,10,10'" hotimage="file='../public/edit/edit0.png' corner='10,10,10,10'" focusedimage="file='../public/edit/edit0.png' corner='10,10,10,10'" disabledimage="file='../public/edit/edit0.png' corner='10,10,10,10' fade='80'"/>
 
-   <!--头像蒙版-->
+    <!--头像蒙版-->
     <Class name="icon_headimage_mask_40x40" width="40" height="40" bkimage="../public/headmask/icon_headimage_mask_40x40_normal.png"/>
 </Global>
