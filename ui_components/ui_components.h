@@ -5,6 +5,8 @@
 #include "menu/ui_menu.h"
 // msgbox
 #include "msgbox/msgbox.h"
+// shadow_wnd
+#include "shadow_wnd/shadow_wnd.h"
 // toast
 #include "toast/toast.h"
 // windows_manager

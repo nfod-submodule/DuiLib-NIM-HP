@@ -49,6 +49,12 @@ namespace ConfUI_Components
 	static const wchar_t* MsgBox_ClassName	= L"msgbox";
 	static const wchar_t* MsgBox_WindowId	= L"msgbox";
 
+	// shadow - 阴影窗口
+	static const wchar_t* Shadow_SkinFolder	= L"ui_comp_shadow";
+	static const wchar_t* Shadow_SkinFile	= L"shadow.xml";
+	static const wchar_t* Shadow_ClassName	= L"shadow";
+	static const wchar_t* Shadow_WindowId	= L"shadow";
+
 	// toast - 提示框
 	static const wchar_t* Toast_SkinFolder	= L"ui_comp_toast";
 	static const wchar_t* Toast_SkinFile	= L"toast.xml";

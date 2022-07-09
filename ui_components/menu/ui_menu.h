@@ -1,7 +1,6 @@
 #pragma once
 
-#include "windows_manager/window_ex.h"
-#include "windows_manager/windows_manager.h"
+#include "public_define.h"
 
 NS_UI_COMP_BEGIN
 
