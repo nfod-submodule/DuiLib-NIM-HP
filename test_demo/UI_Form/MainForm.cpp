@@ -3,6 +3,7 @@
 #include "MainForm.h"
 #include "LoginKit.h"
 #include "MainKit.h"
+#include "wnd_controls.h"
 #include "Log4z.h"
 #include <ShlObj.h>
 
@@ -21,6 +22,7 @@ NS_MainForm_BEGIN
 CONST PWSTR WGT_closebtn2	= L"closebtn2";		// Button: 关闭（窗口右上角叉）
 CONST PWSTR WGT_title		= L"title";			// Label: 窗口标题
 CONST PWSTR WGT_btn_menu	= L"btn_menu";		// Button: 菜单
+CONST PWSTR WGT_controls	= L"controls";		// Button: 控件系列
 CONST PWSTR WGT_btn_logout	= L"btn_logout";	// Button: 注销
 CONST PWSTR WGT_btn_quit	= L"btn_quit";		// Button: 退出
 CONST PWSTR WGT_opt_tab_r	= L"opt_tab_r";		// Option: 标签-红
@@ -63,6 +65,7 @@ void MainForm::InitWindow()
 	// 根据控件名称查找控件
 	m_title      = (ui::Label*)  FindControl(WGT_title);
 	m_btn_menu   = (ui::Button*) FindControl(WGT_btn_menu);
+	m_controls   = (ui::Button*) FindControl(WGT_controls);
 	m_btn_logout = (ui::Button*) FindControl(WGT_btn_logout);
 	m_btn_quit   = (ui::Button*) FindControl(WGT_btn_quit);
 	m_opt_tab_r  = (ui::Option*) FindControl(WGT_opt_tab_r);
@@ -138,6 +141,10 @@ bool MainForm::OnEventClick(ui::EventArgs* msg)
 		point.y = rect.bottom + 10;
 		::ClientToScreen(m_hWnd, &point);
 		PopupMenu(point);
+	}
+	else if (sSenderName == WGT_controls)
+	{
+		wnd_controls::Show(GetHWND());
 	}
 	else if (sSenderName == WGT_btn_logout)
 	{

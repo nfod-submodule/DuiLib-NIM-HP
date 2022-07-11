@@ -42,6 +42,12 @@
     <ClInclude Include="UI_Kit\MainKit.h">
       <Filter>UI_Kit</Filter>
     </ClInclude>
+    <ClInclude Include="UI_Form\wnd_controls.h">
+      <Filter>UI_Form</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Kit\wnd_controls_kit.h">
+      <Filter>UI_Kit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test_demo.cpp" />
@@ -65,6 +71,12 @@
       <Filter>UI_Kit</Filter>
     </ClCompile>
     <ClCompile Include="UI_Kit\MainKit.cpp">
+      <Filter>UI_Kit</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Form\wnd_controls.cpp">
+      <Filter>UI_Form</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Kit\wnd_controls_kit.cpp">
       <Filter>UI_Kit</Filter>
     </ClCompile>
   </ItemGroup>

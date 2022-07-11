@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window caption="0,0,0,36" sizebox="4,4,4,4" size="600,320" mininfo="600,320" shadowattached="false">
+  <VBox bkcolor="bk_wnd_lightcolor" bordercolor="blue" bordersize="1" padding="1,1,1,1">
+    <!-- 标题栏 -->
+    <HBox class="caption" width="stretch" height="36">
+      <Label class="font_title" name="title" halign="left" valign="center" />
+      <Control />
+      <Button class="btn_wnd_close" name="closebtn" margin="6,6,0,0" />
+    </HBox>
+    <!-- 控件系列 -->
+    <VBox padding="10,0,10,0">
+      <!-- 日期 -->
+      <HBox height="auto" childmargin="10" padding="10,10,10,10">
+        <Label text="日期格式" width="auto" height="auto" valign="center" />
+        <DateTime name="my_date" width="120" height="30" />
+        <Label text="时间格式" width="auto" height="auto" valign="center" />
+        <DateTime name="my_time" width="170" height="30" format="%Y/%m/%d %H:%M:%S" datetimeformat="yyyy/MM/dd HH:mm:ss" />
+        <Button class="btn_global_blue_80x30" name="print_datetime" text="打印" />
+      </HBox>
+      <Control class="splitline_hor_level1" />
+      <Control />
+    </VBox>
+  </VBox>
+</Window>

@@ -199,8 +199,10 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="test_demo.h" />
     <ClInclude Include="UI_Form\LoginForm.h" />
     <ClInclude Include="UI_Form\MainForm.h" />
+    <ClInclude Include="UI_Form\wnd_controls.h" />
     <ClInclude Include="UI_Kit\LoginKit.h" />
     <ClInclude Include="UI_Kit\MainKit.h" />
+    <ClInclude Include="UI_Kit\wnd_controls_kit.h" />
     <ClInclude Include="Util\Console.h" />
     <ClInclude Include="Util\Log4z.h" />
     <ClInclude Include="Util\Util.h" />
@@ -215,8 +217,10 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClCompile Include="test_demo.cpp" />
     <ClCompile Include="UI_Form\LoginForm.cpp" />
     <ClCompile Include="UI_Form\MainForm.cpp" />
+    <ClCompile Include="UI_Form\wnd_controls.cpp" />
     <ClCompile Include="UI_Kit\LoginKit.cpp" />
     <ClCompile Include="UI_Kit\MainKit.cpp" />
+    <ClCompile Include="UI_Kit\wnd_controls_kit.cpp" />
     <ClCompile Include="Util\Console.cpp" />
     <ClCompile Include="Util\Log4z.cpp" />
     <ClCompile Include="Util\Util.cpp" />

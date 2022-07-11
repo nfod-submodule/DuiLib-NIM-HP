@@ -61,6 +61,7 @@ private:
 private:
 	ui::Label*		m_title;
 	ui::Button*		m_btn_menu;
+	ui::Button*		m_controls;
 	ui::Button*		m_btn_logout;
 	ui::Button*		m_btn_quit;
 	ui::Option*		m_opt_tab_r;

@@ -14,8 +14,9 @@
       <Button class="btn_wnd_close" name="closebtn2" margin="6,6,0,0"/>
     </HBox>
     <!-- 注销和退出 -->
-    <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto">
-      <Button class="btn_global_blue_80x30" name="btn_logout" text="注销" margin="0,0,4,0"/>
+    <HBox margin="0,0,0,0" valign="center" halign="center" width="auto" height="auto" childmargin="10">
+      <Button class="btn_global_blue_80x30" name="controls" text="控件系列"/>
+      <Button class="btn_global_blue_80x30" name="btn_logout" text="注销"/>
       <Button class="btn_global_blue_80x30" name="btn_quit" text="退出"/>
     </HBox>
     <VBox bkcolor="bk_wnd_lightcolor" width="stretch" height="stretch" margin="12,12,12,12" childmargin="0">
