@@ -1,5 +1,9 @@
 ﻿#pragma once
 
+//-- 默认帐号与密码
+static const char* the_user = "admin";
+static const char* the_pass = "123456";
+
 //-- 文本颜色
 #define COLOR_text_default	L"textdefaultcolor"
 #define COLOR_red			L"red"

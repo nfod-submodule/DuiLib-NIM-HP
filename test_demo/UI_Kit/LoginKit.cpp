@@ -34,9 +34,6 @@ void LoginKit::UnregisterCallback()
 bool LoginKit::DoLogin(const std::string& user, const std::string& pass)
 {
 	LOGA_DEBUG("login start ... user: %s, pass: %s", user.c_str(), pass.c_str());
-	// 默认帐号与密码
-	static const char* the_user = "admin";
-	static const char* the_pass = "123456";
 	// 登录状态（正在登录）
 	m_status = eStatus_LOGGING;
 	// 登录验证（异步模拟）

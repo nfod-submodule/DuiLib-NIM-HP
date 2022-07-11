@@ -103,6 +103,9 @@ void LoginForm::InitWindow()
 	// 设置复选框默认选中
 	m_keep->Selected(true);
 	m_auto->Selected(true);
+	// 设置默认帐号与密码
+	m_user->SetUTF8Text(the_user);
+	m_pass->SetUTF8Text(the_pass);
 }
 
 bool LoginForm::OnEventAll(ui::EventArgs* msg)
