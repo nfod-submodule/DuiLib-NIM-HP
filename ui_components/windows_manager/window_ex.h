@@ -105,6 +105,17 @@ public:
 	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
 protected:
+	/**
+	 * 创建阴影窗口
+	 */
+	void Create_ShadowWnd();
+
+	/**
+	 * 关闭阴影窗口
+	 */
+	void Close_ShadowWnd();
+
+protected:
 	ShadowWnd*   m_pShadowWnd;	// 阴影窗口
 	ULONG        m_CtrlFL;		// 控制标记
 	std::wstring m_SkinFolder;	// 资源路径

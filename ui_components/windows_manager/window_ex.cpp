@@ -18,6 +18,7 @@ void WindowEx::Close(UINT nRet /*= IDOK*/)
 		::SetFocus(hWndParent);
 	}
 	__super::Close(nRet);
+	this->Close_ShadowWnd();
 }
 
 HWND WindowEx::Create(
@@ -36,15 +37,7 @@ HWND WindowEx::Create(
 	}
 	HWND hWnd = __super::Create(hWndParent, pstrName, dwStyle, dwExStyle, isLayeredWindow, rc);
 	if (m_CtrlFL & FL_SHADOWWND && !this->IsShadowAttached()) {
-		if (m_pShadowWnd == nullptr) {
-			m_pShadowWnd = new ShadowWnd();
-			this->AddMessageFilter(m_pShadowWnd);
-			m_pShadowWnd->CreateEx(this);
-			::EnableWindow(m_pShadowWnd->GetHWND(), FALSE);
-			if (::IsWindowVisible(hWnd)) {
-				m_pShadowWnd->ShowWindow();
-			}
-		}
+		this->Create_ShadowWnd();
 	}
 	return hWnd;
 }
@@ -86,6 +79,32 @@ LRESULT WindowEx::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		}
 	}
 	return __super::HandleMessage(uMsg, wParam, lParam);
+}
+
+void WindowEx::Create_ShadowWnd()
+{
+	if (m_pShadowWnd == nullptr) {
+		m_pShadowWnd = new ShadowWnd();
+		this->AddMessageFilter(m_pShadowWnd);
+		m_pShadowWnd->CreateEx(this);
+		::EnableWindow(m_pShadowWnd->GetHWND(), FALSE);
+		if (::IsWindowVisible(this->GetHWND())) {
+			m_pShadowWnd->ShowWindow(true, true);
+		}
+	}
+}
+
+void WindowEx::Close_ShadowWnd()
+{
+	try
+	{
+		if (m_pShadowWnd && ::IsWindow(m_pShadowWnd->GetHWND())) {
+			m_pShadowWnd->ShowWindow(false, false);
+			m_pShadowWnd->Close(0);
+			m_pShadowWnd = nullptr;
+		}
+	}
+	catch (const std::exception&) {}
 }
 
 NS_UI_COMP_END
