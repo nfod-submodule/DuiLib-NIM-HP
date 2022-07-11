@@ -129,6 +129,7 @@ void WindowExMgr::DestroyAllWindows()
 	{
 		WindowEx* wnd = (WindowEx*)(*iter);
 		if (wnd && ::IsWindow(wnd->GetHWND())) {
+			wnd->Close();
 			::DestroyWindow(wnd->GetHWND());
 		}
 	}
