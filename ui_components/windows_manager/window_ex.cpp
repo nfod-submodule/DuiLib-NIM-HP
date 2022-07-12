@@ -52,6 +52,7 @@ LRESULT WindowEx::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle
 
 LRESULT WindowEx::OnDestroy(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
+	this->Destroy_ShadowWnd();
 	WindowExMgr::GetInstance()->UnregisterWindow(m_ClassName, m_WindowId, this);
 	return __super::OnDestroy(uMsg, wParam, lParam, bHandled);
 }
@@ -100,7 +101,16 @@ void WindowEx::Close_ShadowWnd()
 	{
 		if (m_pShadowWnd && ::IsWindow(m_pShadowWnd->GetHWND())) {
 			this->RemoveMessageFilter(m_pShadowWnd);
-			m_pShadowWnd->ShowWindow(false, false);
+		}
+	}
+	catch (const std::exception&) {}
+}
+
+void ui_comp::WindowEx::Destroy_ShadowWnd()
+{
+	try
+	{
+		if (m_pShadowWnd && ::IsWindow(m_pShadowWnd->GetHWND())) {
 			m_pShadowWnd->Close(0);
 			::DestroyWindow(m_pShadowWnd->GetHWND());
 			m_pShadowWnd = nullptr;

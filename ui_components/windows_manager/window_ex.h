@@ -105,15 +105,10 @@ public:
 	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) override;
 
 protected:
-	/**
-	 * 创建阴影窗口
-	 */
+	// 处理阴影窗口
 	void Create_ShadowWnd();
-
-	/**
-	 * 关闭阴影窗口
-	 */
 	void Close_ShadowWnd();
+	void Destroy_ShadowWnd();
 
 protected:
 	ShadowWnd*   m_pShadowWnd;	// 阴影窗口
