@@ -17,8 +17,8 @@ void WindowEx::Close(UINT nRet /*= IDOK*/)
 		::EnableWindow(hWndParent, TRUE);
 		::SetFocus(hWndParent);
 	}
-	__super::Close(nRet);
 	this->Close_ShadowWnd();
+	__super::Close(nRet);
 }
 
 HWND WindowEx::Create(
@@ -45,7 +45,7 @@ HWND WindowEx::Create(
 LRESULT WindowEx::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
 	if (m_CtrlFL & FL_QUIT) {
-		::PostQuitMessage(0L);
+		WindowExMgr::GetInstance()->PostQuit();
 	}
 	return __super::OnClose(uMsg, wParam, lParam, bHandled);
 }
@@ -99,8 +99,10 @@ void WindowEx::Close_ShadowWnd()
 	try
 	{
 		if (m_pShadowWnd && ::IsWindow(m_pShadowWnd->GetHWND())) {
+			this->RemoveMessageFilter(m_pShadowWnd);
 			m_pShadowWnd->ShowWindow(false, false);
 			m_pShadowWnd->Close(0);
+			::DestroyWindow(m_pShadowWnd->GetHWND());
 			m_pShadowWnd = nullptr;
 		}
 	}

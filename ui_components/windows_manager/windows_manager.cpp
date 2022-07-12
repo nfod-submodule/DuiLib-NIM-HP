@@ -137,4 +137,14 @@ void WindowExMgr::DestroyAllWindows()
 	m_bStopRegister = false;
 }
 
+void WindowExMgr::PostQuit()
+{
+	auto task = []()
+	{
+		ui_comp::WindowExMgr::GetInstance()->DestroyAllWindows();
+		::PostQuitMessage(0L);
+	};
+	nbase::ThreadManager::PostDelayedTask(kThreadUI, task, nbase::TimeDelta::FromMilliseconds(100));
+}
+
 NS_UI_COMP_END

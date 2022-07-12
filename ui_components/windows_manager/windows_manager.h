@@ -141,6 +141,12 @@ public:
 	 */
 	void DestroyAllWindows();
 
+	/**
+	 * 退出程序（销毁所有窗口，发起终止请求）
+	 * @return void 无返回值
+	 */
+	void PostQuit();
+
 private:
 	// 禁止窗口创建
 	std::atomic<bool> m_bStopRegister;
