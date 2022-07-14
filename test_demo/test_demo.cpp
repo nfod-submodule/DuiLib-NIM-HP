@@ -4,6 +4,7 @@
 #include "Console.h"
 #include "Log4z.h"
 #include "Util.h"
+#include "TrayMenu.h"
 #include "LoginForm.h"
 
 #ifdef _DEBUG
@@ -73,12 +74,16 @@ void UIThread::Init()
 	std::wstring lang = L"lang\\zh_CN";
 	ui::GlobalManager::Startup(resPath, ui::CreateControlCallback(), false, skin, lang);
 
+	// 创建托盘
+	TrayMenu::GetInstance()->Create();
 	// 显示登录窗口
 	LoginForm::Show();
 }
 
 void UIThread::Cleanup()
 {
+	// 销毁托盘
+	TrayMenu::GetInstance()->Destroy();
 	// 释放资源
 	ui::GlobalManager::Shutdown();
 	// 安全退出线程

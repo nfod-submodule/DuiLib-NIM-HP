@@ -99,7 +99,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Tray;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -122,7 +122,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win32\*.*" "$(OutDir)"</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Tray;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;$(ProjectDir)Depend\vld\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -147,7 +147,7 @@ xcopy /Y /Q "$(ProjectDir)\Depend\vld\bin\Win64\*.*" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Tray;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -173,7 +173,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Tray;$(ProjectDir)UI_Form;$(ProjectDir)UI_Kit;$(ProjectDir)Util;$(ProjectDir)..\base;$(ProjectDir)..\duilib;$(ProjectDir)..\ui_components;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -197,6 +197,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="test_demo.h" />
+    <ClInclude Include="Tray\TrayMenu.h" />
     <ClInclude Include="UI_Form\LoginForm.h" />
     <ClInclude Include="UI_Form\MainForm.h" />
     <ClInclude Include="UI_Form\wnd_controls.h" />
@@ -215,6 +216,7 @@ xcopy /Y /Q /S /E "$(ProjectDir)Depend\resources" "$(OutDir)resources"
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_demo.cpp" />
+    <ClCompile Include="Tray\TrayMenu.cpp" />
     <ClCompile Include="UI_Form\LoginForm.cpp" />
     <ClCompile Include="UI_Form\MainForm.cpp" />
     <ClCompile Include="UI_Form\wnd_controls.cpp" />

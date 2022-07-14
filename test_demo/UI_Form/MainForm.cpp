@@ -6,6 +6,7 @@
 #include "wnd_controls.h"
 #include "Log4z.h"
 #include <ShlObj.h>
+#include "TrayMenu.h"
 
 //****************************/
 //-- namespace NS_MainForm
@@ -58,6 +59,9 @@ void MainForm::Close(UINT nRet /*= IDOK*/)
 
 void MainForm::InitWindow()
 {
+	// 更新托盘设置
+	TrayMenu::GetInstance()->Update(GetHWND(), true, ToWeakCallback([this] { this->Close(0); }));
+
 	// 设置图标与任务栏标题
 	SetIcon(IDI_TEST_DEMO);
 	SetTaskbarTitle(ConfUI::Main_WindowTitle);
