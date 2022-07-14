@@ -16,6 +16,9 @@
     <Filter Include="shadow_wnd">
       <UniqueIdentifier>{3edc1187-538c-4625-a09a-8c32c511d513}</UniqueIdentifier>
     </Filter>
+    <Filter Include="tray_icon">
+      <UniqueIdentifier>{89fed965-3b9a-4f4c-9c7b-8a962eb26d74}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="msgbox\msgbox.h">
@@ -40,6 +43,9 @@
     <ClInclude Include="shadow_wnd\shadow_wnd.h">
       <Filter>shadow_wnd</Filter>
     </ClInclude>
+    <ClInclude Include="tray_icon\tray_icon.h">
+      <Filter>tray_icon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="msgbox\msgbox.cpp">
@@ -60,6 +66,9 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="shadow_wnd\shadow_wnd.cpp">
       <Filter>shadow_wnd</Filter>
+    </ClCompile>
+    <ClCompile Include="tray_icon\tray_icon.cpp">
+      <Filter>tray_icon</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

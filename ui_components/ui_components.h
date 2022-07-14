@@ -9,6 +9,8 @@
 #include "shadow_wnd/shadow_wnd.h"
 // toast
 #include "toast/toast.h"
+// tray_icon
+#include "tray_icon/tray_icon.h"
 // windows_manager
 #include "windows_manager/window_ex.h"
 #include "windows_manager/windows_manager.h"
